@@ -1,0 +1,1 @@
+Stores all of the art assets we'll be using to be put into the game
