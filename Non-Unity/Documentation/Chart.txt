@@ -1,0 +1,33 @@
+Jared     - Dynamic\Proceedural Weapons 
+Nicole     - Player Choices & Persistant Data
+Noah      - Dialogue Systems & Ink
+
+
+WIP
+
+Gameplay themes:			Gameplay visuals:			Gameplay goals:
+										
+calm/serene 				***2D/3D***				main boss OOO
+horror					sidescroller (pixel/flat)		mini bosses
+goofy/spoof	OOO			sandbox (pixel/flat)			collectibles
+character-driven OOO			platformer (pixel/flat)			visual storytelling
+emotional				top/down				timed
+					2D OOO					dialogue/player choice OOO
+
+
+
+Goofy/Spoof character driven story in 2D. Main boss with some small enemies/goons. Goons could possibly drop health or
+points/gold. Dialogue will determine the choice of the player. Intermiitons between boss phases to determine dialogue.
+(ex. boss will hop out from phase 1 to talk with others). Intermition dialogue can be affected by player choices.
+	Serious start to joke middle.
+Hollow knight battle setting appearance.
+
+Fish: no attack, slow. all 3 rounds survival (P.K.O) secret character
+P1: gunner, androgynous, not much dialogue. confused by announcer, but goes along with it. fast, but easily damaged
+P2: melee, more dialogue. confused and will voice it upon meeting announcer. slower, but can take more hits + more damage.
+
+Bosses:
+Bull, GN-U, Announcer
+
+
+Announcer: Noah
