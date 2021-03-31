@@ -29,7 +29,7 @@ public class Actor : Core
     /// If true, outputs damage event information to the console.
     /// </summary>
     [SerializeField]
-    private bool DebugDamageLog = false;
+    private bool DebugDamageLog = true;
     
     /// <summary>
     /// If true, upon Actor initialization will set Actor Name to the name of the parent game object.
@@ -86,7 +86,16 @@ public class Actor : Core
     /// <param name="EventInfo"></param>
     protected virtual void ProcessDamage(Actor DamageSource, float DamageValue, Controller DamageInstigator, DamageInfo EventInfo)
     {
+        string DamageDebugString = DamageSource.ActorName + " dealt " + DamageValue + " damage of type " + EventInfo.damageType.DamageTypeName + " to " + ActorName;
+        if (DamageInstigator)
+        {
+            DamageDebugString = DamageInstigator.ControllerName + ", using " + DamageDebugString;
+        }
 
+        if (DebugDamageLog)
+        {
+            DebugDamage(DamageDebugString);
+        }
     }
 
     protected virtual void DebugDamage(string debugString)
