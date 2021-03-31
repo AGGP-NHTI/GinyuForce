@@ -8,11 +8,13 @@ using UnityEngine;
 public class Core : MonoBehaviour 
 {
     /// <summary>
-    /// Spawning function to instantiate new Actors or objects. Once again based on the "Info" class.
+    /// Spawning function to instantiate new Actors or objects. Once again based on the "Info" class "factory" method.
     /// </summary>
     /// <returns></returns>
-    public static GameObject Spawner()
+    public static GameObject Spawner(GameObject SpawnPrefab, Vector3 SpawnLocation, Quaternion SpawnRotation, Controller ObjectOwner = null)
     {
+        GameObject spawnedActor = Instantiate(SpawnPrefab, SpawnLocation, SpawnRotation);
+
         return null; // Temporary return value.
     }
 
