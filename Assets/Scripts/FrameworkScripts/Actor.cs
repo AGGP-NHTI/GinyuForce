@@ -7,12 +7,13 @@ public class Actor : Core
     /// <summary>
     /// Boolean value. Determines how damage will be processed by this actor. Default value is false.
     /// </summary>
-    public bool TakesDamage = false;
+    [SerializeField]
+    protected bool TakesDamage = false;
 
     /// <summary>
     /// The name of the actor.
     /// </summary>
-    private string _actorName = "ActorName_Default";
+    protected string _actorName = "ActorName_Default";
 
     /// <summary>
     /// Gets name of the actor as a string.
@@ -28,9 +29,21 @@ public class Actor : Core
     /// If true, upon Actor initialization will set Actor Name to the name of the parent game object.
     /// </summary>
     [SerializeField]
-    private bool GetsActorNameFromCore = true;
+    protected bool GetsActorNameFromCore = true;
 
-    // TODO !!![Put controller here]!!!
+    /// <summary>
+    /// Protected reference to this Actor's owner. Retrieved/edited via public interface.
+    /// </summary>
+    protected Controller _owner = null;
+
+    /// <summary>
+    /// Public interface for 
+    /// </summary>
+    public Controller Owner
+    {
+        get { return _owner; }
+        set { _owner = value; }
+    }
 
     // TODO !!![Put take/process damage here]!!!
 }
