@@ -18,7 +18,7 @@ public class Controller : Core
     /// <summary>
     /// The type of this controller. Default value is "Default"
     /// </summary>
-    private ControllerType _ownType = ControllerType.Default;
+    protected ControllerType _ownType = ControllerType.Default;
 
     /// <summary>
     /// Gets the type of this controller. Note: if this returns "Default", the controller is improperly initialized.
@@ -42,5 +42,10 @@ public class Controller : Core
     {
         get { return _controllerInternalName; }
         set { _controllerInternalName = value; }
+    }
+
+    protected virtual void Awake()
+    {
+        _ownType = ControllerType.Default;
     }
 }

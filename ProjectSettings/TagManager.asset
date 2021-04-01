@@ -41,3 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: PlayerSprite
+    uniqueID: 3665506277
+    locked: 0

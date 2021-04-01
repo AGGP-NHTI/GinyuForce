@@ -2,17 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateType_Condition : MonoBehaviour
+/// <summary>
+/// Class to hold the condition of the actor/pawn. This is meant to hold things such as
+/// alive/dead/dying/etc.
+/// </summary>
+public class StateType_Condition : StateBase
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
