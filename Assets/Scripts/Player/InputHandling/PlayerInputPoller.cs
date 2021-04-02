@@ -14,35 +14,40 @@ public class PlayerInputPoller : Core
     /// </summary>
     public PlayerController Player;
 
-    //private PlayerControls playerInputActions;
+    private PlayerContActions playerInputActions;
 
     private void Awake()
     {
         Player = gameObject.GetComponent<PlayerController>();
-
         if (!Player)
         {
-            LogMsg("NO PLAYER CONTROLLER DETECTED ON THE PLAYER AT OBJECT " + ObjectName + ". INSTANTIATING FROM DEFAULT. THIS IS NOT "
+            LogMsg("NO PLAYER CONTROLLER DETECTED ON THE PLAYER AT OBJECT " + ObjectName + ". THIS IS NOT "
                 + "INTENDED BEHAVIOR, IT IS HIGHLY ADVISED THAT YOU ATTACH A PLAYER CONTROLLER IN THE SCENE WINDOW.");
             Player = gameObject.AddComponent<PlayerController>();
         }
 
-        //playerInputActions = new PlayerControls();
-        //playerInputActions.PlayerGameplayControls.DirectionalInput.performed += movectx => MoveLeftRight(movectx);
+        playerInputActions = new PlayerContActions();
+        playerInputActions.PlayerActiveInput.HorizontalMovement.performed += movectx => MoveLeftRight(movectx);
+        playerInputActions.PlayerActiveInput.HorizontalMovement.canceled += movectx => StopMoving();
     }
 
     public virtual void MoveLeftRight(InputAction.CallbackContext context)
     {
-        
+        Player.MoveLeftRight(context);
+    }
+
+    public virtual void StopMoving()
+    {
+        Player.StopMoving();
     }
 
     private void OnEnable()
     {
-        //playerInputActions.Enable();
+        playerInputActions.Enable();
     }
 
     private void OnDisable()
     {
-        //playerInputActions.Disable();
+        playerInputActions.Disable();
     }
 }

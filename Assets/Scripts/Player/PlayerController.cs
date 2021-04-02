@@ -11,28 +11,51 @@ public class PlayerController : Controller
 {
     public float MoveSpeed = 2f;
 
-    protected Rigidbody2D playerRB;
-
     private float xMove;
+
+    protected bool isMoving = false;
+
+    protected PlayerPawn thisPlayerPawn = null;
 
     protected override void Awake()
     {
         _ownType = ControllerType.Player;
-        playerRB = gameObject.GetComponent<Rigidbody2D>();
-        if (!playerRB)
+
+        if(GetPawn() is PlayerPawn)
         {
-            playerRB = gameObject.AddComponent<Rigidbody2D>();
-            LogMsg("No rigidbody assigned to player. Assign one in the scene menu for better results.");
+            thisPlayerPawn = (PlayerPawn)GetPawn();
+        }
+        else
+        {
+            LogMsg("No player pawn given to main player controller. THIS IS A FATAL ERROR.");
         }
     }
 
     public void MoveLeftRight(InputAction.CallbackContext context)
     {
+        LogMsg("MLR");
         xMove = context.ReadValue<Vector2>().x;
+        isMoving = true;
+    }
+
+    public void StopMoving()
+    {
+        LogMsg("SMLR");
+        isMoving = false;
     }
 
     private void FixedUpdate()
     {
-        playerRB.velocity = new Vector2(xMove * MoveSpeed, playerRB.velocity.y);
+        if (isMoving)
+        {
+            //playerRB.velocity = new Vector2(xMove * MoveSpeed, playerRB.velocity.y);
+            Vector2 movementValues = new Vector2(xMove * MoveSpeed,0);
+            thisPlayerPawn.PawnMovement(movementValues);
+        }
+        else
+        {
+            Vector2 movementValues = new Vector2(0, 0);
+            thisPlayerPawn.PawnMovement(movementValues);
+        }
     }
 }

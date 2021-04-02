@@ -123,6 +123,77 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &183645689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 183645691}
+  - component: {fileID: 183645690}
+  - component: {fileID: 183645692}
+  m_Layer: 0
+  m_Name: PlayerController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &183645690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183645689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee182521e5098154e99a7037484d42da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 183645692}
+--- !u!4 &183645691
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183645689}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.79994214, y: -2.749095, z: -6.273553}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &183645692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183645689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ec1d99ca913cb40995d0e4451978fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controllerInternalName: ControllerName_Default
+  _controlledPawn: {fileID: 1807734934}
+  MoveSpeed: 2
+--- !u!114 &1807734934 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4468926738766167121, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
+  m_PrefabInstance: {fileID: 8255315407593481617}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1fcb1e3c8542f84bb99477579c76dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1859295230
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,41 +397,21 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4593528437534471750, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4593528437534471750, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
-      propertyPath: m_ActionEvents.Array.data[1].m_ActionId
-      value: 899b8c6e-4222-4546-86dd-efdfc7b0b06d
-      objectReference: {fileID: 0}
-    - target: {fileID: 4593528437534471750, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
-      propertyPath: m_ActionEvents.Array.data[1].m_ActionName
-      value: PlayerActiveInput/AttackDirections[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
-      objectReference: {fileID: 0}
-    - target: {fileID: 4593528437534471750, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_ActionId
-      value: 95527e48-be7d-40c5-b1f2-a88350a97394
-      objectReference: {fileID: 0}
-    - target: {fileID: 4593528437534471750, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_ActionName
-      value: PlayerActiveInput/VerticalMovement[/Keyboard/w,/Keyboard/s]
-      objectReference: {fileID: 0}
-    - target: {fileID: 4593528437534471750, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
-      propertyPath: m_DefaultControlScheme
-      value: Keyboard&Mouse
-      objectReference: {fileID: 0}
     - target: {fileID: 5207138468945016507, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
       propertyPath: m_Name
-      value: Player
+      value: PlayerPawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 5207138468945016507, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7875237457772932441, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.72277963
+      value: 0.49
       objectReference: {fileID: 0}
     - target: {fileID: 7875237457772932441, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.75
+      value: -2.08
       objectReference: {fileID: 0}
     - target: {fileID: 7875237457772932441, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
       propertyPath: m_LocalPosition.z
@@ -384,7 +435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7875237457772932441, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7875237457772932441, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

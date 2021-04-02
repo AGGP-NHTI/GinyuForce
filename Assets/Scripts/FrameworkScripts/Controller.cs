@@ -43,6 +43,20 @@ public class Controller : Core
         get { return _controllerInternalName; }
         set { _controllerInternalName = value; }
     }
+    /// <summary>
+    /// The pawn that this controller is controlling.
+    /// </summary>
+    [SerializeField]
+    protected Pawn _controlledPawn = null;
+
+    /// <summary>
+    /// Method to get reference to the pawn that this controller is controlling.
+    /// </summary>
+    /// <returns></returns>
+    public Pawn GetPawn()
+    {
+        return _controlledPawn;
+    }
 
     protected virtual void Awake()
     {
