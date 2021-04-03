@@ -14,6 +14,9 @@ public class PlayerInputPoller : Core
     /// </summary>
     public PlayerController Player;
 
+    /// <summary>
+    /// Component of set of input actions to parse and send to the associated controller.
+    /// </summary>
     private PlayerContActions playerInputActions;
 
     private void Awake()
@@ -31,11 +34,18 @@ public class PlayerInputPoller : Core
         playerInputActions.PlayerActiveInput.HorizontalMovement.canceled += movectx => StopMoving();
     }
 
+    /// <summary>
+    /// Accepts callback context from the player inputs and funnels it to the player controller.
+    /// </summary>
+    /// <param name="context">Callback context from the inputs</param>
     public virtual void MoveLeftRight(InputAction.CallbackContext context)
     {
         Player.MoveLeftRight(context);
     }
 
+    /// <summary>
+    /// Funnels the signal to set velocity to zero to the player controller.
+    /// </summary>
     public virtual void StopMoving()
     {
         Player.StopMoving();
