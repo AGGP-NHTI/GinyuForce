@@ -22,7 +22,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "VerticalMovement",
+                    "name": "Jump",
                     "type": "Button",
                     "id": "95527e48-be7d-40c5-b1f2-a88350a97394",
                     "expectedControlType": "Button",
@@ -142,59 +142,26 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "UpDown",
-                    "id": "8b290bf3-20c8-45ad-b1da-88c1908899d9",
-                    "path": "2DVector",
+                    "name": "",
+                    "id": "f594e48a-b1fe-4258-b409-58b3205eff8b",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "VerticalMovement",
-                    "isComposite": true,
+                    "action": "Jump",
+                    "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "14fc06d8-85e7-4c8c-8e0e-fbafc63f63d4",
+                    "name": "",
+                    "id": "1c3d592a-1dbb-489d-ba9d-0f5d3146918d",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "VerticalMovement",
+                    "action": "Jump",
                     "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "e52e6943-b4c5-4c7b-99fe-825cdaa1d66f",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "VerticalMovement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "f85aacf2-fca0-4d7f-99ad-df4634dac5c1",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "VerticalMovement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "fa81b326-8873-4ae5-a5b7-31de030a9f3f",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "VerticalMovement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 }
             ]
         }

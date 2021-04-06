@@ -12,7 +12,7 @@ public class PlayerController : Controller
     /// <summary>
     /// Private member variable to control what values are sent to the pawn for movement input.
     /// </summary>
-    private float xMove;
+    private float xMove = 0f;
 
     /// <summary>
     /// Boolean value to determine whether to send movement to the pawn, controlled by input sent by the associated inputpoller.
@@ -27,8 +27,11 @@ public class PlayerController : Controller
     protected override void Awake()
     {
         _ownType = ControllerType.Player;
+    }
 
-        if(GetPawn() is PlayerPawn)
+    protected virtual void Start()
+    {
+        if (GetPawn() is PlayerPawn)
         {
             thisPlayerPawn = (PlayerPawn)GetPawn();
         }

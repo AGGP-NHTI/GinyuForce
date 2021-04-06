@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Controller : Core
 {
+    public delegate void ControllerEventType();
+
+    public event ControllerEventType OnControlPawn;
+    public event ControllerEventType OnReleasePawn;
+
     /// <summary>
     /// Controllers can be either Player or AI, with a Default option included that can be used to detect
     /// improperly initialized controllers.
@@ -56,6 +61,25 @@ public class Controller : Core
     public Pawn GetPawn()
     {
         return _controlledPawn;
+    }
+
+    public void ControlPawn(Pawn targetPawn)
+    {
+        if (_controlledPawn)
+        {
+            ReleasePawn();
+            _controlledPawn = targetPawn;
+            OnControlPawn?.Invoke();
+        }
+    }
+
+    public void ReleasePawn()
+    {
+        if (_controlledPawn)
+        {
+            // Call the _ControlledPawn.Release() method
+            OnReleasePawn?.Invoke();
+        }
     }
 
     protected virtual void Awake()

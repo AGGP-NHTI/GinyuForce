@@ -15,7 +15,7 @@ public class Core : MonoBehaviour
     {
         GameObject spawnedActor = Instantiate(SpawnPrefab, SpawnLocation, SpawnRotation);
 
-        return null; // Temporary return value.
+        return spawnedActor;
     }
 
     /// <summary>
