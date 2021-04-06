@@ -78,6 +78,7 @@ public class Controller : Core
         if (_controlledPawn)
         {
             // Call the _ControlledPawn.Release() method
+            _controlledPawn = null;
             OnReleasePawn?.Invoke();
         }
     }

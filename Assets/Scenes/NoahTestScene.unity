@@ -182,7 +182,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _controllerInternalName: ControllerName_Default
   _controlledPawn: {fileID: 1807734934}
-  MoveSpeed: 2
 --- !u!114 &1807734934 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4468926738766167121, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
@@ -396,6 +395,10 @@ PrefabInstance:
     - target: {fileID: 3151477593723334740, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
       propertyPath: m_Constraints
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4468926738766167121, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
+      propertyPath: movementSpeed
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5207138468945016507, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
       propertyPath: m_Name
