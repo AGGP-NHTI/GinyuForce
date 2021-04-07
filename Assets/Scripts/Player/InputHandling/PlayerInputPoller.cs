@@ -32,6 +32,7 @@ public class PlayerInputPoller : Core
         playerInputActions = new PlayerContActions();
         playerInputActions.PlayerActiveInput.HorizontalMovement.performed += movectx => MoveLeftRight(movectx);
         playerInputActions.PlayerActiveInput.HorizontalMovement.canceled += movectx => StopMoving();
+        playerInputActions.PlayerActiveInput.Jump.performed += jumpctx => Jump();
     }
 
     /// <summary>
@@ -41,6 +42,14 @@ public class PlayerInputPoller : Core
     public virtual void MoveLeftRight(InputAction.CallbackContext context)
     {
         Player.MoveLeftRight(context);
+    }
+
+    /// <summary>
+    /// Tells the player controller to deliver the "Jump" command to the player pawn.
+    /// </summary>
+    public virtual void Jump()
+    {
+        Player.PlayerJump();
     }
 
     /// <summary>
