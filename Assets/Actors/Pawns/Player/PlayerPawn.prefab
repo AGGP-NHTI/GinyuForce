@@ -128,7 +128,7 @@ MonoBehaviour:
   TakesDamage: 1
   DebugDamageLog: 1
   GetsActorNameFromCore: 1
-  movementSpeed: 4
+  movementSpeed: 6
   jumpHeight: 10
   _playerStateMachine: {fileID: 0}
 --- !u!1 &6830840444230740202
