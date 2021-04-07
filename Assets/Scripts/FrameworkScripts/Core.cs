@@ -15,7 +15,22 @@ public class Core : MonoBehaviour
     {
         GameObject spawnedActor = Instantiate(SpawnPrefab, SpawnLocation, SpawnRotation);
 
-        spawnedActor.GetComponent<Actor>().Owner = ObjectOwner;
+        if (spawnedActor.GetComponent<Actor>())
+        {
+            spawnedActor.GetComponent<Actor>().Owner = ObjectOwner;
+        }
+
+        return spawnedActor;
+    }
+
+    public static GameObject Spawner(GameObject SpawnPrefab, Transform ParentTransform, Controller ObjectOwner = null)
+    {
+        GameObject spawnedActor = Instantiate(SpawnPrefab, ParentTransform);
+
+        if (spawnedActor.GetComponent<Actor>())
+        {
+            spawnedActor.GetComponent<Actor>().Owner = ObjectOwner;
+        }
 
         return spawnedActor;
     }

@@ -31,6 +31,17 @@ public class PlayerStateMachine : StateMachineBase
         set { _currentMovementState = value; }
     }
 
+    protected PlayerAState _currentAttackState = null;
+
+    /// <summary>
+    /// Reference to the current attack state of the pawn.
+    /// </summary>
+    public PlayerAState CurrentAttackState
+    {
+        get { return _currentAttackState; }
+        set { _currentAttackState = value; }
+    }
+
     protected override void Awake()
     {
         _playerPawn = gameObject.GetComponent<PlayerPawn>();
@@ -41,6 +52,7 @@ public class PlayerStateMachine : StateMachineBase
 
         // Temporary
         ChangeMoveState<PlayerMState_Idle>();
+        ChangeAttackState<PlayerAState_Idle>();
     }
 
     /// <summary>
@@ -58,9 +70,27 @@ public class PlayerStateMachine : StateMachineBase
         CurrentMoveState = gameObject.AddComponent<TargetStateType>();
     }
 
+    /// <summary>
+    /// Changes the player's attack state to target input player attack state type. IMPORTANT: Also calls the previous state's ExitState before switching.
+    /// </summary>
+    /// <typeparam name="TargetStateType">The intended attack state.</typeparam>
+    public virtual void ChangeAttackState<TargetStateType>() where TargetStateType : PlayerAState
+    {
+        if (CurrentAttackState)
+        {
+            CurrentAttackState.ExitState();
+            Destroy(CurrentAttackState);
+        }
+
+        CurrentAttackState = gameObject.AddComponent<TargetStateType>();
+    }
+
     protected void Update()
     {
         CurrentMoveState.PerformState();
         CurrentMoveState.TransitionState();
+
+        CurrentAttackState.PerformState();
+        CurrentAttackState.TransitionState();
     }
 }

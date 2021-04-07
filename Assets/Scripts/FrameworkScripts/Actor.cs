@@ -44,7 +44,7 @@ public class Actor : Core
     protected Controller _owner = null;
 
     /// <summary>
-    /// Public interface for 
+    /// Public interface for this actor's owner controller, if it has one.
     /// </summary>
     public Controller Owner
     {
@@ -90,7 +90,7 @@ public class Actor : Core
         string DamageDebugString = DamageSource.ActorName + " dealt " + DamageValue + " damage of type " + EventInfo.damageType.DamageTypeName + " to " + ActorName;
         if (DamageInstigator)
         {
-            DamageDebugString = DamageInstigator.ControllerName + ", using " + DamageDebugString;
+            DamageDebugString += DamageInstigator.ControllerName + ", using " + DamageDebugString;
         }
 
         if (DebugDamageLog)

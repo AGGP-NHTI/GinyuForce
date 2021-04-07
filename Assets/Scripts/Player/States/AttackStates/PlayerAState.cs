@@ -11,4 +11,9 @@ public class PlayerAState : StateType_Attack
         myStateMachine = gameObject.GetComponent<PlayerStateMachine>();
         base.Awake();
     }
+
+    public virtual void Attack(Vector2 directionInfo)
+    {
+        LogMsg("Attacking");
+    }
 }

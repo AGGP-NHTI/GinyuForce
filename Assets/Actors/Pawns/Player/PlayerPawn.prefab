@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2633523436694433870}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7536659, y: 0.120863914, z: -2.000156}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7875237457772932441}
@@ -157,10 +157,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TakesDamage: 1
+  _actorName: ActorName_Default
   DebugDamageLog: 1
   GetsActorNameFromCore: 1
   movementSpeed: 6
   jumpHeight: 10
+  AttackAnchorPoint: {fileID: 2633523436694433870}
+  SwordHitboxPrefab: {fileID: 7563259570569147031, guid: cad20505c6bd8c545a44182eaa8becf5, type: 3}
   _playerStateMachine: {fileID: 0}
 --- !u!1 &6830840444230740202
 GameObject:

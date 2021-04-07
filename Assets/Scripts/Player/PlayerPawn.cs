@@ -14,16 +14,28 @@ public class PlayerPawn : Pawn
     [SerializeField]
     protected float jumpHeight = 10f;
 
+    public GameObject AttackAnchorPoint = null;
+
+    public GameObject SwordHitboxPrefab = null;
+
     /// <summary>
     /// The rigidbody component of the pawn.
     /// </summary>
     protected Rigidbody2D playerRB = null;
 
+    /// <summary>
+    /// Gets a reference to the rigidbody of the player pawn.
+    /// </summary>
+    /// <returns></returns>
     public Rigidbody2D GetPlayerRB()
     {
         return playerRB;
     }
-
+    
+    /// <summary>
+    /// Gets the current velocity of the player's rigidbody component.
+    /// </summary>
+    /// <returns></returns>
     public Vector2 GetVelocity()
     {
         return playerRB.velocity;
@@ -38,22 +50,8 @@ public class PlayerPawn : Pawn
         playerRB.velocity = desiredVelocity;
     }
 
-    /// <summary>
-    /// The current movement state of the player. This includes jumping/falling/running/etc.
-    /// </summary>
-    protected PlayerMState _currentMoveState = null;
-
     [SerializeField]
     protected PlayerStateMachine _playerStateMachine = null;
-
-    /// <summary>
-    /// Public interface that returns the player pawn's current movement state.
-    /// </summary>
-    /// <returns></returns>
-    public PlayerMState GetCurrentMState()
-    {
-        return _currentMoveState;
-    }
 
     protected override void Awake()
     {
@@ -72,7 +70,7 @@ public class PlayerPawn : Pawn
 
     public override void Attack(Vector2 directions)
     {
-        base.Attack(directions);
+        _playerStateMachine.CurrentAttackState.Attack(directions);
     }
 
     /// <summary>

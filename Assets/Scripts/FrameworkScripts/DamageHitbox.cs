@@ -33,7 +33,7 @@ public class DamageHitbox : Actor
         lifetimeCounter += Time.deltaTime;
         if(lifetimeCounter >= hitboxLifetime)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }
