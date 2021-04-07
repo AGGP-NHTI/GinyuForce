@@ -70,6 +70,11 @@ public class PlayerPawn : Pawn
         }
     }
 
+    public override void Attack(Vector2 directions)
+    {
+        base.Attack(directions);
+    }
+
     /// <summary>
     /// Moves the pawn's RigidBody in accordance with the input parameter.
     /// </summary>

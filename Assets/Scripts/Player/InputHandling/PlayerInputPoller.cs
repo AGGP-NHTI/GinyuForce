@@ -33,6 +33,7 @@ public class PlayerInputPoller : Core
         playerInputActions.PlayerActiveInput.HorizontalMovement.performed += movectx => MoveLeftRight(movectx);
         playerInputActions.PlayerActiveInput.HorizontalMovement.canceled += movectx => StopMoving();
         playerInputActions.PlayerActiveInput.Jump.performed += jumpctx => Jump();
+        playerInputActions.PlayerActiveInput.AttackDirectional.performed += atkctx => PlayerAttack(atkctx.ReadValue<Vector2>());
     }
 
     /// <summary>
@@ -50,6 +51,11 @@ public class PlayerInputPoller : Core
     public virtual void Jump()
     {
         Player.PlayerJump();
+    }
+
+    public virtual void PlayerAttack(Vector2 directions)
+    {
+        Player.PlayerAttack(directions);
     }
 
     /// <summary>

@@ -42,6 +42,11 @@ public class PlayerController : Controller
         }
     }
 
+    public void PlayerAttack(Vector2 directions)
+    {
+        thisPlayerPawn.Attack(directions);
+    }
+
     /// <summary>
     /// Adjusts the movement values sent to the controlled pawn on FixedUpdate based on a Vector2 value from input context.
     /// </summary>

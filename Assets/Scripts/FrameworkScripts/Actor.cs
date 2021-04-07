@@ -13,6 +13,7 @@ public class Actor : Core
     /// <summary>
     /// The name of the actor.
     /// </summary>
+    [SerializeField]
     protected string _actorName = "ActorName_Default";
 
     /// <summary>

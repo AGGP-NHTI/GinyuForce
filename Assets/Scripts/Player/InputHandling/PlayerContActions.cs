@@ -27,18 +27,18 @@ public class @PlayerContActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""AttackDirections"",
+                    ""name"": ""Jump"",
                     ""type"": ""Button"",
-                    ""id"": ""899b8c6e-4222-4546-86dd-efdfc7b0b06d"",
+                    ""id"": ""95527e48-be7d-40c5-b1f2-a88350a97394"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Jump"",
-                    ""type"": ""Button"",
-                    ""id"": ""95527e48-be7d-40c5-b1f2-a88350a97394"",
-                    ""expectedControlType"": ""Button"",
+                    ""name"": ""AttackDirectional"",
+                    ""type"": ""Value"",
+                    ""id"": ""f8da679a-01c4-453c-a841-8b436a85c0f4"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -100,61 +100,6 @@ public class @PlayerContActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""ArrowDirections"",
-                    ""id"": ""ec262a0d-2b3f-4aab-b0ba-d87fda499f94"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""AttackDirections"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""7edadf62-c1c1-47cc-80c7-84812b292bc5"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""AttackDirections"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""b0d6fed5-a835-443a-92de-c7e5c1d71675"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""AttackDirections"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""5c3d15cc-021c-44c6-a7d5-62accd4406fe"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""AttackDirections"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""5ad8f93d-b85c-4922-b7a3-6087806d1d73"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""AttackDirections"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": """",
                     ""id"": ""f594e48a-b1fe-4258-b409-58b3205eff8b"",
                     ""path"": ""<Keyboard>/space"",
@@ -175,6 +120,61 @@ public class @PlayerContActions : IInputActionCollection, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""AttackDirs"",
+                    ""id"": ""a7d05196-c3fc-46ed-8dc3-cec669b8e90c"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AttackDirectional"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""5e44cbd3-b263-4a83-b07b-b6ed0ce3fd85"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AttackDirectional"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""3b8712c7-4047-4f7e-b0cf-0a9c48726189"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AttackDirectional"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""8058cac4-724b-413c-a73a-bdc80b6c4a3e"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AttackDirectional"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""5cea7946-b6bf-49ad-bffb-1d0d05e519b2"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AttackDirectional"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -184,8 +184,8 @@ public class @PlayerContActions : IInputActionCollection, IDisposable
         // PlayerActiveInput
         m_PlayerActiveInput = asset.FindActionMap("PlayerActiveInput", throwIfNotFound: true);
         m_PlayerActiveInput_HorizontalMovement = m_PlayerActiveInput.FindAction("HorizontalMovement", throwIfNotFound: true);
-        m_PlayerActiveInput_AttackDirections = m_PlayerActiveInput.FindAction("AttackDirections", throwIfNotFound: true);
         m_PlayerActiveInput_Jump = m_PlayerActiveInput.FindAction("Jump", throwIfNotFound: true);
+        m_PlayerActiveInput_AttackDirectional = m_PlayerActiveInput.FindAction("AttackDirectional", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -236,15 +236,15 @@ public class @PlayerContActions : IInputActionCollection, IDisposable
     private readonly InputActionMap m_PlayerActiveInput;
     private IPlayerActiveInputActions m_PlayerActiveInputActionsCallbackInterface;
     private readonly InputAction m_PlayerActiveInput_HorizontalMovement;
-    private readonly InputAction m_PlayerActiveInput_AttackDirections;
     private readonly InputAction m_PlayerActiveInput_Jump;
+    private readonly InputAction m_PlayerActiveInput_AttackDirectional;
     public struct PlayerActiveInputActions
     {
         private @PlayerContActions m_Wrapper;
         public PlayerActiveInputActions(@PlayerContActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @HorizontalMovement => m_Wrapper.m_PlayerActiveInput_HorizontalMovement;
-        public InputAction @AttackDirections => m_Wrapper.m_PlayerActiveInput_AttackDirections;
         public InputAction @Jump => m_Wrapper.m_PlayerActiveInput_Jump;
+        public InputAction @AttackDirectional => m_Wrapper.m_PlayerActiveInput_AttackDirectional;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActiveInput; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -257,12 +257,12 @@ public class @PlayerContActions : IInputActionCollection, IDisposable
                 @HorizontalMovement.started -= m_Wrapper.m_PlayerActiveInputActionsCallbackInterface.OnHorizontalMovement;
                 @HorizontalMovement.performed -= m_Wrapper.m_PlayerActiveInputActionsCallbackInterface.OnHorizontalMovement;
                 @HorizontalMovement.canceled -= m_Wrapper.m_PlayerActiveInputActionsCallbackInterface.OnHorizontalMovement;
-                @AttackDirections.started -= m_Wrapper.m_PlayerActiveInputActionsCallbackInterface.OnAttackDirections;
-                @AttackDirections.performed -= m_Wrapper.m_PlayerActiveInputActionsCallbackInterface.OnAttackDirections;
-                @AttackDirections.canceled -= m_Wrapper.m_PlayerActiveInputActionsCallbackInterface.OnAttackDirections;
                 @Jump.started -= m_Wrapper.m_PlayerActiveInputActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActiveInputActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActiveInputActionsCallbackInterface.OnJump;
+                @AttackDirectional.started -= m_Wrapper.m_PlayerActiveInputActionsCallbackInterface.OnAttackDirectional;
+                @AttackDirectional.performed -= m_Wrapper.m_PlayerActiveInputActionsCallbackInterface.OnAttackDirectional;
+                @AttackDirectional.canceled -= m_Wrapper.m_PlayerActiveInputActionsCallbackInterface.OnAttackDirectional;
             }
             m_Wrapper.m_PlayerActiveInputActionsCallbackInterface = instance;
             if (instance != null)
@@ -270,12 +270,12 @@ public class @PlayerContActions : IInputActionCollection, IDisposable
                 @HorizontalMovement.started += instance.OnHorizontalMovement;
                 @HorizontalMovement.performed += instance.OnHorizontalMovement;
                 @HorizontalMovement.canceled += instance.OnHorizontalMovement;
-                @AttackDirections.started += instance.OnAttackDirections;
-                @AttackDirections.performed += instance.OnAttackDirections;
-                @AttackDirections.canceled += instance.OnAttackDirections;
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @AttackDirectional.started += instance.OnAttackDirectional;
+                @AttackDirectional.performed += instance.OnAttackDirectional;
+                @AttackDirectional.canceled += instance.OnAttackDirectional;
             }
         }
     }
@@ -283,7 +283,7 @@ public class @PlayerContActions : IInputActionCollection, IDisposable
     public interface IPlayerActiveInputActions
     {
         void OnHorizontalMovement(InputAction.CallbackContext context);
-        void OnAttackDirections(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnAttackDirectional(InputAction.CallbackContext context);
     }
 }

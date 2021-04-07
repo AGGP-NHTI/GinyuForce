@@ -15,6 +15,8 @@ public class Core : MonoBehaviour
     {
         GameObject spawnedActor = Instantiate(SpawnPrefab, SpawnLocation, SpawnRotation);
 
+        spawnedActor.GetComponent<Actor>().Owner = ObjectOwner;
+
         return spawnedActor;
     }
 

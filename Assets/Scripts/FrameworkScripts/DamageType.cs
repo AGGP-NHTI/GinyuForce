@@ -5,6 +5,7 @@ using System;
 
 public class DamageType
 {
+    [SerializeField]
     protected string _damageTypeName = "DamageType_Default";
 
     public string DamageTypeName
