@@ -11,10 +11,18 @@ public class PlayerPawn : Pawn
     [SerializeField]
     protected float movementSpeed = 2f;
 
+    [SerializeField]
+    protected float jumpHeight = 10f;
+
     /// <summary>
     /// The rigidbody component of the pawn.
     /// </summary>
     protected Rigidbody2D playerRB = null;
+
+    public Rigidbody2D GetPlayerRB()
+    {
+        return playerRB;
+    }
 
     public Vector2 GetVelocity()
     {
@@ -71,6 +79,11 @@ public class PlayerPawn : Pawn
         // This mods in the movement speed from the pawn
         Vector2 actualMovement = new Vector2(movementValues.x * movementSpeed, playerRB.velocity.y);
 
-        PlayerRB_SetVelocity(actualMovement);
+        _playerStateMachine.CurrentMoveState.PlayerMovement(actualMovement);
+    }
+
+    public virtual void PlayerPawnJump()
+    {
+        _playerStateMachine.CurrentMoveState.PlayerJump(jumpHeight);
     }
 }
