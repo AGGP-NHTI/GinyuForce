@@ -18,6 +18,13 @@ public class PlayerPawn : Pawn
 
     public GameObject SwordHitboxPrefab = null;
 
+    private bool facingRight = true;
+
+    public bool IsFacingRight()
+    {
+        return facingRight;
+    }
+
     /// <summary>
     /// The rigidbody component of the pawn.
     /// </summary>
@@ -82,11 +89,46 @@ public class PlayerPawn : Pawn
         // This mods in the movement speed from the pawn
         Vector2 actualMovement = new Vector2(movementValues.x * movementSpeed, playerRB.velocity.y);
 
+        if(movementValues.x < 0 && facingRight)
+        {
+            Vector3 tempScale = transform.localScale;
+            tempScale.x *= -1f;
+            transform.localScale = tempScale;
+
+            facingRight = false;
+        }
+        else if(movementValues.x > 0 && !facingRight)
+        {
+            Vector3 tempScale = transform.localScale;
+            tempScale.x *= -1f;
+            transform.localScale = tempScale;
+
+            facingRight = true;
+        }
+
         _playerStateMachine.CurrentMoveState.PlayerMovement(actualMovement);
     }
 
     public virtual void PlayerPawnJump()
     {
         _playerStateMachine.CurrentMoveState.PlayerJump(jumpHeight);
+    }
+
+    protected override void ProcessDamage(Actor DamageSource, float DamageValue, Controller DamageInstigator, DamageInfo EventInfo)
+    {
+        base.ProcessDamage(DamageSource, DamageValue, DamageInstigator, EventInfo);
+
+        _actorCurrentHealth -= DamageValue;
+
+        if(_actorCurrentHealth <= 0f)
+        {
+            ActorDeath(DamageSource, DamageInstigator);
+        }
+    }
+
+    protected override void ActorDeath(Actor DeathSource, Controller SourceController)
+    {
+        GameInstanceManager.Main.GameOver();
+        _playerStateMachine.ChangeConditionState<PlayerCState_Dying>();
     }
 }

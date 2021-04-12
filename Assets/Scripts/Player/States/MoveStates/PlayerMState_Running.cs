@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMState_Running : PlayerMState
+public class PlayerMState_Running : PlayerMState_OnGround
 {
     public override void PlayerMovement(Vector2 movementVector)
     {

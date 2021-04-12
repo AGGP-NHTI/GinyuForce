@@ -8,6 +8,8 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class PlayerInputPoller : Core
 {
+    public static PlayerInputPoller Self = null;
+
     /// <summary>
     /// Variable to hold the player controller, sends inputs to player controller via
     /// input devices.
@@ -19,8 +21,21 @@ public class PlayerInputPoller : Core
     /// </summary>
     private PlayerContActions playerInputActions;
 
+    /// <summary>
+    /// Component of set of input actions that control non-movement/combat inputs such as pausing, menu management, etc.
+    /// </summary>
+    private PlayerContActions playerInterfaceActions;
+
     private void Awake()
     {
+        if (Self)
+        {
+            LogMsg("There is already a player input handler in this scene, on the gameobject " + 
+                Self.gameObject.name + ". Destroying new copy instance.");
+            Destroy(this);
+        }
+        Self = this;
+
         Player = gameObject.GetComponent<PlayerController>();
         if (!Player)
         {
@@ -64,6 +79,22 @@ public class PlayerInputPoller : Core
     public virtual void StopMoving()
     {
         Player.StopMoving();
+    }
+
+    /// <summary>
+    /// Public method that disables the player "Active Input Actions" (gameplay controls)
+    /// </summary>
+    public virtual void DisablePlayerInput()
+    {
+        playerInputActions.Disable();
+    }
+
+    /// <summary>
+    /// Public method that enables the player "Active Input Actions" (gameplay controls)
+    /// </summary>
+    public virtual void EnablePlayerInput()
+    {
+        playerInputActions.Enable();
     }
 
     private void OnEnable()

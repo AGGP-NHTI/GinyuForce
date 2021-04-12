@@ -28,7 +28,6 @@ public class PlayerStateMachine : StateMachineBase
     public PlayerMState CurrentMoveState
     {
         get { return _currentMovementState; }
-        set { _currentMovementState = value; }
     }
 
     protected PlayerAState _currentAttackState = null;
@@ -39,7 +38,16 @@ public class PlayerStateMachine : StateMachineBase
     public PlayerAState CurrentAttackState
     {
         get { return _currentAttackState; }
-        set { _currentAttackState = value; }
+    }
+
+    protected PlayerCState _currentConditionState = null;
+
+    /// <summary>
+    /// Reference to the current condition state of the pawn.
+    /// </summary>
+    public PlayerCState CurrentConditionState
+    {
+        get { return _currentConditionState; }
     }
 
     protected override void Awake()
@@ -53,6 +61,7 @@ public class PlayerStateMachine : StateMachineBase
         // Temporary
         ChangeMoveState<PlayerMState_Idle>();
         ChangeAttackState<PlayerAState_Idle>();
+        ChangeConditionState<PlayerCState_Alive>();
     }
 
     /// <summary>
@@ -67,7 +76,7 @@ public class PlayerStateMachine : StateMachineBase
             Destroy(CurrentMoveState);
         }
 
-        CurrentMoveState = gameObject.AddComponent<TargetStateType>();
+        _currentMovementState = gameObject.AddComponent<TargetStateType>();
     }
 
     /// <summary>
@@ -82,7 +91,22 @@ public class PlayerStateMachine : StateMachineBase
             Destroy(CurrentAttackState);
         }
 
-        CurrentAttackState = gameObject.AddComponent<TargetStateType>();
+        _currentAttackState = gameObject.AddComponent<TargetStateType>();
+    }
+
+    /// <summary>
+    /// Changes the player's condition state to the target input player condition state type. IMPORTANT: Also calls the previous state's ExitState before switching.
+    /// </summary>
+    /// <typeparam name="TargetStateType">The intended condition state.</typeparam>
+    public virtual void ChangeConditionState<TargetStateType>() where TargetStateType : PlayerCState
+    {
+        if (CurrentConditionState)
+        {
+            CurrentConditionState.ExitState();
+            Destroy(CurrentConditionState);
+        }
+
+        _currentConditionState = gameObject.AddComponent<TargetStateType>();
     }
 
     protected void Update()
@@ -92,5 +116,8 @@ public class PlayerStateMachine : StateMachineBase
 
         CurrentAttackState.PerformState();
         CurrentAttackState.TransitionState();
+
+        CurrentConditionState.PerformState();
+        CurrentConditionState.TransitionState();
     }
 }

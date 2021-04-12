@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class DamageHitbox : Actor
 {
+    public bool isPermament = false;
+
+    public bool tickDamage = false;
+
     public float damageValue = 0f;
 
     [SerializeField]
@@ -28,12 +32,28 @@ public class DamageHitbox : Actor
         }
     }
 
+    protected virtual void OnTriggerStay2D(Collider2D collision)
+    {
+        if (tickDamage)
+        {
+            Actor otherActor = collision.GetComponent<Actor>();
+
+            if (otherActor)
+            {
+                otherActor.TakeDamage(this, damageValue, Owner, thisDamageInfo);
+            }
+        }
+    }
+
     protected virtual void Update()
     {
-        lifetimeCounter += Time.deltaTime;
-        if(lifetimeCounter >= hitboxLifetime)
+        if (!isPermament)
         {
-            Destroy(gameObject);
+            lifetimeCounter += Time.deltaTime;
+            if (lifetimeCounter >= hitboxLifetime)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

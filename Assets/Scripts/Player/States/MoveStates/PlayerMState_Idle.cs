@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMState_Idle : PlayerMState
+public class PlayerMState_Idle : PlayerMState_OnGround
 {
     public override void TransitionState()
     {

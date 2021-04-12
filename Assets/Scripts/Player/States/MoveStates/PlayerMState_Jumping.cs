@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMState_Jumping : PlayerMState
+public class PlayerMState_Jumping : PlayerMState_InAir
 {
     public override void TransitionState()
     {

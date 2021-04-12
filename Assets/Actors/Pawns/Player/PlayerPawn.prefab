@@ -157,9 +157,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TakesDamage: 1
-  _actorName: ActorName_Default
+  _actorName: PlayerCharacter_Sword
   DebugDamageLog: 1
-  GetsActorNameFromCore: 1
+  GetsActorNameFromCore: 0
+  _actorMaximumHealth: 100
+  _actorCurrentHealth: 100
   movementSpeed: 6
   jumpHeight: 10
   AttackAnchorPoint: {fileID: 2633523436694433870}

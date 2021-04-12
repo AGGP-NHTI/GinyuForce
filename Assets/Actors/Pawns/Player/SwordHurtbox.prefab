@@ -127,4 +127,4 @@ MonoBehaviour:
   DebugDamageLog: 1
   GetsActorNameFromCore: 0
   damageValue: 5
-  hitboxLifetime: 3
+  hitboxLifetime: 0.4

@@ -30,13 +30,7 @@ public class Actor : Core
     /// If true, outputs damage event information to the console.
     /// </summary>
     [SerializeField]
-    private bool DebugDamageLog = true;
-    
-    /// <summary>
-    /// If true, upon Actor initialization will set Actor Name to the name of the parent game object.
-    /// </summary>
-    [SerializeField]
-    protected bool GetsActorNameFromCore = true;
+    protected bool DebugDamageLog = true;
 
     /// <summary>
     /// Protected reference to this Actor's owner. Retrieved/edited via public interface. Default value is "null" for not belonging to any entity.
@@ -50,6 +44,48 @@ public class Actor : Core
     {
         get { return _owner; }
         set { _owner = value; }
+    }
+
+    /// <summary>
+    /// The maximum health that this actor has. Default value is 100.
+    /// </summary>
+    [SerializeField]
+    protected float _actorMaximumHealth = 100f;
+
+    /// <summary>
+    /// Returns the maximum health value of the actor.
+    /// </summary>
+    /// <returns></returns>
+    public float GetActorMaxHealth()
+    {
+        return _actorMaximumHealth;
+    }
+
+    /// <summary>
+    /// Sets the actor's maximum health to the float value and will act appropriately if current health is greater than that value.
+    /// </summary>
+    /// <param name="targetMaxHealth">The value to set the actor's max health to</param>
+    public void SetActorMaxHealth(float targetMaxHealth)
+    {
+        _actorMaximumHealth = targetMaxHealth;
+        if(_actorCurrentHealth > _actorMaximumHealth)
+        {
+            _actorCurrentHealth = _actorMaximumHealth;
+        }
+    }
+
+    /// <summary>
+    /// The health of this actor. Default value is 100.
+    /// </summary>
+    [SerializeField]
+    protected float _actorCurrentHealth = 100f;
+
+    /// <summary>
+    /// Public access variable to this actor's current health.
+    /// </summary>
+    public float CurrentHealth
+    {
+        get { return _actorCurrentHealth; }
     }
 
     /// <summary>
@@ -97,6 +133,16 @@ public class Actor : Core
         {
             DebugDamage(DamageDebugString);
         }
+    }
+
+    /// <summary>
+    /// Virtual method that processes the death for the actor.
+    /// </summary>
+    /// <param name="DeathSource"></param>
+    /// <param name="SourceController"></param>
+    protected virtual void ActorDeath(Actor DeathSource, Controller SourceController)
+    {
+        LogMsg("Actor " + ActorName + " has died. Was killed by " + DeathSource.ActorName);
     }
 
     protected virtual void DebugDamage(string debugString)
