@@ -6,6 +6,8 @@ public class GameInstanceManager : Core
 {
     public static GameInstanceManager Main = null;
 
+    public GameObject pauseScreenUI = null;
+
     protected bool _gameIsPaused = false;
 
     public bool IsGamePaused()
@@ -30,13 +32,21 @@ public class GameInstanceManager : Core
             Time.timeScale = 1f;
             _gameIsPaused = false;
             LogMsg("Game is unpaused");
+            pauseScreenUI.SetActive(false);
         }
         else
         {
             Time.timeScale = 0f;
             _gameIsPaused = true;
             LogMsg("Game is paused");
+            pauseScreenUI.SetActive(true);
         }
+    }
+
+    public void QuitGame()
+    {
+        LogMsg("Application quit.");
+        UnityEngine.Application.Quit();
     }
 
     public void GameOver()
