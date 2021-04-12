@@ -177,6 +177,33 @@ public class @PlayerContActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""PlayerInterfaceInput"",
+            ""id"": ""c2c2f435-4842-413a-bd66-54f47d651bd7"",
+            ""actions"": [
+                {
+                    ""name"": ""PauseGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""f58f39c7-95c7-4d94-a140-55e8a749a74a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""edb90f20-f942-47d4-a1cf-4e8245ecc36e"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -186,6 +213,9 @@ public class @PlayerContActions : IInputActionCollection, IDisposable
         m_PlayerActiveInput_HorizontalMovement = m_PlayerActiveInput.FindAction("HorizontalMovement", throwIfNotFound: true);
         m_PlayerActiveInput_Jump = m_PlayerActiveInput.FindAction("Jump", throwIfNotFound: true);
         m_PlayerActiveInput_AttackDirectional = m_PlayerActiveInput.FindAction("AttackDirectional", throwIfNotFound: true);
+        // PlayerInterfaceInput
+        m_PlayerInterfaceInput = asset.FindActionMap("PlayerInterfaceInput", throwIfNotFound: true);
+        m_PlayerInterfaceInput_PauseGame = m_PlayerInterfaceInput.FindAction("PauseGame", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -280,10 +310,47 @@ public class @PlayerContActions : IInputActionCollection, IDisposable
         }
     }
     public PlayerActiveInputActions @PlayerActiveInput => new PlayerActiveInputActions(this);
+
+    // PlayerInterfaceInput
+    private readonly InputActionMap m_PlayerInterfaceInput;
+    private IPlayerInterfaceInputActions m_PlayerInterfaceInputActionsCallbackInterface;
+    private readonly InputAction m_PlayerInterfaceInput_PauseGame;
+    public struct PlayerInterfaceInputActions
+    {
+        private @PlayerContActions m_Wrapper;
+        public PlayerInterfaceInputActions(@PlayerContActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @PauseGame => m_Wrapper.m_PlayerInterfaceInput_PauseGame;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerInterfaceInput; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PlayerInterfaceInputActions set) { return set.Get(); }
+        public void SetCallbacks(IPlayerInterfaceInputActions instance)
+        {
+            if (m_Wrapper.m_PlayerInterfaceInputActionsCallbackInterface != null)
+            {
+                @PauseGame.started -= m_Wrapper.m_PlayerInterfaceInputActionsCallbackInterface.OnPauseGame;
+                @PauseGame.performed -= m_Wrapper.m_PlayerInterfaceInputActionsCallbackInterface.OnPauseGame;
+                @PauseGame.canceled -= m_Wrapper.m_PlayerInterfaceInputActionsCallbackInterface.OnPauseGame;
+            }
+            m_Wrapper.m_PlayerInterfaceInputActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @PauseGame.started += instance.OnPauseGame;
+                @PauseGame.performed += instance.OnPauseGame;
+                @PauseGame.canceled += instance.OnPauseGame;
+            }
+        }
+    }
+    public PlayerInterfaceInputActions @PlayerInterfaceInput => new PlayerInterfaceInputActions(this);
     public interface IPlayerActiveInputActions
     {
         void OnHorizontalMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnAttackDirectional(InputAction.CallbackContext context);
+    }
+    public interface IPlayerInterfaceInputActions
+    {
+        void OnPauseGame(InputAction.CallbackContext context);
     }
 }

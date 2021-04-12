@@ -49,6 +49,9 @@ public class PlayerInputPoller : Core
         playerInputActions.PlayerActiveInput.HorizontalMovement.canceled += movectx => StopMoving();
         playerInputActions.PlayerActiveInput.Jump.performed += jumpctx => Jump();
         playerInputActions.PlayerActiveInput.AttackDirectional.performed += atkctx => PlayerAttack(atkctx.ReadValue<Vector2>());
+
+        playerInterfaceActions = new PlayerContActions();
+        playerInterfaceActions.PlayerInterfaceInput.PauseGame.performed += uictx => PauseUnpause();
     }
 
     /// <summary>
@@ -57,7 +60,10 @@ public class PlayerInputPoller : Core
     /// <param name="context">Callback context from the inputs</param>
     public virtual void MoveLeftRight(InputAction.CallbackContext context)
     {
-        Player.MoveLeftRight(context);
+        if (!GameInstanceManager.Main.IsGamePaused())
+        {
+            Player.MoveLeftRight(context);
+        }
     }
 
     /// <summary>
@@ -65,12 +71,18 @@ public class PlayerInputPoller : Core
     /// </summary>
     public virtual void Jump()
     {
-        Player.PlayerJump();
+        if (!GameInstanceManager.Main.IsGamePaused())
+        {
+            Player.PlayerJump();
+        }
     }
 
     public virtual void PlayerAttack(Vector2 directions)
     {
-        Player.PlayerAttack(directions);
+        if (!GameInstanceManager.Main.IsGamePaused())
+        {
+            Player.PlayerAttack(directions);
+        }
     }
 
     /// <summary>
@@ -78,7 +90,15 @@ public class PlayerInputPoller : Core
     /// </summary>
     public virtual void StopMoving()
     {
-        Player.StopMoving();
+        if (!GameInstanceManager.Main.IsGamePaused())
+        {
+            Player.StopMoving();
+        }
+    }
+
+    public virtual void PauseUnpause()
+    {
+        GameInstanceManager.Main.PauseUnpause();
     }
 
     /// <summary>
@@ -100,10 +120,12 @@ public class PlayerInputPoller : Core
     private void OnEnable()
     {
         playerInputActions.Enable();
+        playerInterfaceActions.Enable();
     }
 
     private void OnDisable()
     {
         playerInputActions.Disable();
+        playerInterfaceActions.Enable();
     }
 }
