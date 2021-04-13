@@ -6,13 +6,18 @@ public class GameInstanceManager : Core
 {
     public static GameInstanceManager Main = null;
 
-    public GameObject pauseScreenUI = null;
-
     protected bool _gameIsPaused = false;
 
     public bool IsGamePaused()
     {
         return _gameIsPaused;
+    }
+
+    protected bool _gameOver = false;
+
+    public bool IsGameOver()
+    {
+        return _gameOver;
     }
 
     private void Awake()
@@ -27,19 +32,22 @@ public class GameInstanceManager : Core
 
     public void PauseUnpause()
     {
-        if (_gameIsPaused)
+        if (!IsGameOver())
         {
-            Time.timeScale = 1f;
-            _gameIsPaused = false;
-            LogMsg("Game is unpaused");
-            pauseScreenUI.SetActive(false);
-        }
-        else
-        {
-            Time.timeScale = 0f;
-            _gameIsPaused = true;
-            LogMsg("Game is paused");
-            pauseScreenUI.SetActive(true);
+            if (_gameIsPaused)
+            {
+                Time.timeScale = 1f;
+                _gameIsPaused = false;
+                LogMsg("Game is unpaused");
+                PlayerUIManager.Main.TogglePauseScreen(false);
+            }
+            else
+            {
+                Time.timeScale = 0f;
+                _gameIsPaused = true;
+                LogMsg("Game is paused");
+                PlayerUIManager.Main.TogglePauseScreen(true);
+            }
         }
     }
 
@@ -52,5 +60,7 @@ public class GameInstanceManager : Core
     public void GameOver()
     {
         LogMsg("Game over man, game over!");
+        _gameOver = true;
+        PlayerUIManager.Main.ToggleGameOverScreen(true);
     }
 }
