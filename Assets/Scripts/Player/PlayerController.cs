@@ -53,7 +53,7 @@ public class PlayerController : Controller
     /// <param name="context">CallbackContext from the input that calls this function, which should be in PlayerInputPoller.</param>
     public void MoveLeftRight(InputAction.CallbackContext context)
     {
-        LogMsg("MLR");
+        //LogMsg("MLR");
         xMove = context.ReadValue<Vector2>().x;
         isMoving = true;
     }
@@ -63,7 +63,7 @@ public class PlayerController : Controller
     /// </summary>
     public void StopMoving()
     {
-        LogMsg("SMLR");
+        //LogMsg("SMLR");
         xMove = 0f;
         isMoving = false;
     }

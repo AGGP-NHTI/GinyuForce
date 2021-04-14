@@ -232,8 +232,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TakesDamage: 1
-  _actorName: PlayerCharacter_Sword
-  DebugDamageLog: 1
+  _actorName: PlayerCharacter_Swordsman
+  DebugDamageLog: 0
   _actorMaximumHealth: 100
   _actorCurrentHealth: 100
   _pawnSprite: {fileID: 1720955206355852323}
