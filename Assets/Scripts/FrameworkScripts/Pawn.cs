@@ -9,9 +9,27 @@ public class Pawn : Actor
     /// </summary>
     protected Controller _controller = null;
 
+    /// <summary>
+    /// Returns the controller for this pawn.
+    /// </summary>
+    /// <returns></returns>
     public Controller GetController()
     {
         return _controller;
+    }
+
+    /// <summary>
+    /// Private reference to this pawn's sprite.
+    /// </summary>
+    [SerializeField]
+    protected PawnSpriteCont _pawnSprite = null;
+
+    /// <summary>
+    /// Public accessor to this pawn's sprite.
+    /// </summary>
+    public PawnSpriteCont PawnSprite
+    {
+        get { return _pawnSprite; }
     }
 
     protected virtual void Awake()

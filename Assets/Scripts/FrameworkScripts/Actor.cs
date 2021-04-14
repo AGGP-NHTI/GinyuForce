@@ -11,6 +11,15 @@ public class Actor : Core
     protected bool TakesDamage = false;
 
     /// <summary>
+    /// public access to this actor's "TakesDamage" variable, which determines if the "processdamage" function is called.
+    /// </summary>
+    public bool DoesTakeDamage
+    {
+        get { return TakesDamage; }
+        set { TakesDamage = value; }
+    }
+
+    /// <summary>
     /// The name of the actor.
     /// </summary>
     [SerializeField]

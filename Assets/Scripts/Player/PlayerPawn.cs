@@ -14,6 +14,17 @@ public class PlayerPawn : Pawn
     [SerializeField]
     protected float jumpHeight = 10f;
 
+    [SerializeField]
+    protected float invulnTime = 1.5f;
+
+    /// <summary>
+    /// The duration that this pawn will be invincible for upon taking nonlethal damage.
+    /// </summary>
+    public float InvulnDuration
+    {
+        get { return invulnTime; }
+    }
+
     public GameObject AttackAnchorPoint = null;
 
     public GameObject SwordHitboxPrefab = null;
@@ -23,6 +34,19 @@ public class PlayerPawn : Pawn
     public bool IsFacingRight()
     {
         return facingRight;
+    }
+
+    /// <summary>
+    /// Script reference to the container object for the player sprite.
+    /// </summary>
+    protected PlayerSpriteCont _playerSprite = null;
+
+    /// <summary>
+    /// Public reference to this player's sprite.
+    /// </summary>
+    public PlayerSpriteCont PlayerSprite
+    {
+        get { return _playerSprite; }
     }
 
     /// <summary>
@@ -73,6 +97,23 @@ public class PlayerPawn : Pawn
         {
             _playerStateMachine = gameObject.AddComponent<PlayerStateMachine>();
         }
+
+        if (!_pawnSprite)
+        {
+            LogMsg("No pawn sprite attached to this object.");
+        }
+        else
+        {
+            if(_pawnSprite is PlayerSpriteCont)
+            {
+                _playerSprite = (PlayerSpriteCont)_pawnSprite;
+            }
+            else
+            {
+                LogMsg("There is a sprite attached to the player, but it is not a player sprite!");
+            }
+        }
+
     }
 
     public override void Attack(Vector2 directions)
@@ -124,11 +165,19 @@ public class PlayerPawn : Pawn
         {
             ActorDeath(DamageSource, DamageInstigator);
         }
+        else
+        {
+            PlayerInvuln();
+        }
     }
 
     protected override void ActorDeath(Actor DeathSource, Controller SourceController)
     {
-        GameInstanceManager.Main.GameOver();
         _playerStateMachine.ChangeConditionState<PlayerCState_Dying>();
+    }
+
+    protected virtual void PlayerInvuln()
+    {
+        _playerStateMachine.ChangeConditionState<PlayerCState_Invuln>();
     }
 }

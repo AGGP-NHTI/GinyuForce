@@ -5,4 +5,9 @@ using UnityEngine;
 public class PlayerCState_Alive : PlayerCState
 {
     // Do alive stuff here I guess. Could use references to move/attacking states to animate while alive?
+    public override void EnterState()
+    {
+        base.EnterState();
+        myStateMachine.ThePlayerPawn.DoesTakeDamage = true;
+    }
 }
