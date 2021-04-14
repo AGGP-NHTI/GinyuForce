@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerSpriteCont : PawnSpriteCont
 {
-    public bool isFlashing = false;
-
     public SpriteRenderer topHalf = null;
 
     public SpriteRenderer bottomHalf = null;

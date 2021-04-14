@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6345587822629764360}
   - component: {fileID: 6345587822629764361}
-  m_Layer: 0
+  - component: {fileID: 7371199112689815574}
+  m_Layer: 8
   m_Name: BullPawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,6 +56,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7371199112689815574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6345587822629764375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded3e9fc8a93c5949815c84b1fc4d67c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TakesDamage: 1
+  _actorName: BossActor_Bull
+  DebugDamageLog: 1
+  _actorMaximumHealth: 100
+  _actorCurrentHealth: 100
+  _pawnSprite: {fileID: 4299667579686710281}
 --- !u!1 &6345587823482532550
 GameObject:
   m_ObjectHideFlags: 0
@@ -66,7 +85,7 @@ GameObject:
   - component: {fileID: 6345587823482532601}
   - component: {fileID: 6345587823482532600}
   - component: {fileID: 6345587823482532603}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.7, y: 2.5}
+  m_Size: {x: 2.4, y: 2.4}
   m_EdgeRadius: 0
 --- !u!114 &6345587823482532603
 MonoBehaviour:
@@ -130,6 +149,7 @@ MonoBehaviour:
   DebugDamageLog: 1
   _actorMaximumHealth: 0
   _actorCurrentHealth: 0
+  mainActor: {fileID: 7371199112689815574}
   isPermament: 1
   tickDamage: 1
   damageValue: 10
@@ -144,8 +164,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6345587823730827619}
   - component: {fileID: 6345587823730827618}
-  - component: {fileID: 6345587823730827621}
-  m_Layer: 0
+  - component: {fileID: 4299667579686710281}
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +237,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6345587823730827621
+--- !u!114 &4299667579686710281
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,10 +246,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6345587823730827616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15fe00b456d6524418d1d09b5da6597d, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a3f40244f884dc49b637f75d6a7446b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   flashTransparentLevel: 0.4
+  isFlashing: 0
 --- !u!1 &6345587823902931514
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6345587823902931517}
   - component: {fileID: 6345587823902931516}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

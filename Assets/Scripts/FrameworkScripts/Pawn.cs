@@ -32,9 +32,42 @@ public class Pawn : Actor
         get { return _pawnSprite; }
     }
 
+    protected Rigidbody2D pawnRB;
+
+    public virtual Rigidbody2D GetPawnRB()
+    {
+        return pawnRB;
+    }
+
+    public virtual Vector2 GetVelocity()
+    {
+        return pawnRB.velocity;
+    }
+
+    /// <summary>
+    /// Sets the pawn's rigidbody velocity according to the input velocity vector2.
+    /// </summary>
+    /// <param name="desiredVelocity">Desired velocity as a vector2 value.</param>
+    public virtual void PawnRB_SetVelocity(Vector2 desiredVelocity)
+    {
+        pawnRB.velocity = desiredVelocity;
+    }
+
     protected virtual void Awake()
     {
+        InitializeRB();
         LogMsg("Default initialization from Pawn " + ObjectName);
+    }
+
+    protected virtual void InitializeRB()
+    {
+        pawnRB = gameObject.GetComponent<Rigidbody2D>();
+        if (!pawnRB)
+        {
+            // If the pawn has no rigidbody, add one. This is not intended behavior, as most pawns should have a rigidbody, with a few exceptions.
+            pawnRB = gameObject.AddComponent<Rigidbody2D>();
+            LogMsg("No rigidbody assigned to pawn at " + ObjectName + ". Assign one in the scene menu for better results.");
+        }
     }
 
     /// <summary>

@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class DamageHitbox : Actor
 {
+    /// <summary>
+    /// If this field is filled, this hitbox is a composite of another actor and should redirect damage taken to that actor.
+    /// </summary>
+    public Actor mainActor = null;
+
     public bool isPermament = false;
 
     public bool tickDamage = false;
@@ -42,6 +47,18 @@ public class DamageHitbox : Actor
             {
                 otherActor.TakeDamage(this, damageValue, Owner, thisDamageInfo);
             }
+        }
+    }
+
+    public override bool TakeDamage(Actor DamageSource, float DamageValue, Controller DamageInstigator = null, DamageInfo EventInfo = null)
+    {
+        if (mainActor)
+        {
+            return mainActor.TakeDamage(DamageSource, DamageValue, DamageInstigator, EventInfo);
+        }
+        else
+        {
+            return base.TakeDamage(DamageSource, DamageValue, DamageInstigator, EventInfo);
         }
     }
 
