@@ -1697,6 +1697,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1325603578}
   - component: {fileID: 1325603579}
+  - component: {fileID: 1325603580}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -1769,6 +1770,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1325603580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325603577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15fe00b456d6524418d1d09b5da6597d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashTransparentLevel: 0.4
 --- !u!1 &1422310746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1972,14 +1986,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TakesDamage: 0
-  _actorName: ActorName_Default
+  _actorName: Bull_Hurtbox
   DebugDamageLog: 1
-  _actorMaximumHealth: 100
-  _actorCurrentHealth: 100
-  isPermament: 0
-  tickDamage: 0
-  damageValue: 0
-  hitboxLifetime: 4
+  _actorMaximumHealth: 0
+  _actorCurrentHealth: 0
+  isPermament: 1
+  tickDamage: 1
+  damageValue: 10
+  hitboxLifetime: 0
 --- !u!114 &1807734934 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4468926738766167121, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
