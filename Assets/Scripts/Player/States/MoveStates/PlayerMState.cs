@@ -21,7 +21,7 @@ public class PlayerMState : StateType_Movement
     /// <param name="movementVector"></param>
     public virtual void PlayerMovement(Vector2 movementVector)
     {
-        myStateMachine.ThePlayerPawn.PlayerRB_SetVelocity(movementVector);
+        myStateMachine.ThePlayerPawn.PawnRB_SetVelocity(movementVector);
     }
 
     /// <summary>
@@ -30,10 +30,10 @@ public class PlayerMState : StateType_Movement
     /// <param name="jumpHeight"></param>
     public virtual void PlayerJump(float jumpHeight)
     {
-        myStateMachine.ThePlayerPawn.PlayerRB_SetVelocity(
+        myStateMachine.ThePlayerPawn.PawnRB_SetVelocity(
             new Vector2(myStateMachine.ThePlayerPawn.GetVelocity().x, 0));
 
-        myStateMachine.ThePlayerPawn.GetPlayerRB().AddForce(transform.up * jumpHeight * 50);
+        myStateMachine.ThePlayerPawn.GetPawnRB().AddForce(transform.up * jumpHeight * 50);
     }
 
     public override void PerformState()

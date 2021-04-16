@@ -6,7 +6,7 @@ public class PlayerCState_Invuln : PlayerCState
 {
     float duration = 1.5f; // Default value of 1.5 seconds
 
-    float flashInterval = 0.35f;
+    float flashInterval = 0.15f;
     float flashDuration = 0f;
 
     public override void EnterState()
@@ -24,7 +24,16 @@ public class PlayerCState_Invuln : PlayerCState
 
         if(flashDuration <= 0f)
         {
-            //if()
+            if (myStateMachine.ThePlayerPawn.PlayerSprite.isFlashing)
+            {
+                myStateMachine.ThePlayerPawn.PlayerSprite.FlashSprite(false);
+            }
+            else
+            {
+                myStateMachine.ThePlayerPawn.PlayerSprite.FlashSprite(true);
+            }
+
+            flashDuration = flashInterval;
         }
     }
 
@@ -35,5 +44,12 @@ public class PlayerCState_Invuln : PlayerCState
         {
             myStateMachine.ChangeConditionState<PlayerCState_Alive>();
         }
+    }
+
+    public override void ExitState()
+    {
+        base.ExitState();
+
+        myStateMachine.ThePlayerPawn.PlayerSprite.FlashSprite(false);
     }
 }

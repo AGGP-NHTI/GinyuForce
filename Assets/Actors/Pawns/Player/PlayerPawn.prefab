@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1477177997544160404}
   - component: {fileID: 2156063322322649236}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2326798298427428030}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackHitboxSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8239403414329400570}
-  m_Layer: 0
+  - component: {fileID: 1720955206355852323}
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,6 +120,22 @@ Transform:
   m_Father: {fileID: 7875237457772932441}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1720955206355852323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3937089883662472804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7bab426676e304dabd754f601c57f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashTransparentLevel: 0.4
+  isFlashing: 0
+  topHalf: {fileID: 6526383340873667921}
+  bottomHalf: {fileID: 1522241495125845387}
 --- !u!1 &5207138468945016507
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +148,7 @@ GameObject:
   - component: {fileID: 1802288580826816042}
   - component: {fileID: 3151477593723334740}
   - component: {fileID: 4468926738766167121}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerPawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,12 +232,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TakesDamage: 1
-  _actorName: PlayerCharacter_Sword
-  DebugDamageLog: 1
+  _actorName: PlayerCharacter_Swordsman
+  DebugDamageLog: 0
   _actorMaximumHealth: 100
   _actorCurrentHealth: 100
+  _pawnSprite: {fileID: 1720955206355852323}
   movementSpeed: 6
   jumpHeight: 10
+  invulnTime: 1.5
   AttackAnchorPoint: {fileID: 2633523436694433870}
   SwordHitboxPrefab: {fileID: 7563259570569147031, guid: cad20505c6bd8c545a44182eaa8becf5, type: 3}
   _playerStateMachine: {fileID: 0}
@@ -234,7 +253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4921008718659271460}
   - component: {fileID: 6526383340873667921}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TopHalf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6115944487811572402}
   - component: {fileID: 1522241495125845387}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BottomHalf
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,6 +13,7 @@ public class PlayerCState_Dying : PlayerCState
     {
         base.EnterState();
         PlayerInputPoller.Self.DisablePlayerInput();
+        myStateMachine.ThePlayerPawn.DoesTakeDamage = false;
     }
 
     public override void PerformState()

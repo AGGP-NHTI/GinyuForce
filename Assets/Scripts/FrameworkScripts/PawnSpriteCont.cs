@@ -9,6 +9,8 @@ public class PawnSpriteCont : Core
     /// </summary>
     public float flashTransparentLevel = 0.4f;
 
+    public bool isFlashing = false;
+
     protected SpriteRenderer spriteTexture;
 
     protected virtual void Awake()
@@ -22,7 +24,7 @@ public class PawnSpriteCont : Core
     }
 
     /// <summary>
-    /// Public method that flashes the sprite "on" or "off"
+    /// Public method that flashes the sprite "on" or "off" between solid and transparent.
     /// </summary>
     /// <param name="toggle">If true, make sprite semi transparent. If false, make completely opaque.</param>
     public virtual void FlashSprite(bool toggle)

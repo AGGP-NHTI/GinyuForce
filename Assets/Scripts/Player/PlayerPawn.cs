@@ -49,50 +49,12 @@ public class PlayerPawn : Pawn
         get { return _playerSprite; }
     }
 
-    /// <summary>
-    /// The rigidbody component of the pawn.
-    /// </summary>
-    protected Rigidbody2D playerRB = null;
-
-    /// <summary>
-    /// Gets a reference to the rigidbody of the player pawn.
-    /// </summary>
-    /// <returns></returns>
-    public Rigidbody2D GetPlayerRB()
-    {
-        return playerRB;
-    }
-    
-    /// <summary>
-    /// Gets the current velocity of the player's rigidbody component.
-    /// </summary>
-    /// <returns></returns>
-    public Vector2 GetVelocity()
-    {
-        return playerRB.velocity;
-    }
-
-    /// <summary>
-    /// Sets the pawn's rigidbody velocity according to the input velocity vector2.
-    /// </summary>
-    /// <param name="desiredVelocity">Desired velocity as a vector2 value.</param>
-    public void PlayerRB_SetVelocity(Vector2 desiredVelocity)
-    {
-        playerRB.velocity = desiredVelocity;
-    }
-
     [SerializeField]
     protected PlayerStateMachine _playerStateMachine = null;
 
     protected override void Awake()
     {
-        playerRB = gameObject.GetComponent<Rigidbody2D>();
-        if (!playerRB)
-        {
-            // If the pawn has no rigidbody, add one. This is not intended behavior, as most pawns should have a rigidbody, with a few exceptions.
-            playerRB = gameObject.AddComponent<Rigidbody2D>();
-            LogMsg("No rigidbody assigned to player. Assign one in the scene menu for better results.");
-        }
+        InitializeRB();
         if (!_playerStateMachine)
         {
             _playerStateMachine = gameObject.AddComponent<PlayerStateMachine>();
@@ -128,7 +90,7 @@ public class PlayerPawn : Pawn
     public override void PawnMovement(Vector2 movementValues)
     {
         // This mods in the movement speed from the pawn
-        Vector2 actualMovement = new Vector2(movementValues.x * movementSpeed, playerRB.velocity.y);
+        Vector2 actualMovement = new Vector2(movementValues.x * movementSpeed, pawnRB.velocity.y);
 
         if(movementValues.x < 0 && facingRight)
         {
