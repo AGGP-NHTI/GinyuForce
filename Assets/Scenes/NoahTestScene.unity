@@ -2073,11 +2073,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6345587822629764360, guid: 7ee7012b8dec44f4f9c43821690ad50f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.3
+      value: -3.89
       objectReference: {fileID: 0}
     - target: {fileID: 6345587822629764360, guid: 7ee7012b8dec44f4f9c43821690ad50f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.04
+      value: -0.58
       objectReference: {fileID: 0}
     - target: {fileID: 6345587822629764360, guid: 7ee7012b8dec44f4f9c43821690ad50f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2103,29 +2103,13 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 6345587822629764360, guid: 7ee7012b8dec44f4f9c43821690ad50f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6345587822629764360, guid: 7ee7012b8dec44f4f9c43821690ad50f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6345587822629764360, guid: 7ee7012b8dec44f4f9c43821690ad50f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6345587822629764375, guid: 7ee7012b8dec44f4f9c43821690ad50f, type: 3}
       propertyPath: m_Name
       value: BullPawn
       objectReference: {fileID: 0}
-    - target: {fileID: 6345587823482532550, guid: 7ee7012b8dec44f4f9c43821690ad50f, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6345587823730827616, guid: 7ee7012b8dec44f4f9c43821690ad50f, type: 3}
-      propertyPath: m_Layer
-      value: 8
+    - target: {fileID: 6345587823902931517, guid: 7ee7012b8dec44f4f9c43821690ad50f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.961
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ee7012b8dec44f4f9c43821690ad50f, type: 3}
@@ -2136,33 +2120,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2633523436694433870, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3151477593723334740, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3937089883662472804, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 5207138468945016507, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
       propertyPath: m_Name
       value: PlayerPawn
-      objectReference: {fileID: 0}
-    - target: {fileID: 5207138468945016507, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6830840444230740202, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7866600625481329318, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7875237457772932441, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
       propertyPath: m_LocalPosition.x

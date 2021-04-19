@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TempBull_Input : Core
 {
@@ -21,24 +22,26 @@ public class TempBull_Input : Core
         Bull = gameObject.GetComponent<BullController>();
 
         BullInput = new BullTempControls();
-        BullInput.BullTempCtrlMap.BullCharge.performed += bullctx => BullChargeAttack();
-        BullInput.BullTempCtrlMap.BullJump.performed += bullctx => BullJumpAttack();
-        BullInput.BullTempCtrlMap.BullSing.performed += bullctx => BullSingAttack();
+        BullInput.BullTempCtrlMap.BullCharge.performed += bullctx => BullChargeAttack(bullctx);
+        BullInput.BullTempCtrlMap.BullJump.performed += bullctx => BullJumpAttack(bullctx);
+        BullInput.BullTempCtrlMap.BullSing.performed += bullctx => BullSingAttack(bullctx);
     }
 
-    public void BullJumpAttack()
+    public void BullJumpAttack(InputAction.CallbackContext ctx)
     {
-        Bull.DoJumpAttack();
+        Bull.DoAttack3();
     }
 
-    public void BullChargeAttack()
+    public void BullChargeAttack(InputAction.CallbackContext ctx)
     {
-        Bull.DoChargeAttack();
+        float direction = ctx.ReadValue<Vector2>().x;
+
+        Bull.DoAttack1(default, direction);
     }
 
-    public void BullSingAttack()
+    public void BullSingAttack(InputAction.CallbackContext ctx)
     {
-        Bull.DoSingAttack();
+        Bull.DoAttack2();
     }
 
     private void OnEnable()

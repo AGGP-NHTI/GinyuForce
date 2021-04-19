@@ -76,14 +76,7 @@ public class PlayerController : Controller
     private void FixedUpdate()
     {
         Vector2 movementValues = new Vector2(xMove, 0);
-        if (isMoving)
-        {
-            //playerRB.velocity = new Vector2(xMove * MoveSpeed, playerRB.velocity.y);
-            thisPlayerPawn.PawnMovement(movementValues);
-        }
-        else
-        {
-            thisPlayerPawn.PawnMovement(movementValues);
-        }
+
+        thisPlayerPawn.PawnMovement(movementValues);
     }
 }

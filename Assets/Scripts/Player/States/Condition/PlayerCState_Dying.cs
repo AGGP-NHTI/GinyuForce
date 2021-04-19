@@ -14,6 +14,12 @@ public class PlayerCState_Dying : PlayerCState
         base.EnterState();
         PlayerInputPoller.Self.DisablePlayerInput();
         myStateMachine.ThePlayerPawn.DoesTakeDamage = false;
+
+        myStateMachine.ThePlayerPawn.PawnRB_SetVelocity(Vector2.zero);
+
+        myStateMachine.ThePlayerPawn.GetPawnRB().AddForce(transform.up * 600);
+
+        myStateMachine.ThePlayerPawn.GetComponentInChildren<ActorPhysicsBox>().gameObject.SetActive(false);
     }
 
     public override void PerformState()

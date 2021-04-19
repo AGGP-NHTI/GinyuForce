@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1477177997544160404}
   - component: {fileID: 2156063322322649236}
+  - component: {fileID: 413455618716607597}
   m_Layer: 9
   m_Name: Feet
   m_TagString: Untagged
@@ -57,6 +58,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.01}
   m_EdgeRadius: 0
+--- !u!114 &413455618716607597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877531754556567301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60bd3cbf3fae91429404a95355ce0b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2633523436694433870
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +231,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &4468926738766167121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,8 +247,8 @@ MonoBehaviour:
   TakesDamage: 1
   _actorName: PlayerCharacter_Swordsman
   DebugDamageLog: 0
-  _actorMaximumHealth: 100
-  _actorCurrentHealth: 100
+  _actorMaximumHealth: 3
+  _actorCurrentHealth: 3
   _pawnSprite: {fileID: 1720955206355852323}
   movementSpeed: 6
   jumpHeight: 10

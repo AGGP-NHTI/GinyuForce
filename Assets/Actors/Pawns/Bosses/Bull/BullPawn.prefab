@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _controllerInternalName: ControllerName_Default
-  _controlledPawn: {fileID: 0}
+  _controlledPawn: {fileID: 7371199112689815574}
 --- !u!1 &6345587823482532550
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.05, y: 0}
+  m_Offset: {x: 0, y: -0.05}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -145,7 +145,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.4, y: 2.4}
+  m_Size: {x: 1.8, y: 1.8}
   m_EdgeRadius: 0
 --- !u!114 &6345587823482532603
 MonoBehaviour:
@@ -196,7 +196,7 @@ Transform:
   m_GameObject: {fileID: 6345587823730827616}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6345587822629764360}
   m_RootOrder: 0
@@ -241,7 +241,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6705728177886568243, guid: 8c71efe6810b2df478e70f1658cf49b6, type: 3}
+  m_Sprite: {fileID: -8665038974897784990, guid: a1cd451254aba14478deb78fcc49a8c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -276,6 +276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6345587823902931517}
   - component: {fileID: 6345587823902931516}
+  - component: {fileID: 5583361282318278419}
   m_Layer: 9
   m_Name: Feet
   m_TagString: Untagged
@@ -310,7 +311,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.1, y: -1.25}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -321,5 +322,17 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 0.01}
+  m_Size: {x: 1.8, y: 0.01}
   m_EdgeRadius: 0
+--- !u!114 &5583361282318278419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6345587823902931514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60bd3cbf3fae91429404a95355ce0b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -44,6 +44,13 @@ public class Pawn : Actor
         return pawnRB.velocity;
     }
 
+    protected bool facingRight = true;
+
+    public virtual bool IsFacingRight()
+    {
+        return facingRight;
+    }
+
     /// <summary>
     /// Sets the pawn's rigidbody velocity according to the input velocity vector2.
     /// </summary>

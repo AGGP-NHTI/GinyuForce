@@ -29,13 +29,6 @@ public class PlayerPawn : Pawn
 
     public GameObject SwordHitboxPrefab = null;
 
-    private bool facingRight = true;
-
-    public bool IsFacingRight()
-    {
-        return facingRight;
-    }
-
     /// <summary>
     /// Script reference to the container object for the player sprite.
     /// </summary>
@@ -121,7 +114,9 @@ public class PlayerPawn : Pawn
     {
         base.ProcessDamage(DamageSource, DamageValue, DamageInstigator, EventInfo);
 
-        _actorCurrentHealth -= DamageValue;
+        _actorCurrentHealth -= 1;
+
+        pawnRB.velocity = Vector2.zero;
 
         if(_actorCurrentHealth <= 0f)
         {

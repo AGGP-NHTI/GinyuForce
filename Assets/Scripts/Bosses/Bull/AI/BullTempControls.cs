@@ -36,7 +36,7 @@ public class @BullTempControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""BullCharge"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""79b4b589-fe49-48d0-b44a-68341964d651"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -67,15 +67,59 @@ public class @BullTempControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""bf93f590-0266-4a95-b44c-dff8f0e47a6f"",
+                    ""name"": ""LeftRightMovement"",
+                    ""id"": ""763740c9-9382-42e3-a518-55dc4bfceab8"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BullCharge"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""e719bf86-807b-4851-8139-292df1b93b18"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BullCharge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""9a8ae83b-edf7-4a93-b05d-8e8be759c34b"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BullCharge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""1dd08a21-2d98-4aca-9f86-3dd93b2debb2"",
+                    ""path"": ""<Keyboard>/leftBracket"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BullCharge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""ad2a177c-add0-4b74-9cb4-7ce71cf4f981"",
                     ""path"": ""<Keyboard>/rightBracket"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""BullCharge"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 }
             ]
         }
