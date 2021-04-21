@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class BullPawn : BossPawn
 {
+    [SerializeField]
+    protected BullStateMachine _bullStateMachine = null;
+
     protected override void Awake()
     {
         InitializeRB();
+        if (!_bullStateMachine)
+        {
+            _bullStateMachine = gameObject.AddComponent<BullStateMachine>();
+        }
     }
 
     protected override void ProcessDamage(Actor DamageSource, float DamageValue, Controller DamageInstigator, DamageInfo EventInfo)
