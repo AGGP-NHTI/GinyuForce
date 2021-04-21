@@ -7,7 +7,7 @@ public class PlayerPlungeHitbox : PlayerSwordHitbox
     protected override void Update()
     {
         base.Update();
-        if (player.MainStateMachine.CurrentMoveState is PlayerMState_OnGround || player.MainStateMachine.CurrentConditionState is PlayerCState_Dead)
+        if (player.MainStateMachine.CurrentMoveState is PlayerMState_OnGround || player.MainStateMachine.CurrentConditionState is PlayerCState_Dying)
         {
             Destroy(gameObject);
         }
