@@ -29,6 +29,8 @@ public class PlayerPawn : Pawn
 
     public GameObject SwordHitboxPrefab = null;
 
+    public GameObject SwordPlungingPrefab = null;
+
     /// <summary>
     /// Script reference to the container object for the player sprite.
     /// </summary>
@@ -44,6 +46,11 @@ public class PlayerPawn : Pawn
 
     [SerializeField]
     protected PlayerStateMachine _playerStateMachine = null;
+
+    public PlayerStateMachine MainStateMachine
+    {
+        get { return _playerStateMachine; }
+    }
 
     protected override void Awake()
     {

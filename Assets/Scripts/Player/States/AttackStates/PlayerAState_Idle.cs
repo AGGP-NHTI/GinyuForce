@@ -42,10 +42,10 @@ public class PlayerAState_Idle : PlayerAState
             if (myStateMachine.CurrentMoveState is PlayerMState_InAir)
             {
                 attackDir = new Vector3(0, directionInfo.y * 0.8f, 0);
-                updownRotation = Quaternion.Euler(new Vector3(0, 0, 90));
+                //updownRotation = Quaternion.Euler(new Vector3(0, 0, 90));
 
                 GameObject attackHitbox = Spawner(
-                myStateMachine.ThePlayerPawn.SwordHitboxPrefab,
+                myStateMachine.ThePlayerPawn.SwordPlungingPrefab,
                 myStateMachine.ThePlayerPawn.AttackAnchorPoint.transform,
                 myStateMachine.ThePlayerPawn.Owner
                 );

@@ -255,6 +255,7 @@ MonoBehaviour:
   invulnTime: 1.5
   AttackAnchorPoint: {fileID: 2633523436694433870}
   SwordHitboxPrefab: {fileID: 7563259570569147031, guid: cad20505c6bd8c545a44182eaa8becf5, type: 3}
+  SwordPlungingPrefab: {fileID: 3086967127933178585, guid: d7f513b6f25b869428bf742144a4f07d, type: 3}
   _playerStateMachine: {fileID: 0}
 --- !u!1 &6830840444230740202
 GameObject:
