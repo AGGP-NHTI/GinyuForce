@@ -4,5 +4,42 @@ using UnityEngine;
 
 public class BullCState_Stunned : BullCState
 {
-    
+    private float stunTime = 0f;
+
+    public override void EnterState()
+    {
+        base.EnterState();
+
+        // Do stunned animation here.
+
+        myStateMachine.TheBullPawn.PawnMovement(Vector2.zero);
+
+        myStateMachine.ChangeAttackState<BullAState_Idle>();
+
+        Vector2 knockback = new Vector2(myStateMachine.TheBullPawn.stunLength, myStateMachine.TheBullPawn.stunHeight);
+
+        if (myStateMachine.TheBullPawn.IsFacingRight())
+        {
+            knockback.x *= -1f;
+        }
+
+        myStateMachine.TheBullPawn.PawnRB_SetVelocity(knockback);
+    }
+
+    public override void PerformState()
+    {
+        base.PerformState();
+
+        stunTime += Time.deltaTime;
+    }
+
+    public override void TransitionState()
+    {
+        base.TransitionState();
+
+        if(stunTime >= myStateMachine.TheBullPawn.stunCooldown)
+        {
+            myStateMachine.ChangeConditionState<BullCState_Alive>();
+        }
+    }
 }

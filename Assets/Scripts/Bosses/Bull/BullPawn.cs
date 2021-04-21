@@ -9,6 +9,26 @@ public class BullPawn : BossPawn
     /// </summary>
     public float chargeSpeed = 10f;
 
+    /// <summary>
+    /// How long Bull remains stunned for after hitting a wall.
+    /// </summary>
+    public float stunCooldown = 3.5f;
+
+    /// <summary>
+    /// How much damage Bull takes when he hits a wall.
+    /// </summary>
+    public float stunDamage = 10f;
+
+    /// <summary>
+    /// How high Bull is shifted when he hits a wall.
+    /// </summary>
+    public float stunHeight = 4f;
+
+    /// <summary>
+    /// How far Bull is knocked back when he hits a wall.
+    /// </summary>
+    public float stunLength = 2f;
+
     [SerializeField]
     protected BullStateMachine _bullStateMachine = null;
 
@@ -32,7 +52,7 @@ public class BullPawn : BossPawn
 
     public override void PawnMovement(Vector2 movementValues)
     {
-        pawnRB.velocity = movementValues;
+        PawnRB_SetVelocity(movementValues);
     }
 
     public virtual void BullRotate(float turnValue)
