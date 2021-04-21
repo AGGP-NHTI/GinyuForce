@@ -11,8 +11,14 @@ public class BullStateMachine : StateMachineBase
         get { return _bullPawn; }
     }
 
+    /// <summary>
+    /// Currently unused state to hold his anger level
+    /// </summary>
     protected BullAngState _currentAngerState = null;
 
+    /// <summary>
+    /// Currently unused state to hold his anger level
+    /// </summary>
     public BullAngState CurrentAngerState
     {
         get { return _currentAngerState; }
@@ -38,6 +44,15 @@ public class BullStateMachine : StateMachineBase
 
         ChangeAttackState<BullAState_Idle>();
         ChangeConditionState<BullCState_Alive>();
+    }
+
+    protected virtual void Update()
+    {
+        _currentAttackState.PerformState();
+        _currentAttackState.TransitionState();
+
+        _currentConditionState.PerformState();
+        _currentConditionState.TransitionState();
     }
 
     public virtual void ChangeAttackState<TargetStateType>() where TargetStateType : BullAState

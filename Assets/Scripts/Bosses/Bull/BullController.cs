@@ -26,7 +26,7 @@ public class BullController : AIController
     {
         if (Bull)
         {
-            Bull.BossAttack1();
+            Bull.BossAttack1(directionalValues);
         }
     }
 

@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class BullPawn : BossPawn
 {
+    /// <summary>
+    /// Speed that modifies how fast Bull charges.
+    /// </summary>
+    public float chargeSpeed = 10f;
+
     [SerializeField]
     protected BullStateMachine _bullStateMachine = null;
 
@@ -27,12 +32,39 @@ public class BullPawn : BossPawn
 
     public override void PawnMovement(Vector2 movementValues)
     {
-        
+        pawnRB.velocity = movementValues;
+    }
+
+    public virtual void BullRotate(float turnValue)
+    {
+        if (turnValue < 0 && facingRight)
+        {
+            Vector3 tempScale = transform.localScale;
+            tempScale.x *= -1f;
+            transform.localScale = tempScale;
+
+            facingRight = false;
+        }
+        else if (turnValue > 0 && !facingRight)
+        {
+            Vector3 tempScale = transform.localScale;
+            tempScale.x *= -1f;
+            transform.localScale = tempScale;
+
+            facingRight = true;
+        }
     }
 
     public override void BossAttack1(Vector2 directionalValues = default, float floatValue1 = 0, float floatValue2 = 0)
     {
         LogMsg("Bull Charge Attack");
+
+        if(_bullStateMachine.CurrentConditionState is BullCState_Alive && _bullStateMachine.CurrentAttackState is BullAState_Idle)
+        {
+            _bullStateMachine.ChangeAttackState<BullAState_Revving>();
+
+            BullRotate(directionalValues.x);
+        }
     }
 
     public override void BossAttack2(Vector2 directionalValues = default, float floatValue1 = 0, float floatValue2 = 0)

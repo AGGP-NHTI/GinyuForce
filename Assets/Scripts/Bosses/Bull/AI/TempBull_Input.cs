@@ -34,9 +34,7 @@ public class TempBull_Input : Core
 
     public void BullChargeAttack(InputAction.CallbackContext ctx)
     {
-        float direction = ctx.ReadValue<Vector2>().x;
-
-        Bull.DoAttack1(default, direction);
+        Bull.DoAttack1(ctx.ReadValue<Vector2>());
     }
 
     public void BullSingAttack(InputAction.CallbackContext ctx)
