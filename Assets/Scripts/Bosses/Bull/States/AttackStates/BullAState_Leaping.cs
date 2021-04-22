@@ -50,7 +50,7 @@ public class BullAState_Leaping : BullAState
     {
         base.TransitionState();
 
-        if(Mathf.Abs(playerPos.x - Location.x) <= 0.0000000000002f)
+        if(count >= maxTime)
         {
             myStateMachine.ChangeAttackState<BullAState_BodySlam>();
         }

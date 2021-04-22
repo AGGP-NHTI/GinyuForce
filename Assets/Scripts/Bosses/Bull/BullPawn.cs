@@ -42,12 +42,12 @@ public class BullPawn : BossPawn
     /// <summary>
     /// How fast Bull will fall after completing the arc of his jump
     /// </summary>
-    public float fallSpeed = 7.5f;
+    public float fallSpeed = 11.5f;
 
     /// <summary>
     /// How long Bull will be on his face after his jump attack.
     /// </summary>
-    public float faceplantTime = 4.5f;
+    public float faceplantTime = 2.5f;
 
     [SerializeField]
     protected BullStateMachine _bullStateMachine = null;
