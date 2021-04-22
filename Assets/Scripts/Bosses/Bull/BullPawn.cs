@@ -38,6 +38,11 @@ public class BullPawn : BossPawn
     /// The time it takes for Bull to complete his jump.
     /// </summary>
     public float jumpTime = 1.5f;
+    
+    /// <summary>
+    /// How fast Bull will fall after completing the arc of his jump
+    /// </summary>
+    public float fallSpeed = 7.5f;
 
     /// <summary>
     /// How long Bull will be on his face after his jump attack.
@@ -96,9 +101,9 @@ public class BullPawn : BossPawn
 
         if(_bullStateMachine.CurrentConditionState is BullCState_Alive && _bullStateMachine.CurrentAttackState is BullAState_Idle)
         {
-            _bullStateMachine.ChangeAttackState<BullAState_Revving>();
-
             BullRotate(directionalValues.x);
+
+            _bullStateMachine.ChangeAttackState<BullAState_Revving>();
         }
     }
 
@@ -119,9 +124,9 @@ public class BullPawn : BossPawn
 
         if(_bullStateMachine.CurrentConditionState is BullCState_Alive && _bullStateMachine.CurrentAttackState is BullAState_Idle)
         {
-            _bullStateMachine.ChangeAttackState<BullAState_Leaping>();
-
             BullRotate(directionalValues.x);
+
+            _bullStateMachine.ChangeAttackState<BullAState_Leaping>();
         }
     }
 }

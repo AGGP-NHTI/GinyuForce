@@ -8,14 +8,13 @@ public class BullAState_BodySlam : BullAState
     {
         base.EnterState();
 
-        myStateMachine.TheBullPawn.GetPawnRB().AddForce(Vector2.down * 10f);
+        myStateMachine.TheBullPawn.PawnRB_SetVelocity(Vector2.down * myStateMachine.TheBullPawn.fallSpeed);
     }
 
-    public override void TransitionState()
-    {
-        base.TransitionState();
 
-        if (myStateMachine.TheBullPawn.GetVelocity().y < 0.001f)
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.layer == 10)
         {
             myStateMachine.ChangeConditionState<BullCState_Faceplant>();
         }

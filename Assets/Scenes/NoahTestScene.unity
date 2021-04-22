@@ -1573,7 +1573,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &935495338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2107,7 +2107,7 @@ GameObject:
   - component: {fileID: 2020859871}
   - component: {fileID: 2020859870}
   - component: {fileID: 2020859869}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2292,7 +2292,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6345587822629764360, guid: 7ee7012b8dec44f4f9c43821690ad50f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.89
+      value: 3.51
       objectReference: {fileID: 0}
     - target: {fileID: 6345587822629764360, guid: 7ee7012b8dec44f4f9c43821690ad50f, type: 3}
       propertyPath: m_LocalPosition.y

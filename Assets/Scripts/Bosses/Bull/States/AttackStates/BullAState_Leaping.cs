@@ -21,9 +21,13 @@ public class BullAState_Leaping : BullAState
 
         bullPos = myStateMachine.TheBullPawn.Location;
 
-        playerPos = GameInstanceManager.Main.ThePlayer.Location + Vector3.up * 3f;
+        playerPos = GameInstanceManager.Main.ThePlayer.Location + Vector3.up * 5f;
 
-        arcControlPoint = bullPos + (playerPos - bullPos) / 2 + Vector2.up * myStateMachine.TheBullPawn.jumpHeight;
+        Vector2 distance = new Vector2(Vector2.Distance(playerPos, bullPos), 0);
+
+        if (playerPos.x < bullPos.x) distance *= -1;
+
+        arcControlPoint = bullPos + distance / 2 + Vector2.up * myStateMachine.TheBullPawn.jumpHeight;
 
         maxTime = myStateMachine.TheBullPawn.jumpTime;
     }
@@ -46,7 +50,7 @@ public class BullAState_Leaping : BullAState
     {
         base.TransitionState();
 
-        if(count >= maxTime)
+        if(Mathf.Abs(playerPos.x - Location.x) <= 0.0000000000002f)
         {
             myStateMachine.ChangeAttackState<BullAState_BodySlam>();
         }
