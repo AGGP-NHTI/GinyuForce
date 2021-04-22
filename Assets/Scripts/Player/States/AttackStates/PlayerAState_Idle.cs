@@ -27,10 +27,10 @@ public class PlayerAState_Idle : PlayerAState
                 myStateMachine.ThePlayerPawn.Owner
                 );
 
-            if (!myStateMachine.ThePlayerPawn.IsFacingRight())
-            {
-                attackDir.x *= -1f;
-            }
+            //if (!myStateMachine.ThePlayerPawn.IsFacingRight())
+            //{
+            //    attackDir.x *= -1f;
+            //}
 
             attackHitbox.transform.localPosition = attackDir;
             attackHitbox.transform.localRotation = updownRotation;

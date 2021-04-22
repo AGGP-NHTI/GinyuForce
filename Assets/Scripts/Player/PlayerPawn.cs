@@ -98,6 +98,8 @@ public class PlayerPawn : Pawn
             tempScale.x *= -1f;
             transform.localScale = tempScale;
 
+            AttackAnchorPoint.transform.localScale = tempScale;
+
             facingRight = false;
         }
         else if(movementValues.x > 0 && !facingRight)
@@ -105,6 +107,8 @@ public class PlayerPawn : Pawn
             Vector3 tempScale = transform.localScale;
             tempScale.x *= -1f;
             transform.localScale = tempScale;
+
+            AttackAnchorPoint.transform.localScale = tempScale;
 
             facingRight = true;
         }
