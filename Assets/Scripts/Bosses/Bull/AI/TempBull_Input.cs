@@ -29,7 +29,7 @@ public class TempBull_Input : Core
 
     public void BullJumpAttack(InputAction.CallbackContext ctx)
     {
-        Bull.DoAttack3();
+        Bull.DoAttack3(GameInstanceManager.Main.ThePlayer.Location);
     }
 
     public void BullChargeAttack(InputAction.CallbackContext ctx)

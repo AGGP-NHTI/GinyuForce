@@ -29,6 +29,21 @@ public class BullPawn : BossPawn
     /// </summary>
     public float stunLength = 2f;
 
+    /// <summary>
+    /// Bull's jump height in units.
+    /// </summary>
+    public float jumpHeight = 5f;
+
+    /// <summary>
+    /// The time it takes for Bull to complete his jump.
+    /// </summary>
+    public float jumpTime = 1.5f;
+
+    /// <summary>
+    /// How long Bull will be on his face after his jump attack.
+    /// </summary>
+    public float faceplantTime = 4.5f;
+
     [SerializeField]
     protected BullStateMachine _bullStateMachine = null;
 
@@ -92,8 +107,21 @@ public class BullPawn : BossPawn
         LogMsg("Bull Sing Attack");
     }
 
+    /// <summary>
+    /// DirectionalValues should be the player's current position.
+    /// </summary>
+    /// <param name="directionalValues">Player's position</param>
+    /// <param name="floatValue1"></param>
+    /// <param name="floatValue2"></param>
     public override void BossAttack3(Vector2 directionalValues = default, float floatValue1 = 0, float floatValue2 = 0)
     {
         LogMsg("Bull Jump Attack");
+
+        if(_bullStateMachine.CurrentConditionState is BullCState_Alive && _bullStateMachine.CurrentAttackState is BullAState_Idle)
+        {
+            _bullStateMachine.ChangeAttackState<BullAState_Leaping>();
+
+            BullRotate(directionalValues.x);
+        }
     }
 }

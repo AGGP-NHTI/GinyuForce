@@ -80,6 +80,8 @@ MonoBehaviour:
   stunDamage: 10
   stunHeight: 4
   stunLength: 2
+  jumpHeight: 6
+  jumpTime: 1.5
   _bullStateMachine: {fileID: 0}
 --- !u!114 &8044773028965109606
 MonoBehaviour:

@@ -6,6 +6,14 @@ public class GameInstanceManager : Core
 {
     public static GameInstanceManager Main = null;
 
+    [SerializeField]
+    protected Actor _player = null;
+
+    public Actor ThePlayer
+    {
+        get { return _player; }
+    }
+
     protected bool _gameIsPaused = false;
 
     public bool IsGamePaused()
