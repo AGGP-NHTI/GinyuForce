@@ -250,7 +250,7 @@ MonoBehaviour:
   _actorMaximumHealth: 3
   _actorCurrentHealth: 3
   _pawnSprite: {fileID: 1720955206355852323}
-  movementSpeed: 6
+  movementSpeed: 8
   jumpHeight: 12
   invulnTime: 1.5
   AttackAnchorPoint: {fileID: 2633523436694433870}

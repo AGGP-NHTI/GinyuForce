@@ -71,13 +71,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TakesDamage: 1
   _actorName: BossActor_Bull
-  DebugDamageLog: 1
+  DebugDamageLog: 0
   _actorMaximumHealth: 100
   _actorCurrentHealth: 100
   _pawnSprite: {fileID: 4299667579686710281}
   chargeSpeed: 15
   stunCooldown: 3.5
-  stunDamage: 10
+  stunDamage: 5
   stunHeight: 4
   stunLength: 2
   jumpHeight: 6
