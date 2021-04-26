@@ -71,10 +71,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TakesDamage: 1
-  _actorName: BossActor_Bull
+  _actorName: Bull
   DebugDamageLog: 0
-  _actorMaximumHealth: 100
-  _actorCurrentHealth: 100
+  _actorMaximumHealth: 325
+  _actorCurrentHealth: 325
   _pawnSprite: {fileID: 4299667579686710281}
   revvTime: 1.5
   chargeSpeed: 15

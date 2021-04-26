@@ -14,6 +14,14 @@ public class GameInstanceManager : Core
         get { return _player; }
     }
 
+    [SerializeField]
+    protected Actor _currentBoss = null;
+
+    public Actor CurrentBoss
+    {
+        get { return _currentBoss; }
+    }
+
     protected bool _gameIsPaused = false;
 
     public bool IsGamePaused()

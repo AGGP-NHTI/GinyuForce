@@ -17,9 +17,6 @@ public class PlayerUIManager : Core
 
     public GameObject PlayerHeartSprite;
 
-    [SerializeField]
-    protected BullHealthbar _bullHealthbar = null;
-
     private void Awake()
     {
         if (Main)
