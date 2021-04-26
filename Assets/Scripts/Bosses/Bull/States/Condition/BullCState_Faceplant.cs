@@ -10,6 +10,8 @@ public class BullCState_Faceplant : BullCState
     {
         base.EnterState();
 
+        myStateMachine.TheBullPawn.bullSprite.sprite = SpriteManager.Main.bullSprites.FacePlant;
+
         myStateMachine.TheBullPawn.PawnRB_SetVelocity(Vector2.zero);
 
         myStateMachine.TheBullPawn.TakeDamage(myStateMachine.TheBullPawn, myStateMachine.TheBullPawn.stunDamage);

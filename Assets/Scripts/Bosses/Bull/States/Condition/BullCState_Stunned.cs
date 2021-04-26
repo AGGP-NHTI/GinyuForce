@@ -11,6 +11,7 @@ public class BullCState_Stunned : BullCState
         base.EnterState();
 
         // Do stunned animation here.
+        myStateMachine.TheBullPawn.bullSprite.sprite = SpriteManager.Main.bullSprites.Stun;
 
         myStateMachine.TheBullPawn.PawnMovement(Vector2.zero);
 

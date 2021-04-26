@@ -21,7 +21,7 @@ public class BullAState_Leaping : BullAState
 
         bullPos = myStateMachine.TheBullPawn.Location;
 
-        playerPos = GameInstanceManager.Main.ThePlayer.Location + Vector3.up * 5f;
+        playerPos = myStateMachine.TheBullPawn.SlamTarget + Vector2.up * 5f;
 
         Vector2 distance = new Vector2(Vector2.Distance(playerPos, bullPos), 0);
 
@@ -30,6 +30,8 @@ public class BullAState_Leaping : BullAState
         arcControlPoint = bullPos + distance / 2 + Vector2.up * myStateMachine.TheBullPawn.jumpHeight;
 
         maxTime = myStateMachine.TheBullPawn.jumpTime;
+
+        myStateMachine.TheBullPawn.bullSprite.sprite = SpriteManager.Main.bullSprites.Leaping;
     }
 
     public override void PerformState()

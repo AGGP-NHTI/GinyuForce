@@ -8,6 +8,8 @@ public class BullAState_BodySlam : BullAState
     {
         base.EnterState();
 
+        myStateMachine.TheBullPawn.bullSprite.sprite = SpriteManager.Main.bullSprites.BodySlam;
+
         myStateMachine.TheBullPawn.PawnRB_SetVelocity(Vector2.down * myStateMachine.TheBullPawn.fallSpeed);
     }
 

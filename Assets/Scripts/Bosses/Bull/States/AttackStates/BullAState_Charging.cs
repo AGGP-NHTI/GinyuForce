@@ -10,6 +10,8 @@ public class BullAState_Charging : BullAState
     {
         base.EnterState();
 
+        myStateMachine.TheBullPawn.bullSprite.sprite = SpriteManager.Main.bullSprites.Charge;
+
         chargeSpeed = Transform.forward;
 
         chargeSpeed.x += myStateMachine.TheBullPawn.chargeSpeed;

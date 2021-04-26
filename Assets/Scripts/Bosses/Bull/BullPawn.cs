@@ -5,6 +5,11 @@ using UnityEngine;
 public class BullPawn : BossPawn
 {
     /// <summary>
+    /// Variable that decides how long Bull will revv for.
+    /// </summary>
+    public float revvTime = 1.5f;
+
+    /// <summary>
     /// Speed that modifies how fast Bull charges.
     /// </summary>
     public float chargeSpeed = 10f;
@@ -30,6 +35,11 @@ public class BullPawn : BossPawn
     public float stunLength = 2f;
 
     /// <summary>
+    /// The time Bull will charge for before he leaps
+    /// </summary>
+    public float jumpChargeTime = 0.5f;
+
+    /// <summary>
     /// Bull's jump height in units.
     /// </summary>
     public float jumpHeight = 5f;
@@ -49,8 +59,25 @@ public class BullPawn : BossPawn
     /// </summary>
     public float faceplantTime = 2.5f;
 
+    /// <summary>
+    /// The target position that Bull will jump towards for his slam attack
+    /// </summary>
+    protected Vector2 _slamTarget = Vector2.zero;
+
+    public Vector2 SlamTarget
+    {
+        get { return _slamTarget; }
+    }
+
+    public void SetSlamTarget(Vector2 targetPos)
+    {
+        _slamTarget = targetPos;
+    }
+
     [SerializeField]
     protected BullStateMachine _bullStateMachine = null;
+
+    public SpriteRenderer bullSprite;
 
     protected override void Awake()
     {
@@ -58,6 +85,11 @@ public class BullPawn : BossPawn
         if (!_bullStateMachine)
         {
             _bullStateMachine = gameObject.AddComponent<BullStateMachine>();
+        }
+
+        if (!bullSprite)
+        {
+            bullSprite = gameObject.GetComponentInChildren<SpriteRenderer>();
         }
     }
 
@@ -126,7 +158,9 @@ public class BullPawn : BossPawn
         {
             BullRotate(directionalValues.x);
 
-            _bullStateMachine.ChangeAttackState<BullAState_Leaping>();
+            SetSlamTarget(directionalValues);
+
+            _bullStateMachine.ChangeAttackState<BullAState_LeapCharge>();
         }
     }
 }

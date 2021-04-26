@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class BullAState_Revving : BullAState
 {
-    /// <summary>
-    /// Variable that decides how long Bull will revv for.
-    /// </summary>
-    protected float revvTime = 3f;
-
     private float currentRevTime = 0f;
 
     public override void EnterState()
     {
         base.EnterState();
         // Switch to revving animation here
+        myStateMachine.TheBullPawn.bullSprite.sprite = SpriteManager.Main.bullSprites.Revv;
     }
 
     public override void PerformState()
@@ -28,7 +24,7 @@ public class BullAState_Revving : BullAState
     {
         base.TransitionState();
 
-        if(currentRevTime >= revvTime)
+        if(currentRevTime >= myStateMachine.TheBullPawn.revvTime)
         {
             myStateMachine.ChangeAttackState<BullAState_Charging>();
         }
