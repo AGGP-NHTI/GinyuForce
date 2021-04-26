@@ -12,6 +12,14 @@ public class PlayerUIManager : Core
     [SerializeField]
     protected GameObject GameOverScreen = null;
 
+    [SerializeField]
+    protected PlayerHealthbar _playerHealthbar = null;
+
+    public GameObject PlayerHeartSprite;
+
+    [SerializeField]
+    protected BullHealthbar _bullHealthbar = null;
+
     private void Awake()
     {
         if (Main)
@@ -39,5 +47,10 @@ public class PlayerUIManager : Core
     public void ToggleGameOverScreen(bool toggleMode)
     {
         GameOverScreen.SetActive(toggleMode);
+    }
+
+    public void UpdatePlayerHearts()
+    {
+        _playerHealthbar.UpdateHearts();
     }
 }

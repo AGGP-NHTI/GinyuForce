@@ -8,6 +8,9 @@ public class BullCState_Alive : BullCState
     {
         base.EnterState();
 
-        myStateMachine.TheBullPawn.bullSprite.sprite = SpriteManager.Main.bullSprites.Idle;
+        if (SpriteManager.Main)
+        {
+            myStateMachine.TheBullPawn.bullSprite.sprite = SpriteManager.Main.bullSprites.Idle;
+        }
     }
 }

@@ -129,6 +129,8 @@ public class PlayerPawn : Pawn
 
         pawnRB.velocity = Vector2.zero;
 
+        PlayerUIManager.Main.UpdatePlayerHearts();
+
         if(_actorCurrentHealth <= 0f)
         {
             ActorDeath(DamageSource, DamageInstigator);

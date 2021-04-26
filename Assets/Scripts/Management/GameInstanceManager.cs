@@ -62,7 +62,7 @@ public class GameInstanceManager : Core
     public void QuitGame()
     {
         LogMsg("Application quit.");
-        UnityEngine.Application.Quit();
+        Application.Quit();
     }
 
     public void GameOver()
