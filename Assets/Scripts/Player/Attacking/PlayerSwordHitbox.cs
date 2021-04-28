@@ -10,4 +10,10 @@ public class PlayerSwordHitbox : DamageHitbox
     {
         player = gameObject.GetComponentInParent<PlayerPawn>();
     }
+
+    protected override void Update()
+    {
+        if(!(player.MainStateMachine.CurrentConditionState is PlayerCState_Alive)) { Destroy(gameObject); }
+        base.Update();
+    }
 }

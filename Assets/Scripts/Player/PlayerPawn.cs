@@ -80,7 +80,10 @@ public class PlayerPawn : Pawn
 
     public override void Attack(Vector2 directions)
     {
-        _playerStateMachine.CurrentAttackState.Attack(directions);
+        if(_playerStateMachine.CurrentConditionState is PlayerCState_Alive)
+        {
+            _playerStateMachine.CurrentAttackState.Attack(directions);
+        }
     }
 
     /// <summary>

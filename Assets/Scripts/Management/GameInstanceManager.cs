@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameInstanceManager : Core
 {
@@ -127,8 +128,8 @@ public class GameInstanceManager : Core
 
     public void QuitGame()
     {
-        LogMsg("Application quit.");
-        Application.Quit();
+        PauseUnpause();
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void GameOver()
