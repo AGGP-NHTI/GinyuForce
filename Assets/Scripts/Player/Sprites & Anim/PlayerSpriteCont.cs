@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class PlayerSpriteCont : PawnSpriteCont
 {
-    public SpriteRenderer topHalf = null;
-
-    public SpriteRenderer bottomHalf = null;
+    public SpriteRenderer sprite = null;
 
     protected override void Awake()
     {
-        if(!topHalf || !bottomHalf)
+        if(!sprite)
         {
-            LogMsg("Player Sprite is missing its top or bottom half sprite reference!");
+            LogMsg("Player Sprite is missing the sprite!");
         }
     }
 
@@ -24,31 +22,19 @@ public class PlayerSpriteCont : PawnSpriteCont
     {
         if (toggle)
         {
-            topHalf.color = new Color(
-                topHalf.color.r,
-                topHalf.color.g,
-                topHalf.color.b,
-                flashTransparentLevel
-                );
-            bottomHalf.color = new Color(
-                bottomHalf.color.r,
-                bottomHalf.color.g,
-                bottomHalf.color.b,
+            sprite.color = new Color(
+                sprite.color.r,
+                sprite.color.g,
+                sprite.color.b,
                 flashTransparentLevel
                 );
         }
         else
         {
-            topHalf.color = new Color(
-                topHalf.color.r,
-                topHalf.color.g,
-                topHalf.color.b,
-                1f
-                );
-            bottomHalf.color = new Color(
-                bottomHalf.color.r,
-                bottomHalf.color.g,
-                bottomHalf.color.b,
+            sprite.color = new Color(
+                sprite.color.r,
+                sprite.color.g,
+                sprite.color.b,
                 1f
                 );
         }
