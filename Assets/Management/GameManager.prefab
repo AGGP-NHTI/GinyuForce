@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8394324385353645002
+--- !u!1 &1436772995182775650
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,54 +8,57 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8394324385353645000}
-  - component: {fileID: 8394324385353645001}
-  - component: {fileID: 8394324385353645007}
+  - component: {fileID: 1436772995182775651}
+  - component: {fileID: 1436772995182775648}
+  - component: {fileID: 1436772995182775649}
   m_Layer: 0
-  m_Name: PlayerController
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8394324385353645000
+--- !u!4 &1436772995182775651
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8394324385353645002}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.79994214, y: -2.749095, z: -6.273553}
+  m_GameObject: {fileID: 1436772995182775650}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.8516197, y: -1.6918354, z: 17.873081}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8394324385353645001
+--- !u!114 &1436772995182775648
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8394324385353645002}
+  m_GameObject: {fileID: 1436772995182775650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee182521e5098154e99a7037484d42da, type: 3}
+  m_Script: {fileID: 11500000, guid: db200b963b5f2ec489190337e9447602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 8394324385353645007}
---- !u!114 &8394324385353645007
+  _player: {fileID: 0}
+  _currentBoss: {fileID: 0}
+--- !u!114 &1436772995182775649
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8394324385353645002}
+  m_GameObject: {fileID: 1436772995182775650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11ec1d99ca913cb40995d0e4451978fb, type: 3}
+  m_Script: {fileID: 11500000, guid: ada52e2fda340e041af223f810867992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _controllerInternalName: PlayerController_Main
-  _controlledPawn: {fileID: 0}
+  PauseScreen: {fileID: 0}
+  GameOverScreen: {fileID: 0}
+  _playerHealthbar: {fileID: 0}
+  PlayerHeartSprite: {fileID: 5188561868673048300, guid: 766a9c64c1bd0314c8e84cd04e609628, type: 3}

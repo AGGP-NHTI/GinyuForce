@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class PlayerPlungeHitbox : PlayerSwordHitbox
 {
+    private float damageScaling = 0f;
+
+    [SerializeField]
+    private float damageScaleAmount = 3.5f;
+
     protected override void Update()
     {
         base.Update();
-        if (player.MainStateMachine.CurrentMoveState is PlayerMState_OnGround || player.MainStateMachine.CurrentConditionState is PlayerCState_Dying)
+        if (player.MainStateMachine.CurrentMoveState is PlayerMState_OnGround || !(player.MainStateMachine.CurrentConditionState is PlayerCState_Alive))
         {
             Destroy(gameObject);
         }
@@ -19,7 +24,9 @@ public class PlayerPlungeHitbox : PlayerSwordHitbox
 
         if (otherActor)
         {
-            otherActor.TakeDamage(this, damageValue, Owner, thisDamageInfo);
+            otherActor.TakeDamage(this, damageValue + damageScaling, Owner, thisDamageInfo);
+
+            damageScaling += damageScaleAmount;
 
             Vector2 vel = new Vector2(player.GetVelocity().x, 0f);
 

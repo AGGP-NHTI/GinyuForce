@@ -127,7 +127,8 @@ MonoBehaviour:
   DebugDamageLog: 1
   _actorMaximumHealth: 0
   _actorCurrentHealth: 0
+  mainActor: {fileID: 0}
   isPermament: 0
   tickDamage: 0
-  damageValue: 5
+  damageValue: 20
   hitboxLifetime: 0.4

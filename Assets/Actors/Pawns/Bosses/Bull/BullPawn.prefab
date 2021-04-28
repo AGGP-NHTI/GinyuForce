@@ -73,15 +73,15 @@ MonoBehaviour:
   TakesDamage: 1
   _actorName: Bull
   DebugDamageLog: 0
-  _actorMaximumHealth: 325
-  _actorCurrentHealth: 325
+  _actorMaximumHealth: 700
+  _actorCurrentHealth: 700
   _pawnSprite: {fileID: 4299667579686710281}
   revvTime: 1.5
   chargeSpeed: 15
-  stunCooldown: 3.5
+  stunCooldown: 2
   stunDamage: 5
   stunHeight: 4
-  stunLength: 2
+  stunLength: 2.5
   jumpChargeTime: 0.5
   jumpHeight: 6
   jumpTime: 1
@@ -318,7 +318,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6345587823902931514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.962, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6345587822629764360}

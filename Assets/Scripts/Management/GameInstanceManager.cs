@@ -36,6 +36,22 @@ public class GameInstanceManager : Core
         return _gameOver;
     }
 
+    protected FightInstance _instance;
+
+    public float FightDuration
+    {
+        get { return _instance.fightTime; }
+    }
+
+    /// <summary>
+    /// SET: Fightscore = 10 will INCREASE the fight score by 10, not set it to 10.
+    /// </summary>
+    public int FightScore
+    {
+        get { return _instance.playerScore; }
+        set { _instance.playerScore += value; }
+    }
+
     private void Awake()
     {
         if (Main)
@@ -44,6 +60,17 @@ public class GameInstanceManager : Core
             Destroy(this);
         }
         Main = this;
+
+        _instance = FindObjectOfType<FightInstance>();
+
+        if (_instance)
+        {
+            _player = _instance.Player;
+
+            _currentBoss = _instance.InstanceBoss;
+
+            FightInstance.OnBossDown += GameWin;
+        }
     }
 
     public void PauseUnpause()
@@ -65,6 +92,37 @@ public class GameInstanceManager : Core
                 PlayerUIManager.Main.TogglePauseScreen(true);
             }
         }
+    }
+
+    protected void GameWin()
+    {
+        //Play the "ding ding" sound here.
+
+        if(FightDuration >= 120f)
+        {
+            FightScore = -50;
+        }
+        else if(FightDuration >= 240f)
+        {
+            FightScore = -100;
+        }
+        else if(FightDuration >= 360f)
+        {
+            FightScore = -350;
+        }
+
+        switch (ThePlayer.CurrentHealth)
+        {
+            case 2:
+                FightScore = -150;
+                break;
+            case 1:
+                FightScore = -250;
+                break;
+        }
+
+        PlayerInputPoller.Self.DisablePlayerInput();
+        PlayerUIManager.Main.ToggleVictoryScreen(true);
     }
 
     public void QuitGame()

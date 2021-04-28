@@ -130,5 +130,6 @@ MonoBehaviour:
   mainActor: {fileID: 0}
   isPermament: 1
   tickDamage: 0
-  damageValue: 5
+  damageValue: 10
   hitboxLifetime: 4
+  damageScaleAmount: 3.5

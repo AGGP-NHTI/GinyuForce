@@ -109,7 +109,7 @@ public class BullPawn : BossPawn
 
     public virtual void BullRotate(float turnValue)
     {
-        if (turnValue < 0 && facingRight)
+        if (turnValue < transform.position.x && facingRight)
         {
             Vector3 tempScale = transform.localScale;
             tempScale.x *= -1f;
@@ -117,7 +117,7 @@ public class BullPawn : BossPawn
 
             facingRight = false;
         }
-        else if (turnValue > 0 && !facingRight)
+        else if (turnValue > transform.position.x && !facingRight)
         {
             Vector3 tempScale = transform.localScale;
             tempScale.x *= -1f;
@@ -129,7 +129,7 @@ public class BullPawn : BossPawn
 
     public override void BossAttack1(Vector2 directionalValues = default, float floatValue1 = 0, float floatValue2 = 0)
     {
-        LogMsg("Bull Charge Attack");
+        //LogMsg("Bull Charge Attack");
 
         if(_bullStateMachine.CurrentConditionState is BullCState_Alive && _bullStateMachine.CurrentAttackState is BullAState_Idle)
         {
@@ -141,7 +141,7 @@ public class BullPawn : BossPawn
 
     public override void BossAttack2(Vector2 directionalValues = default, float floatValue1 = 0, float floatValue2 = 0)
     {
-        LogMsg("Bull Sing Attack");
+        //LogMsg("Bull Sing Attack");
     }
 
     /// <summary>
@@ -152,13 +152,13 @@ public class BullPawn : BossPawn
     /// <param name="floatValue2"></param>
     public override void BossAttack3(Vector2 directionalValues = default, float floatValue1 = 0, float floatValue2 = 0)
     {
-        LogMsg("Bull Jump Attack");
+        //LogMsg("Bull Jump Attack");
 
         if(_bullStateMachine.CurrentConditionState is BullCState_Alive && _bullStateMachine.CurrentAttackState is BullAState_Idle)
         {
-            BullRotate(directionalValues.x);
-
             SetSlamTarget(directionalValues);
+
+            BullRotate(directionalValues.x);
 
             _bullStateMachine.ChangeAttackState<BullAState_LeapCharge>();
         }

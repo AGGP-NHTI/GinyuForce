@@ -22,5 +22,11 @@ public class BullHealthbar : Core
 
             percentText.SetText((int)healthPercent + "%");
         }
+        else
+        {
+            healthSlider.value = 0f;
+
+            percentText.SetText("0%");
+        }
     }
 }
