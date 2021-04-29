@@ -60,6 +60,14 @@ public class Pawn : Actor
         pawnRB.velocity = desiredVelocity;
     }
 
+    [SerializeField]
+    protected AudioController _audioController = null;
+
+    public AudioController AudioController
+    {
+        get { return _audioController; }
+    }
+
     protected virtual void Awake()
     {
         InitializeRB();

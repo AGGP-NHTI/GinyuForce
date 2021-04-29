@@ -79,6 +79,8 @@ public class BullPawn : BossPawn
 
     public SpriteRenderer bullSprite;
 
+    protected BullAudioController _bullAudioController;
+
     protected override void Awake()
     {
         InitializeRB();
@@ -91,10 +93,17 @@ public class BullPawn : BossPawn
         {
             bullSprite = gameObject.GetComponentInChildren<SpriteRenderer>();
         }
+
+        if(_audioController is BullAudioController)
+        {
+            _bullAudioController = (BullAudioController)_audioController;
+        }
     }
 
     protected override void ProcessDamage(Actor DamageSource, float DamageValue, Controller DamageInstigator, DamageInfo EventInfo)
     {
+        _bullAudioController.PlayAudioClip(_bullAudioController.BullClips.DamageClip);
+
         PawnSprite.FlashSprite(true);
 
         _actorCurrentHealth -= DamageValue;
