@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerMState_Idle : PlayerMState_OnGround
 {
+    public override void EnterState()
+    {
+        base.EnterState();
+        myStateMachine.ThePlayerPawn.PawnSprite.SpriteAnimator.SetBool("IsRunning", false);
+    }
+
     public override void TransitionState()
     {
         base.TransitionState();

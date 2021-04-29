@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PlayerMState_Jumping : PlayerMState_InAir
 {
+    public override void EnterState()
+    {
+        base.EnterState();
+
+        myStateMachine.ThePlayerPawn.PawnSprite.SpriteAnimator.SetBool("IsJumping", true);
+    }
+
     public override void TransitionState()
     {
         base.TransitionState();

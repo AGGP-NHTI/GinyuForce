@@ -76,17 +76,17 @@ MonoBehaviour:
   _actorMaximumHealth: 700
   _actorCurrentHealth: 700
   _pawnSprite: {fileID: 4299667579686710281}
-  revvTime: 1.5
+  revvTime: 1
   chargeSpeed: 15
-  stunCooldown: 2
+  stunCooldown: 1
   stunDamage: 5
   stunHeight: 4
-  stunLength: 2.5
+  stunLength: 2
   jumpChargeTime: 0.5
   jumpHeight: 6
   jumpTime: 1
   fallSpeed: 13.5
-  faceplantTime: 2.5
+  faceplantTime: 1.5
   _bullStateMachine: {fileID: 3543507461425325626}
   bullSprite: {fileID: 6345587823730827618}
 --- !u!114 &8044773028965109606
@@ -292,6 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashTransparentLevel: 0.4
   isFlashing: 0
+  SpriteAnimator: {fileID: 0}
 --- !u!1 &6345587823902931514
 GameObject:
   m_ObjectHideFlags: 0

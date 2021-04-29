@@ -7,8 +7,22 @@ using UnityEngine;
 /// </summary>
 public class PlayerMStates_JumpFall : PlayerMState_Falling
 {
+    public override void EnterState()
+    {
+        base.EnterState();
+
+        myStateMachine.ThePlayerPawn.PawnSprite.SpriteAnimator.SetBool("IsJumping", true);
+    }
+
     public override void PlayerJump(float jumpHeight)
     {
         
+    }
+
+    public override void ExitState()
+    {
+        base.ExitState();
+
+        myStateMachine.ThePlayerPawn.PawnSprite.SpriteAnimator.SetBool("IsJumping", false);
     }
 }

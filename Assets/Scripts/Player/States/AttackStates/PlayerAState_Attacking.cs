@@ -13,6 +13,13 @@ public class PlayerAState_Attacking : PlayerAState
         swordHitbox = gameObject.GetComponentInChildren<PlayerSwordHitbox>().gameObject;
     }
 
+    public override void EnterState()
+    {
+        base.EnterState();
+
+        myStateMachine.ThePlayerPawn.PawnSprite.SpriteAnimator.SetBool("IsAttacking", true);
+    }
+
     public override void Attack(Vector2 directionInfo)
     {
         
@@ -30,5 +37,14 @@ public class PlayerAState_Attacking : PlayerAState
         {
             myStateMachine.ChangeAttackState<PlayerAState_Idle>();
         }
+    }
+
+    public override void ExitState()
+    {
+        base.ExitState();
+        myStateMachine.ThePlayerPawn.PawnSprite.SpriteAnimator.SetBool("AttackingFront", false);
+        myStateMachine.ThePlayerPawn.PawnSprite.SpriteAnimator.SetBool("AttackingUp", false);
+        myStateMachine.ThePlayerPawn.PawnSprite.SpriteAnimator.SetBool("PlungeAttack", false);
+        myStateMachine.ThePlayerPawn.PawnSprite.SpriteAnimator.SetBool("IsAttacking", false);
     }
 }

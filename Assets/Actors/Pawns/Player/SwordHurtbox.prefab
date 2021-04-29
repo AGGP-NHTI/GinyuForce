@@ -132,7 +132,7 @@ MonoBehaviour:
   isPermament: 0
   tickDamage: 0
   damageValue: 20
-  hitboxLifetime: 0.4
+  hitboxLifetime: 0.25
 --- !u!95 &846966469467598422
 Animator:
   serializedVersion: 3

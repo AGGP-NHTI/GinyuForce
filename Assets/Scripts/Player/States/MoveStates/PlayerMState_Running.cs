@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerMState_Running : PlayerMState_OnGround
 {
+    public override void EnterState()
+    {
+        base.EnterState();
+        myStateMachine.ThePlayerPawn.PawnSprite.SpriteAnimator.SetBool("IsRunning", true);
+    }
+
     public override void PlayerMovement(Vector2 movementVector)
     {
         base.PlayerMovement(movementVector);

@@ -15,6 +15,8 @@ public class PlayerCState_Dying : PlayerCState
         PlayerInputPoller.Self.DisablePlayerInput();
         myStateMachine.ThePlayerPawn.DoesTakeDamage = false;
 
+        myStateMachine.ThePlayerPawn.PawnSprite.SpriteAnimator.Play("Hurt");
+
         myStateMachine.ThePlayerPawn.PawnRB_SetVelocity(Vector2.zero);
 
         myStateMachine.ThePlayerPawn.GetPawnRB().AddForce(transform.up * 600);

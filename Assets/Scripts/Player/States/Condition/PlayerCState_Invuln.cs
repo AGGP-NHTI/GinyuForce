@@ -14,6 +14,7 @@ public class PlayerCState_Invuln : PlayerCState
         base.EnterState();
         myStateMachine.ThePlayerPawn.DoesTakeDamage = false;
         duration = myStateMachine.ThePlayerPawn.InvulnDuration;
+        myStateMachine.ThePlayerPawn.PawnSprite.SpriteAnimator.Play("Hurt");
     }
 
     public override void PerformState()
@@ -51,5 +52,7 @@ public class PlayerCState_Invuln : PlayerCState
         base.ExitState();
 
         myStateMachine.ThePlayerPawn.PlayerSprite.FlashSprite(false);
+
+        myStateMachine.ThePlayerPawn.PawnSprite.SpriteAnimator.Play("Idle");
     }
 }
