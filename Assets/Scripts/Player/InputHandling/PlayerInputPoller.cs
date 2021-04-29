@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Controls input retrieval for the player and passes it along to associated Player Controller component
@@ -19,12 +20,12 @@ public class PlayerInputPoller : Core
     /// <summary>
     /// Component of set of input actions to parse and send to the associated controller.
     /// </summary>
-    private PlayerContActions playerInputActions;
+    private PlayerContActions playerInputActions = null;
 
     /// <summary>
     /// Component of set of input actions that control non-movement/combat inputs such as pausing, menu management, etc.
     /// </summary>
-    private PlayerContActions playerInterfaceActions;
+    private PlayerContActions playerInterfaceActions = null;
 
     private void Awake()
     {
@@ -44,14 +45,20 @@ public class PlayerInputPoller : Core
             Player = gameObject.AddComponent<PlayerController>();
         }
 
-        playerInputActions = new PlayerContActions();
-        playerInputActions.PlayerActiveInput.HorizontalMovement.performed += movectx => MoveLeftRight(movectx);
-        playerInputActions.PlayerActiveInput.HorizontalMovement.canceled += movectx => StopMoving();
-        playerInputActions.PlayerActiveInput.Jump.performed += jumpctx => Jump();
-        playerInputActions.PlayerActiveInput.AttackDirectional.performed += atkctx => PlayerAttack(atkctx.ReadValue<Vector2>());
+        if (playerInputActions == null)
+        {
+            playerInputActions = new PlayerContActions();
+            playerInputActions.PlayerActiveInput.HorizontalMovement.performed += movectx => MoveLeftRight(movectx);
+            playerInputActions.PlayerActiveInput.HorizontalMovement.canceled += movectx => StopMoving();
+            playerInputActions.PlayerActiveInput.Jump.performed += jumpctx => Jump();
+            playerInputActions.PlayerActiveInput.AttackDirectional.performed += atkctx => PlayerAttack(atkctx.ReadValue<Vector2>());
+        }
 
-        playerInterfaceActions = new PlayerContActions();
-        playerInterfaceActions.PlayerInterfaceInput.PauseGame.performed += uictx => PauseUnpause();
+        if(playerInterfaceActions == null)
+        {
+            playerInterfaceActions = new PlayerContActions();
+            playerInterfaceActions.PlayerInterfaceInput.PauseGame.performed += uictx => PauseUnpause();
+        }
     }
 
     /// <summary>
@@ -127,5 +134,11 @@ public class PlayerInputPoller : Core
     {
         playerInputActions.Disable();
         playerInterfaceActions.Enable();
+    }
+
+    private void OnDestroy()
+    {
+        playerInputActions.Dispose();
+        playerInterfaceActions.Dispose();
     }
 }

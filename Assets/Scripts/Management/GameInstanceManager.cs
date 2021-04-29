@@ -82,14 +82,14 @@ public class GameInstanceManager : Core
             {
                 Time.timeScale = 1f;
                 _gameIsPaused = false;
-                LogMsg("Game is unpaused");
+                //LogMsg("Game is unpaused");
                 PlayerUIManager.Main.TogglePauseScreen(false);
             }
             else
             {
                 Time.timeScale = 0f;
                 _gameIsPaused = true;
-                LogMsg("Game is paused");
+                //LogMsg("Game is paused");
                 PlayerUIManager.Main.TogglePauseScreen(true);
             }
         }
@@ -126,6 +126,12 @@ public class GameInstanceManager : Core
         PlayerUIManager.Main.ToggleVictoryScreen(true);
     }
 
+    public void ReturnToMenu()
+    {
+        PauseUnpause();
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void QuitGame()
     {
         SceneManager.LoadScene("MainMenu");
@@ -133,7 +139,7 @@ public class GameInstanceManager : Core
 
     public void GameOver()
     {
-        LogMsg("Game over man, game over!");
+        //LogMsg("Game over man, game over!");
         _gameOver = true;
         PlayerUIManager.Main.ToggleGameOverScreen(true);
     }
