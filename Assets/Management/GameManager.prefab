@@ -61,4 +61,5 @@ MonoBehaviour:
   PauseScreen: {fileID: 0}
   GameOverScreen: {fileID: 0}
   _playerHealthbar: {fileID: 0}
-  PlayerHeartSprite: {fileID: 5188561868673048300, guid: 766a9c64c1bd0314c8e84cd04e609628, type: 3}
+  VictoryScreen: {fileID: 0}
+  PlayerHeartSprite: {fileID: 1332585298265315796, guid: b5911ff4bf8425447a97c6b02cb7ef73, type: 3}

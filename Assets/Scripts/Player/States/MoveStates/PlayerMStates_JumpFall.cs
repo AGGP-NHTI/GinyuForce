@@ -11,7 +11,9 @@ public class PlayerMStates_JumpFall : PlayerMState_Falling
     {
         base.EnterState();
 
-        myStateMachine.ThePlayerPawn.PawnSprite.SpriteAnimator.SetBool("IsJumping", true);
+        myStateMachine.ThePlayerPawn.PawnSprite.SpriteAnimator.SetBool("IsJumping", false);
+
+        myStateMachine.ThePlayerPawn.PawnSprite.SpriteAnimator.SetBool("IsFalling", true);
     }
 
     public override void PlayerJump(float jumpHeight)
@@ -23,6 +25,6 @@ public class PlayerMStates_JumpFall : PlayerMState_Falling
     {
         base.ExitState();
 
-        myStateMachine.ThePlayerPawn.PawnSprite.SpriteAnimator.SetBool("IsJumping", false);
+        myStateMachine.ThePlayerPawn.PawnSprite.SpriteAnimator.SetBool("IsFalling", false);
     }
 }

@@ -20,6 +20,8 @@ public class PlayerHealthbar : Core
 
             _numOfHearts++;
         }
+
+        _fullHeartContainers[_numOfHearts - 1].GetComponent<Animator>().Play("Heartbeat");
     }
 
     /// <summary>
@@ -31,6 +33,11 @@ public class PlayerHealthbar : Core
         {
             Destroy(_fullHeartContainers[i - 1]);
             _numOfHearts--;
+        }
+
+        if(_numOfHearts > 0)
+        {
+            _fullHeartContainers[_numOfHearts - 1].GetComponent<Animator>().Play("Heartbeat");
         }
     }
 }
