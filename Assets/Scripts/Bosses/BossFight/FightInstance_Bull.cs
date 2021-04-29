@@ -10,8 +10,10 @@ public class FightInstance_Bull : FightInstance
 
     public float entranceWaitTime = 1.2f;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         if(InstanceBoss is BullPawn)
         {
             Bull = (BullPawn)InstanceBoss;

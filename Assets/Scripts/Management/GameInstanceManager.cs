@@ -128,7 +128,6 @@ public class GameInstanceManager : Core
 
     public void QuitGame()
     {
-        PauseUnpause();
         SceneManager.LoadScene("MainMenu");
     }
 

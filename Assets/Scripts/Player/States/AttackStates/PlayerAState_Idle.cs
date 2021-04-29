@@ -18,7 +18,7 @@ public class PlayerAState_Idle : PlayerAState
             }
             else if (Mathf.Abs(directionInfo.y) > 0)
             {
-                attackDir = new Vector3(0, directionInfo.y * 0.6f, 0);
+                attackDir = new Vector3(0, directionInfo.y * 0.8f, 0);
                 updownRotation = Quaternion.Euler(new Vector3(0, 0, 90));
                 myStateMachine.ThePlayerPawn.PawnSprite.SpriteAnimator.SetBool("AttackingUp", true);
             }
@@ -56,7 +56,7 @@ public class PlayerAState_Idle : PlayerAState
         {
             if (myStateMachine.CurrentMoveState is PlayerMState_InAir)
             {
-                attackDir = new Vector3(0, directionInfo.y * 0.8f, 0);
+                attackDir = new Vector3(0, directionInfo.y * 0.6f, 0);
                 //updownRotation = Quaternion.Euler(new Vector3(0, 0, 90));
 
                 GameObject attackHitbox = Spawner(

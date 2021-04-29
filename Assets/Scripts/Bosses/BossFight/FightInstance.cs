@@ -18,6 +18,11 @@ public class FightInstance : Core
 
     public int playerScore = 1000;
 
+    protected virtual void Awake()
+    {
+        Time.timeScale = 1f;
+    }
+
     protected virtual void Update()
     {
         if(fightIsActive)
