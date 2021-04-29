@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class PawnSpriteCont : Core
 {
@@ -13,6 +14,8 @@ public class PawnSpriteCont : Core
 
     protected SpriteRenderer spriteTexture;
 
+    public Animator SpriteAnimator;
+
     protected virtual void Awake()
     {
         spriteTexture = gameObject.GetComponent<SpriteRenderer>();
@@ -21,6 +24,8 @@ public class PawnSpriteCont : Core
         {
             LogMsg("No sprite texture found on " + ObjectName);
         }
+
+        if (!SpriteAnimator) { SpriteAnimator = gameObject.GetComponent<Animator>(); }
     }
 
     /// <summary>

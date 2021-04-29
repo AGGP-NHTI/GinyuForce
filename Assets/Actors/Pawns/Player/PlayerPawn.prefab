@@ -294,4 +294,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashTransparentLevel: 0.4
   isFlashing: 0
+  SpriteAnimator: {fileID: 3311630740123323853}
   sprite: {fileID: 2070091909012690012}

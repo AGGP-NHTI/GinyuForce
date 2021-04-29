@@ -17,7 +17,7 @@ public class PlayerAState_Idle : PlayerAState
             }
             else if (Mathf.Abs(directionInfo.y) > 0)
             {
-                attackDir = new Vector3(0, directionInfo.y * 0.8f, 0);
+                attackDir = new Vector3(0, directionInfo.y * 0.6f, 0);
                 updownRotation = Quaternion.Euler(new Vector3(0, 0, 90));
             }
 
@@ -26,6 +26,24 @@ public class PlayerAState_Idle : PlayerAState
                 myStateMachine.ThePlayerPawn.AttackAnchorPoint.transform,
                 myStateMachine.ThePlayerPawn.Owner
                 );
+
+            if(directionInfo.x < 0)
+            {
+                attackHitbox.transform.localScale = new Vector3(
+                                                    attackHitbox.transform.localScale.x * -1, 
+                                                    attackHitbox.transform.localScale.y, 
+                                                    attackHitbox.transform.localScale.z
+                                                    );
+            }
+
+            if(directionInfo.y > 0 && myStateMachine.ThePlayerPawn.IsFacingRight())
+            {
+                attackHitbox.transform.localScale = new Vector3(
+                                                    attackHitbox.transform.localScale.x,
+                                                    attackHitbox.transform.localScale.y * -1,
+                                                    attackHitbox.transform.localScale.z
+                                                    );
+            }
 
             attackHitbox.transform.localPosition = attackDir;
             attackHitbox.transform.localRotation = updownRotation;
