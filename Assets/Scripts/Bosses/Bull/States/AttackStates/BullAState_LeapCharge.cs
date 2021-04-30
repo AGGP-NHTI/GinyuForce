@@ -10,7 +10,7 @@ public class BullAState_LeapCharge : BullAState
     {
         base.EnterState();
 
-        myStateMachine.TheBullPawn.bullSprite.sprite = SpriteManager.Main.bullSprites.JumpCharge;
+        myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsLeapCharge", true);
     }
 
     public override void PerformState()
@@ -27,5 +27,12 @@ public class BullAState_LeapCharge : BullAState
         {
             myStateMachine.ChangeAttackState<BullAState_Leaping>();
         }
+    }
+
+    public override void ExitState()
+    {
+        base.ExitState();
+
+        myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsLeapCharge", false);
     }
 }

@@ -10,7 +10,7 @@ public class BullCState_Alive : BullCState
 
         if (SpriteManager.Main)
         {
-            myStateMachine.TheBullPawn.bullSprite.sprite = SpriteManager.Main.bullSprites.Idle;
+            // myStateMachine.TheBullPawn.bullSprite.sprite = SpriteManager.Main.bullSprites.Idle;
         }
     }
 }

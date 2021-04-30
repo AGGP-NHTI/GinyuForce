@@ -10,8 +10,7 @@ public class BullCState_Stunned : BullCState
     {
         base.EnterState();
 
-        // Do stunned animation here.
-        myStateMachine.TheBullPawn.bullSprite.sprite = SpriteManager.Main.bullSprites.Stun;
+        myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsStunned", true);
 
         myStateMachine.TheBullPawn.PawnMovement(Vector2.zero);
 
@@ -42,5 +41,12 @@ public class BullCState_Stunned : BullCState
         {
             myStateMachine.ChangeConditionState<BullCState_Alive>();
         }
+    }
+
+    public override void ExitState()
+    {
+        base.ExitState();
+
+        myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsStunned", false);
     }
 }

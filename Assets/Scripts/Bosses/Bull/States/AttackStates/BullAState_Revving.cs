@@ -9,8 +9,8 @@ public class BullAState_Revving : BullAState
     public override void EnterState()
     {
         base.EnterState();
-        // Switch to revving animation here
-        myStateMachine.TheBullPawn.bullSprite.sprite = SpriteManager.Main.bullSprites.Revv;
+
+        myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsRevving", true);
     }
 
     public override void PerformState()
@@ -28,5 +28,12 @@ public class BullAState_Revving : BullAState
         {
             myStateMachine.ChangeAttackState<BullAState_Charging>();
         }
+    }
+
+    public override void ExitState()
+    {
+        base.ExitState();
+
+        myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsRevving", false);
     }
 }

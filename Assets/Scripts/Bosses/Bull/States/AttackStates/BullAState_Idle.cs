@@ -8,9 +8,13 @@ public class BullAState_Idle : BullAState
     {
         base.EnterState();
 
-        if(myStateMachine.CurrentConditionState is BullCState_Alive)
-        {
-           // myStateMachine.TheBullPawn.bullSprite.sprite = SpriteManager.Main.bullSprites.Idle;
-        }
+        myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsAttacking",false);
+    }
+
+    public override void ExitState()
+    {
+        base.ExitState();
+
+        myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsAttacking", true);
     }
 }
