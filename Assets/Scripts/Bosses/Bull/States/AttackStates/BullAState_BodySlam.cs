@@ -18,6 +18,7 @@ public class BullAState_BodySlam : BullAState
     {
         if(collision.gameObject.layer == 10)
         {
+            Spawner(myStateMachine.TheBullPawn.DebrisSpawnPrefab, Location, Rotation, myStateMachine.TheBullPawn.GetController());
             myStateMachine.ChangeConditionState<BullCState_Faceplant>();
         }
     }

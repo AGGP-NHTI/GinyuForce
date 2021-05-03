@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class falling_objects : Actor
+// Code adapted from Nicole's "falling_objects" script
+
+public class Bull_Debris_Spawn : Actor
 {
     //length to right
     [SerializeField]
@@ -17,7 +19,12 @@ public class falling_objects : Actor
     [SerializeField]
     private Wave[] wave = null;
 
-    private float currentTime;
+    [SerializeField]
+    protected float maxWaves = 2;
+
+    private float currentTime = 0;
+
+    private float targetPosition = 0;
 
     List<float> remainingPosition = new List<float>();
     private int waveIndex;
@@ -25,30 +32,46 @@ public class falling_objects : Actor
     int rand;
 
 
-    void Start()
+    void Awake()
     {
-        currentTime = 0;
         remainingPosition.AddRange(positions);
+        targetPosition = GameInstanceManager.Main.ThePlayer.Location.x;
+
+        maxWaves = Random.Range(5, 7);
     }
 
 
     void Update()
     {
-        
-         //if statement == true, set currentTime -= Time.deltaTime
-        
+
+        //if statement == true, set currentTime -= Time.deltaTime
+
+        if(maxWaves <= 0)
+        {
+            Destroy(gameObject);
+        }
+
+        currentTime -= Time.deltaTime;
+
         if (currentTime <= 0)
         {
+            targetPosition = GameInstanceManager.Main.ThePlayer.Location.x;
             SelectWave();
         }
-         
-         
     }
 
     void SpawnObject(float xPosition)
     {
-        int r = Random.Range(0, 3); //3 types of falling entities
-        GameObject enemyObject = Instantiate(enemyPrefabs[r], new Vector3(xPosition, transform.position.y, 0), Quaternion.identity);
+        int r = Random.Range(0, enemyPrefabs.Length); //3 types of falling entities
+        
+        GameObject debris = Spawner(enemyPrefabs[r], new Vector3(xPosition, 5, 0), Quaternion.identity, Owner);
+
+        if(Random.Range(1,5) % 2 == 0)
+        {
+            Vector3 temp = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+
+            debris.transform.localScale = temp;
+        }
     }
 
     void SelectWave()
@@ -60,14 +83,14 @@ public class falling_objects : Actor
 
         currentTime = wave[waveIndex].delayTime;
 
-        if (wave[waveIndex].spawnAmount ==1)
+        if (wave[waveIndex].spawnAmount == 1)
         {
-            xPositions = Random.Range(-limit, limit);
+            xPositions = Random.Range(targetPosition - limit, targetPosition + limit);
         }
         else if (wave[waveIndex].spawnAmount > 1)
         {
             rand = Random.Range(0, remainingPosition.Count);
-            xPositions = remainingPosition[rand];
+            xPositions = targetPosition + remainingPosition[rand];
             remainingPosition.RemoveAt(rand);
         }
 
@@ -75,17 +98,10 @@ public class falling_objects : Actor
         {
             SpawnObject(xPositions);
             rand = Random.Range(0, remainingPosition.Count);
-            xPositions = remainingPosition[rand];
+            xPositions = targetPosition + remainingPosition[rand];
             remainingPosition.RemoveAt(rand);
         }
-    }
-}
 
-//timer between spawns
-//amount spawned
-[System.Serializable]
-public class Wave
-{
-    public float delayTime;
-    public float spawnAmount;
+        maxWaves -= 1;
+    }
 }

@@ -93,6 +93,7 @@ MonoBehaviour:
   faceplantTime: 1.5
   _bullStateMachine: {fileID: 3543507461425325626}
   bullSprite: {fileID: 6345587823730827618}
+  DebrisSpawnPrefab: {fileID: 6692760571164794306, guid: f48b859a6c339af4fb6af5831aec0055, type: 3}
 --- !u!114 &8044773028965109606
 MonoBehaviour:
   m_ObjectHideFlags: 0
