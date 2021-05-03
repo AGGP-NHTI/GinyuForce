@@ -6,7 +6,7 @@ public class falling_motion : MonoBehaviour
 {
     //falling speed
     [SerializeField]
-    private float speed;
+    private float speed = 1f;
 
     // Start is called before the first frame update
     void Start()

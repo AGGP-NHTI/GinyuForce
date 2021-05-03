@@ -37,7 +37,7 @@ public class BullController : AIController
     {
         if (Bull)
         {
-            Bull.BossAttack2();
+            Bull.BossAttack2(directionalValues);
         }
     }
 

@@ -8,7 +8,7 @@ public class Debris : Actor
 {
     //falling speed
     [SerializeField]
-    private float speed;
+    private float speed = 0.4f;
 
     private Rigidbody2D rb;
 

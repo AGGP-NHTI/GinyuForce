@@ -77,11 +77,20 @@ public class BullPawn : BossPawn
     [SerializeField]
     protected BullStateMachine _bullStateMachine = null;
 
+    public BullStateMachine OwnStateMachine
+    {
+        get { return _bullStateMachine; }
+    }
+
     public SpriteRenderer bullSprite;
 
     protected BullAudioController _bullAudioController;
 
     public GameObject DebrisSpawnPrefab = null;
+
+    public GameObject MusicSpawnPrefab = null;
+
+    public GameObject HurtBox = null;
 
     protected override void Awake()
     {
@@ -109,6 +118,11 @@ public class BullPawn : BossPawn
         PawnSprite.FlashSprite(true);
 
         _actorCurrentHealth -= DamageValue;
+
+        if(_actorCurrentHealth <= 0)
+        {
+            _bullStateMachine.ChangeConditionState<BullCState_Unconscious>();
+        }
 
         base.ProcessDamage(DamageSource, DamageValue, DamageInstigator, EventInfo);
     }
@@ -152,7 +166,13 @@ public class BullPawn : BossPawn
 
     public override void BossAttack2(Vector2 directionalValues = default, float floatValue1 = 0, float floatValue2 = 0)
     {
-        //LogMsg("Bull Sing Attack");
+        LogMsg("Bull Sing Attack");
+        if(_bullStateMachine.CurrentConditionState is BullCState_Alive && _bullStateMachine.CurrentAttackState is BullAState_Idle)
+        {
+            BullRotate(directionalValues.x);
+
+            _bullStateMachine.ChangeAttackState<BullAState_Singing>();
+        }
     }
 
     /// <summary>

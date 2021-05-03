@@ -39,7 +39,7 @@ public class TempBull_Input : Core
 
     public void BullSingAttack(InputAction.CallbackContext ctx)
     {
-        Bull.DoAttack2();
+        Bull.DoAttack2(GameInstanceManager.Main.ThePlayer.Location);
     }
 
     private void OnEnable()

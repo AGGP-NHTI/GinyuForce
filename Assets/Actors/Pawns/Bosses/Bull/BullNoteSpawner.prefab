@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6692760571164794306
+--- !u!1 &3089593202339917528
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 605439762022924772}
-  - component: {fileID: 3117075219090993474}
+  - component: {fileID: 3089593202339917534}
+  - component: {fileID: 3089593202339917535}
   m_Layer: 0
-  m_Name: DebrisSpawner
+  m_Name: BullNoteSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &605439762022924772
+--- !u!4 &3089593202339917534
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6692760571164794306}
+  m_GameObject: {fileID: 3089593202339917528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,41 +31,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3117075219090993474
+--- !u!114 &3089593202339917535
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6692760571164794306}
+  m_GameObject: {fileID: 3089593202339917528}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6621e113217089f45a3acad6c472061a, type: 3}
+  m_Script: {fileID: 11500000, guid: c1ebc0952468d49448b902feaf9ff89c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TakesDamage: 0
-  _actorName: BullDebrisSpawner
-  DebugDamageLog: 1
+  _actorName: BullNoteAttack
+  DebugDamageLog: 0
   _actorMaximumHealth: 1
   _actorCurrentHealth: 1
-  limit: 5
-  positions:
-  - -5
-  - -2.5
-  - -1
-  - 0
-  - 1
-  - 2.5
-  - 5
-  enemyPrefabs:
-  - {fileID: 7125728122747060197, guid: 9ec458159a0333b4784d4b80e05269c5, type: 3}
-  wave:
-  - delayTime: 0.3
-    spawnAmount: 1
-  - delayTime: 0.3
-    spawnAmount: 2
-  - delayTime: 0.4
-    spawnAmount: 1
-  - delayTime: 0.6
-    spawnAmount: 4
-  maxWaves: 3
+  ProjectileAmount: 10
+  musicNotes: {fileID: 2244062202172371494, guid: 2147b86862780064db0bfe4fcc657991, type: 3}
+  radius: 5
+  moveSpeed: 5
+  repeatRate: 0.5
+  waveMinRange: 3
+  waveMaxRange: 7
+  waveTotal: 0
+  counter: 0
+  ownBullPawn: {fileID: 0}

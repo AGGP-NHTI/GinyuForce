@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6345587822629764375}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.3, y: 0.04, z: -4.3536644}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6345587823730827619}
@@ -94,6 +94,8 @@ MonoBehaviour:
   _bullStateMachine: {fileID: 3543507461425325626}
   bullSprite: {fileID: 6345587823730827618}
   DebrisSpawnPrefab: {fileID: 6692760571164794306, guid: f48b859a6c339af4fb6af5831aec0055, type: 3}
+  MusicSpawnPrefab: {fileID: 3089593202339917528, guid: 6958d3d16c08ef243848177fa71ac8d2, type: 3}
+  HurtBox: {fileID: 6345587823482532550}
 --- !u!114 &8044773028965109606
 MonoBehaviour:
   m_ObjectHideFlags: 0

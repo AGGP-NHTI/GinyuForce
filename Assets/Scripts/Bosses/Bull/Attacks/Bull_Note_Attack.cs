@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class note_launcher : MonoBehaviour
+// Code adapted from Nicole's "note_launcher" script.
+
+public class Bull_Note_Attack : Actor
 {
     [SerializeField]
-    int ProjectileAmount = 0;
+    int ProjectileAmount = 10;
 
     [SerializeField]
     GameObject musicNotes = null;
@@ -16,11 +18,14 @@ public class note_launcher : MonoBehaviour
     public float moveSpeed = 5f;
     public float repeatRate = 5.0f;
 
+    public int waveMinRange = 3;
+    public int waveMaxRange = 7;
     public int waveTotal = 0;
     public int counter = 0;
 
-    //public Transform spawnPos;
+    private float repeatCounter = 5f;
 
+    //public Transform spawnPos;
 
     void Update()
     {
@@ -28,17 +33,30 @@ public class note_launcher : MonoBehaviour
         //random.range 5-9
         //if 
 
+        
+
         if (counter >= waveTotal)
         {
+            LogMsg("note spawner destroyed");
             Destroy(gameObject);
         }
-        
-        SpawnNotes(ProjectileAmount);
+
+        if(repeatCounter >= repeatRate)
+        {
+            SpawnNotes(ProjectileAmount);
+        }
+        else
+        {
+            repeatCounter += Time.deltaTime;
+        }
     }
 
     void Awake()
     {
         startPoint = transform.position;
+        waveTotal = Random.Range(waveMinRange, waveMaxRange);
+        LogMsg("note spawner spawned");
+        repeatCounter = repeatRate;
     }
 
     private void Active(Collider other)
@@ -51,22 +69,28 @@ public class note_launcher : MonoBehaviour
 
     void SpawnNotes(int ProjectileAmount)
     {
-
-        float angleStep = 360f / ProjectileAmount;
+        repeatCounter = 0f;
         float angle = 0f;
 
-        for (int i = 0; i <= ProjectileAmount - 1; i++)
+        int actualAmount = ProjectileAmount + Random.Range(-3, 3);
+
+        float angleStep = 360f / actualAmount;
+
+        for (int i = 0; i < actualAmount; i++)
         {
+            angle = Random.Range(0f, 360f);
+
             float projectileDirXposition = startPoint.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
             float projectileDirYposition = startPoint.x + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
 
             Vector2 projectileVector = new Vector2(projectileDirXposition, projectileDirYposition);
             Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * moveSpeed;
 
-            var note = Instantiate(musicNotes, startPoint, Quaternion.identity);
+            //GameObject note = Instantiate(musicNotes, startPoint, Quaternion.identity);
+            GameObject note = Spawner(musicNotes, startPoint, Quaternion.identity, Owner);
             note.GetComponent<Rigidbody2D>().velocity = new Vector2(projectileMoveDirection.x, projectileMoveDirection.y);
 
-            angle += angleStep;
+            //angle += angleStep;
         }
 
         counter++;
