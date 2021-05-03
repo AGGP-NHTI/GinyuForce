@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class BossPawn : Pawn
 {
+    public delegate void BossAttackEvent();
+    public event BossAttackEvent AttackCycleFinish;
+
+    public virtual void InvokeAttackCycleFinish()
+    {
+        AttackCycleFinish?.Invoke();
+    }
+
     public virtual void BossAttack1(Vector2 directionalValues = default, float floatValue1 = 0, float floatValue2 = 0)
     {
 

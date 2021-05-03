@@ -22,4 +22,10 @@ public class BullAState_BodySlam : BullAState
             myStateMachine.ChangeConditionState<BullCState_Faceplant>();
         }
     }
+
+    public override void ExitState()
+    {
+        base.ExitState();
+        myStateMachine.TheBullPawn.InvokeAttackCycleFinish();
+    }
 }

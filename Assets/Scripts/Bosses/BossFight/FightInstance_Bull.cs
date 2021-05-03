@@ -19,7 +19,15 @@ public class FightInstance_Bull : FightInstance
             Bull = (BullPawn)InstanceBoss;
         }
 
+        Bull.AttackCycleFinish += StartBossTheme;
+
         StartCoroutine(DramaticEntrance(entranceWaitTime));
+    }
+
+    public override void StartBossTheme()
+    {
+        fightTheme.Play();
+        Bull.AttackCycleFinish -= StartBossTheme;
     }
 
     protected IEnumerator DramaticEntrance(float waitTime)

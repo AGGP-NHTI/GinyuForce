@@ -44,6 +44,8 @@ public class BullAState_Charging : BullAState
     {
         base.ExitState();
 
+        myStateMachine.TheBullPawn.InvokeAttackCycleFinish();
+
         myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsCharging", false);
     }
 }
