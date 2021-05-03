@@ -10,7 +10,7 @@ public class BullAState_Charging : BullAState
     {
         base.EnterState();
 
-        myStateMachine.TheBullPawn.bullSprite.sprite = SpriteManager.Main.bullSprites.Charge;
+        myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsCharging", true);
 
         chargeSpeed = Transform.forward;
 
@@ -38,5 +38,12 @@ public class BullAState_Charging : BullAState
             myStateMachine.TheBullPawn.TakeDamage(myStateMachine.TheBullPawn, myStateMachine.TheBullPawn.stunDamage);
             myStateMachine.ChangeConditionState<BullCState_Stunned>();
         }
+    }
+
+    public override void ExitState()
+    {
+        base.ExitState();
+
+        myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsCharging", false);
     }
 }

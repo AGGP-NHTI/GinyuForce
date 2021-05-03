@@ -10,7 +10,7 @@ public class BullCState_Faceplant : BullCState
     {
         base.EnterState();
 
-        myStateMachine.TheBullPawn.bullSprite.sprite = SpriteManager.Main.bullSprites.FacePlant;
+        myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsFaceplant", true);
 
         myStateMachine.TheBullPawn.PawnRB_SetVelocity(Vector2.zero);
 
@@ -34,5 +34,12 @@ public class BullCState_Faceplant : BullCState
         {
             myStateMachine.ChangeConditionState<BullCState_Alive>();
         }
+    }
+
+    public override void ExitState()
+    {
+        base.ExitState();
+
+        myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsFaceplant", false);
     }
 }

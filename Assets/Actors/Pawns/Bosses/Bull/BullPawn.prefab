@@ -82,7 +82,7 @@ MonoBehaviour:
   _audioController: {fileID: 7171500145939541930}
   revvTime: 1
   chargeSpeed: 15
-  stunCooldown: 1
+  stunCooldown: 1.5
   stunDamage: 5
   stunHeight: 4
   stunLength: 2
@@ -93,6 +93,7 @@ MonoBehaviour:
   faceplantTime: 1.5
   _bullStateMachine: {fileID: 3543507461425325626}
   bullSprite: {fileID: 6345587823730827618}
+  DebrisSpawnPrefab: {fileID: 6692760571164794306, guid: f48b859a6c339af4fb6af5831aec0055, type: 3}
 --- !u!114 &8044773028965109606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,6 +333,7 @@ GameObject:
   - component: {fileID: 6345587823730827619}
   - component: {fileID: 6345587823730827618}
   - component: {fileID: 4299667579686710281}
+  - component: {fileID: 7167269274411972011}
   m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
@@ -419,6 +421,25 @@ MonoBehaviour:
   flashTransparentLevel: 0.4
   isFlashing: 0
   SpriteAnimator: {fileID: 0}
+--- !u!95 &7167269274411972011
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6345587823730827616}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b9b32f30cefcb7848bdab2fbbdd2c379, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6345587823902931514
 GameObject:
   m_ObjectHideFlags: 0

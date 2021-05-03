@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1337214098932240277
+--- !u!1 &6692760571164794306
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 135599148559256138}
-  - component: {fileID: -8910258329951074180}
+  - component: {fileID: 605439762022924772}
+  - component: {fileID: 3117075219090993474}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: DebrisSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &135599148559256138
+--- !u!4 &605439762022924772
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1337214098932240277}
+  m_GameObject: {fileID: 6692760571164794306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.34202552, y: -0.3737514, z: -0.8641085}
+  m_LocalPosition: {x: -0.032852396, y: 0.80856586, z: -0.8641085}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8910258329951074180
+--- !u!114 &3117075219090993474
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1337214098932240277}
+  m_GameObject: {fileID: 6692760571164794306}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 921dcecea27e9b54bbab4b40b8f3a962, type: 3}
+  m_Script: {fileID: 11500000, guid: 6621e113217089f45a3acad6c472061a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TakesDamage: 0
@@ -48,23 +48,24 @@ MonoBehaviour:
   DebugDamageLog: 1
   _actorMaximumHealth: 1
   _actorCurrentHealth: 1
-  limit: 3
+  limit: 5
   positions:
-  - 3
-  - 1.5
+  - -5
+  - -2.5
+  - -1
   - 0
-  - -1.5
-  - -3
+  - 1
+  - 2.5
+  - 5
   enemyPrefabs:
-  - {fileID: 2753271838344541147, guid: 7ddfa2bf6c9711649b83217df5986179, type: 3}
-  - {fileID: 6659522813713006547, guid: 87b214d818f0eaf4895aaf8e826b7d9b, type: 3}
-  - {fileID: 6293215302862467220, guid: 09f42dc7f0286d24aac764a7edd76f6a, type: 3}
+  - {fileID: 7125728122747060197, guid: 9ec458159a0333b4784d4b80e05269c5, type: 3}
   wave:
-  - delayTime: 1
+  - delayTime: 0.3
     spawnAmount: 1
-  - delayTime: 1
+  - delayTime: 0.3
     spawnAmount: 2
-  - delayTime: 1
-    spawnAmount: 3
-  - delayTime: 1
+  - delayTime: 0.4
+    spawnAmount: 1
+  - delayTime: 0.6
     spawnAmount: 4
+  maxWaves: 3

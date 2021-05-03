@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerHealthbar : Core
 {
     [SerializeField]
-    private GameObject[] _emptyHeartContainers;
+    private GameObject[] _emptyHeartContainers = null;
 
     [SerializeField]
-    private GameObject[] _fullHeartContainers;
+    private GameObject[] _fullHeartContainers = null;
 
     private int _numOfHearts = 0;
 

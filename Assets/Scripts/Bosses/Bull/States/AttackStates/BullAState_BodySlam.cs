@@ -8,7 +8,7 @@ public class BullAState_BodySlam : BullAState
     {
         base.EnterState();
 
-        myStateMachine.TheBullPawn.bullSprite.sprite = SpriteManager.Main.bullSprites.BodySlam;
+        myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsBodySlam", true);
 
         myStateMachine.TheBullPawn.PawnRB_SetVelocity(Vector2.down * myStateMachine.TheBullPawn.fallSpeed);
     }
@@ -18,6 +18,7 @@ public class BullAState_BodySlam : BullAState
     {
         if(collision.gameObject.layer == 10)
         {
+            Spawner(myStateMachine.TheBullPawn.DebrisSpawnPrefab, Location, Rotation, myStateMachine.TheBullPawn.GetController());
             myStateMachine.ChangeConditionState<BullCState_Faceplant>();
         }
     }

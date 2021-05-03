@@ -81,6 +81,8 @@ public class BullPawn : BossPawn
 
     protected BullAudioController _bullAudioController;
 
+    public GameObject DebrisSpawnPrefab = null;
+
     protected override void Awake()
     {
         InitializeRB();

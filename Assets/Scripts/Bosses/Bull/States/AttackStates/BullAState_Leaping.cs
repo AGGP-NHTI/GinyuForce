@@ -31,7 +31,7 @@ public class BullAState_Leaping : BullAState
 
         maxTime = myStateMachine.TheBullPawn.jumpTime;
 
-        myStateMachine.TheBullPawn.bullSprite.sprite = SpriteManager.Main.bullSprites.Leaping;
+        myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsLeaping", true);
     }
 
     public override void PerformState()
@@ -56,5 +56,12 @@ public class BullAState_Leaping : BullAState
         {
             myStateMachine.ChangeAttackState<BullAState_BodySlam>();
         }
+    }
+
+    public override void ExitState()
+    {
+        base.ExitState();
+
+        myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsLeaping", false);
     }
 }
