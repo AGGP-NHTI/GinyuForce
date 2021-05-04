@@ -96,6 +96,7 @@ MonoBehaviour:
   DebrisSpawnPrefab: {fileID: 6692760571164794306, guid: f48b859a6c339af4fb6af5831aec0055, type: 3}
   MusicSpawnPrefab: {fileID: 3089593202339917528, guid: 6958d3d16c08ef243848177fa71ac8d2, type: 3}
   HurtBox: {fileID: 6345587823482532550}
+  tempSpawn: {fileID: 1387151894222923683, guid: 251216fdb83923d4e8bd86d044b99fdb, type: 3}
 --- !u!114 &8044773028965109606
 MonoBehaviour:
   m_ObjectHideFlags: 0

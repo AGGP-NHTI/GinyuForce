@@ -12,6 +12,8 @@ public class Debris : Actor
 
     private Rigidbody2D rb;
 
+    private bool dealsDamage = true;
+
     protected float damageAmount = 10;
 
     private void Awake()
@@ -27,10 +29,12 @@ public class Debris : Actor
 
         if (collision.gameObject.layer == 10)
         {
+            dealsDamage = false;
             GetComponent<Animator>().Play("Destroyed");
             rb.velocity = Vector2.zero;
+            rb.gravityScale = 0f;
         }
-        else if (actor)
+        else if (actor && dealsDamage)
         {
             actor.TakeDamage(this, damageAmount, Owner);           
         }

@@ -14,8 +14,6 @@ public class BullAState_Singing : BullAState
     {
         base.EnterState();
 
-        LogMsg("Enter sing state");
-
         myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsSinging", true);
         myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsAttacking", true);
     }
@@ -30,7 +28,7 @@ public class BullAState_Singing : BullAState
             {
                 singing = true;
                 spawnedSpawner = true;
-                singSpawner = Spawner(myStateMachine.TheBullPawn.MusicSpawnPrefab, myStateMachine.TheBullPawn.Transform, myStateMachine.TheBullPawn.GetController());
+                singSpawner = Spawner(myStateMachine.TheBullPawn.MusicSpawnPrefab, myStateMachine.TheBullPawn.Transform, myStateMachine.TheBullPawn.Owner);
             }
         }
     }
@@ -48,8 +46,6 @@ public class BullAState_Singing : BullAState
     public override void ExitState()
     {
         base.ExitState();
-
-        LogMsg("Exit sing state");
 
         myStateMachine.TheBullPawn.InvokeAttackCycleFinish();
 

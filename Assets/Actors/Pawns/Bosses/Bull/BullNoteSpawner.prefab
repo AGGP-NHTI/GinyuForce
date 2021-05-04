@@ -51,10 +51,9 @@ MonoBehaviour:
   ProjectileAmount: 10
   musicNotes: {fileID: 2244062202172371494, guid: 2147b86862780064db0bfe4fcc657991, type: 3}
   radius: 5
-  moveSpeed: 5
+  moveSpeed: 6
   repeatRate: 0.5
-  waveMinRange: 3
-  waveMaxRange: 7
+  waveMinRange: 8
+  waveMaxRange: 9
   waveTotal: 0
   counter: 0
-  ownBullPawn: {fileID: 0}

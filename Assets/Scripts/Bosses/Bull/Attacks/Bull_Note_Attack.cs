@@ -54,7 +54,7 @@ public class Bull_Note_Attack : Actor
     void Awake()
     {
         startPoint = transform.position;
-        waveTotal = Random.Range(waveMinRange, waveMaxRange);
+        waveTotal = Random.Range(waveMinRange, waveMaxRange + 1);
         LogMsg("note spawner spawned");
         repeatCounter = repeatRate;
     }
@@ -72,16 +72,16 @@ public class Bull_Note_Attack : Actor
         repeatCounter = 0f;
         float angle = 0f;
 
-        int actualAmount = ProjectileAmount + Random.Range(-3, 3);
+        int actualAmount = ProjectileAmount + Random.Range(-2, 3);
 
-        float angleStep = 360f / actualAmount;
+        //float angleStep = 360f / actualAmount;
 
         for (int i = 0; i < actualAmount; i++)
         {
             angle = Random.Range(0f, 360f);
 
             float projectileDirXposition = startPoint.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
-            float projectileDirYposition = startPoint.x + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
+            float projectileDirYposition = startPoint.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
 
             Vector2 projectileVector = new Vector2(projectileDirXposition, projectileDirYposition);
             Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * moveSpeed;

@@ -54,12 +54,16 @@ public class NoteProjectile : Actor
         else if(collision.gameObject.GetComponent<Actor>() != null)
         {
             Actor actor = collision.gameObject.GetComponent<Actor>();
-            if(actor.Owner != _owner && dealsDamage)
+
+            LogMsg("Other actor: " + actor.ActorName);
+
+            if(actor is PlayerPawn && dealsDamage)
             {
                 actor.TakeDamage(this, damageAmount, _owner);
                 rb.velocity = Vector2.zero;
+                rb.gravityScale = 0f;
                 dealsDamage = false;
-                GetComponent<Animator>().Play("DestroyNote");
+                GetComponent<Animator>().Play("MusicNoteDestroy");
             }
         }
     }
