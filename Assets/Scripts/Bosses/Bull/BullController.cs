@@ -9,6 +9,9 @@ public class BullController : AIController
     protected override void Awake()
     {
         _ownType = ControllerType.AI;
+
+        ControlPawn(_controlledPawn);
+
         if(_controlledPawn is BullPawn)
         {
             Bull = (BullPawn)_controlledPawn;
