@@ -51,7 +51,7 @@ MonoBehaviour:
   ProjectileAmount: 10
   musicNotes: {fileID: 2244062202172371494, guid: 2147b86862780064db0bfe4fcc657991, type: 3}
   radius: 5
-  moveSpeed: 6
+  moveSpeed: 5
   repeatRate: 0.5
   waveMinRange: 8
   waveMaxRange: 9

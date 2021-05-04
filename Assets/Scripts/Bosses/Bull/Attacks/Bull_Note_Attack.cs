@@ -20,8 +20,8 @@ public class Bull_Note_Attack : Actor
 
     public int waveMinRange = 3;
     public int waveMaxRange = 7;
-    public int waveTotal = 0;
-    public int counter = 0;
+    protected int waveTotal = 0;
+    protected int counter = 0;
 
     private float repeatCounter = 5f;
 
@@ -78,7 +78,7 @@ public class Bull_Note_Attack : Actor
 
         for (int i = 0; i < actualAmount; i++)
         {
-            angle = Random.Range(0f, 360f);
+            angle = Random.Range(0, 360);
 
             float projectileDirXposition = startPoint.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
             float projectileDirYposition = startPoint.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
