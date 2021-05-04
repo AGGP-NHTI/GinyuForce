@@ -26,7 +26,7 @@ public class PlayerAState_Idle : PlayerAState
             GameObject attackHitbox = Spawner(
                 myStateMachine.ThePlayerPawn.SwordHitboxPrefab,
                 myStateMachine.ThePlayerPawn.AttackAnchorPoint.transform,
-                myStateMachine.ThePlayerPawn.Owner
+                myStateMachine.ThePlayerPawn.GetController()
                 );
 
             if(directionInfo.x < 0)
@@ -62,7 +62,7 @@ public class PlayerAState_Idle : PlayerAState
                 GameObject attackHitbox = Spawner(
                 myStateMachine.ThePlayerPawn.SwordPlungingPrefab,
                 myStateMachine.ThePlayerPawn.AttackAnchorPoint.transform,
-                myStateMachine.ThePlayerPawn.Owner
+                myStateMachine.ThePlayerPawn.GetController()
                 );
 
                 attackHitbox.transform.localPosition = attackDir;

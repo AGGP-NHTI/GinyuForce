@@ -53,7 +53,5 @@ MonoBehaviour:
   radius: 5
   moveSpeed: 5
   repeatRate: 0.5
-  waveMinRange: 8
-  waveMaxRange: 9
-  waveTotal: 0
-  counter: 0
+  waveMinRange: 7
+  waveMaxRange: 8

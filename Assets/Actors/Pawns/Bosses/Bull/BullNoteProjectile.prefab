@@ -47,12 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af1d29cd8f92054d9c19f7a2a496522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TakesDamage: 0
+  TakesDamage: 1
   _actorName: BullNoteProjectile
   DebugDamageLog: 1
   _actorMaximumHealth: 1
   _actorCurrentHealth: 1
-  maxLifetime: 2.5
+  maxLifetime: 3
   lifetime: 0
   damageAmount: 5
 --- !u!95 &2244062202172371496

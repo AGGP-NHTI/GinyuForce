@@ -37,7 +37,6 @@ public class Bull_Note_Attack : Actor
 
         if (counter >= waveTotal)
         {
-            LogMsg("note spawner destroyed");
             Destroy(gameObject);
         }
 
@@ -55,7 +54,6 @@ public class Bull_Note_Attack : Actor
     {
         startPoint = transform.position;
         waveTotal = Random.Range(waveMinRange, waveMaxRange + 1);
-        LogMsg("note spawner spawned");
         repeatCounter = repeatRate;
     }
 
@@ -78,7 +76,7 @@ public class Bull_Note_Attack : Actor
 
         for (int i = 0; i < actualAmount; i++)
         {
-            angle = Random.Range(0, 360);
+            angle = Random.Range(-120f, 120f);
 
             float projectileDirXposition = startPoint.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
             float projectileDirYposition = startPoint.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;

@@ -31,6 +31,7 @@ public class PlayerController : Controller
 
     protected virtual void Start()
     {
+        ControlPawn((Pawn)GameInstanceManager.Main.ThePlayer);
         if (GetPawn() is PlayerPawn)
         {
             thisPlayerPawn = (PlayerPawn)GetPawn();

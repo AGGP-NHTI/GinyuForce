@@ -72,4 +72,16 @@ public class NoteProjectile : Actor
     {
         Destroy(gameObject);
     }
+
+    protected override void ProcessDamage(Actor DamageSource, float DamageValue, Controller DamageInstigator, DamageInfo EventInfo)
+    {
+        if(DamageInstigator is PlayerController)
+        {
+            rb.velocity = Vector2.zero;
+            rb.gravityScale = 0f;
+            dealsDamage = false;
+            GetComponent<Animator>().Play("MusicNoteDestroy");
+            base.ProcessDamage(DamageSource, DamageValue, DamageInstigator, EventInfo);
+        }
+    }
 }

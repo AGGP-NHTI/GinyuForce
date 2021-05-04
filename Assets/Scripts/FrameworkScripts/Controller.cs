@@ -71,13 +71,15 @@ public class Controller : Core
             _controlledPawn = targetPawn;
             OnControlPawn?.Invoke();
         }
+
+        targetPawn.OnControlled(this);
     }
 
     public void ReleasePawn()
     {
         if (_controlledPawn)
         {
-            // Call the _ControlledPawn.Release() method
+            _controlledPawn.Release();
             _controlledPawn = null;
             OnReleasePawn?.Invoke();
         }

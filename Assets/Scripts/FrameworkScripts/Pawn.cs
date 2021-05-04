@@ -74,6 +74,16 @@ public class Pawn : Actor
         LogMsg("Default initialization from Pawn " + ObjectName);
     }
 
+    public void OnControlled(Controller ctrl)
+    {
+        _controller = ctrl;
+    }
+
+    public void Release()
+    {
+        _controller = null;
+    }
+
     protected virtual void InitializeRB()
     {
         pawnRB = gameObject.GetComponent<Rigidbody2D>();
