@@ -34,7 +34,8 @@ public class TempBull_Input : Core
 
     public void BullChargeAttack(InputAction.CallbackContext ctx)
     {
-        Bull.DoAttack1(ctx.ReadValue<Vector2>());
+        //Bull.DoAttack1(ctx.ReadValue<Vector2>());
+        Bull.DoAttack1(GameInstanceManager.Main.ThePlayer.Location);
     }
 
     public void BullSingAttack(InputAction.CallbackContext ctx)

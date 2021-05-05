@@ -18,7 +18,12 @@ public class FightInstance : Core
 
     public int playerScore = 1000;
 
-    protected AudioSource fightTheme = null;
+    protected AudioSource _fightTheme = null;
+
+    public AudioSource FightTheme
+    {
+        get { return _fightTheme; }
+    }
 
     protected virtual void Awake()
     {
@@ -27,9 +32,9 @@ public class FightInstance : Core
             InstanceBoss = FindObjectOfType<BossPawn>();
         }
 
-        if(fightTheme == null)
+        if(_fightTheme == null)
         {
-            fightTheme = gameObject.GetComponent<AudioSource>();
+            _fightTheme = gameObject.GetComponent<AudioSource>();
         }
 
         Time.timeScale = 1f;
@@ -37,7 +42,7 @@ public class FightInstance : Core
 
     public virtual void StartBossTheme()
     {
-        fightTheme.Play();
+        _fightTheme.Play();
     }
 
     protected virtual void Update()

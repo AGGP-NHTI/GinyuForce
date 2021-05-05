@@ -17,16 +17,16 @@ public class FightInstance_Bull : FightInstance
         if(InstanceBoss is BullPawn)
         {
             Bull = (BullPawn)InstanceBoss;
-        }
 
-        Bull.AttackCycleFinish += StartBossTheme;
+            Bull.AttackCycleFinish += StartBossTheme;
 
-        StartCoroutine(DramaticEntrance(entranceWaitTime));
+            StartCoroutine(DramaticEntrance(entranceWaitTime));
+        }  
     }
 
     public override void StartBossTheme()
     {
-        fightTheme.Play();
+        _fightTheme.Play();
         Bull.AttackCycleFinish -= StartBossTheme;
     }
 

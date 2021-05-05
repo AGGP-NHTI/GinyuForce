@@ -26,15 +26,18 @@ public class PlayerPlungeHitbox : PlayerSwordHitbox
         {
             otherActor.TakeDamage(this, damageValue + damageScaling, Owner, thisDamageInfo);
 
-            damageScaling += damageScaleAmount;
+            if (otherActor is BossPawn)
+            {
+                damageScaling += damageScaleAmount;
 
-            Vector2 vel = new Vector2(player.GetVelocity().x, 0f);
+                Vector2 vel = new Vector2(player.GetVelocity().x, 0f);
 
-            player.PawnRB_SetVelocity(vel);
+                player.PawnRB_SetVelocity(vel);
 
-            player.MainStateMachine.ChangeMoveState<PlayerMState_Idle>();
+                player.MainStateMachine.ChangeMoveState<PlayerMState_Idle>();
 
-            player.MainStateMachine.CurrentMoveState.PlayerJump(10);
+                player.MainStateMachine.CurrentMoveState.PlayerJump(10);
+            }
         }
     }
 }

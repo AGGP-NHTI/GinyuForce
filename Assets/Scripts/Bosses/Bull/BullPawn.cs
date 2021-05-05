@@ -166,7 +166,8 @@ public class BullPawn : BossPawn
 
     public override void BossAttack2(Vector2 directionalValues = default, float floatValue1 = 0, float floatValue2 = 0)
     {
-        LogMsg("Bull Sing Attack");
+        //LogMsg("Bull Sing Attack");
+
         if(_bullStateMachine.CurrentConditionState is BullCState_Alive && _bullStateMachine.CurrentAttackState is BullAState_Idle)
         {
             BullRotate(directionalValues.x);

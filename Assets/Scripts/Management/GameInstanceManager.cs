@@ -141,6 +141,7 @@ public class GameInstanceManager : Core
     {
         //LogMsg("Game over man, game over!");
         _gameOver = true;
+        _instance.FightTheme.Stop();
         PlayerUIManager.Main.ToggleGameOverScreen(true);
     }
 }

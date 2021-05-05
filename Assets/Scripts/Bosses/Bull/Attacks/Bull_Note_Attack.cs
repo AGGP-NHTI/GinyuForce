@@ -76,7 +76,7 @@ public class Bull_Note_Attack : Actor
 
         for (int i = 0; i < actualAmount; i++)
         {
-            angle = Random.Range(-120f, 120f);
+            angle = Random.Range(-100f, 100f);
 
             float projectileDirXposition = startPoint.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
             float projectileDirYposition = startPoint.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
