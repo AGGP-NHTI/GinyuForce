@@ -11,9 +11,15 @@ public class MainMenuManager : Core
 
     public GameObject TutorialScreen;
 
+    public GameObject CreditScreen;
+
+    public AudioSource audioPlayer;
+
     private void Start()
     {
         currentMenu = MainScreen;
+
+        audioPlayer.Play();
     }
 
     public void GoToScreen(GameObject targetScreen)

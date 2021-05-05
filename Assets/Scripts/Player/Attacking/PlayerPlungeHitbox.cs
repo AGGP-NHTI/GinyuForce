@@ -20,13 +20,13 @@ public class PlayerPlungeHitbox : PlayerSwordHitbox
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        Actor otherActor = collision.GetComponent<Actor>();
+        Actor otherActor = collision.GetComponentInParent<Actor>();
 
         if (otherActor)
         {
             otherActor.TakeDamage(this, damageValue + damageScaling, Owner, thisDamageInfo);
 
-            if (otherActor is BossPawn)
+            if (otherActor is BullPawn)
             {
                 damageScaling += damageScaleAmount;
 
