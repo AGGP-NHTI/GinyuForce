@@ -121,6 +121,7 @@ public class BullPawn : BossPawn
 
         if(_actorCurrentHealth <= 0)
         {
+            TakesDamage = false;
             _bullStateMachine.ChangeConditionState<BullCState_Unconscious>();
         }
 

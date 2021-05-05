@@ -62,7 +62,7 @@ public class Bull_Debris_Spawn : Actor
 
     void SpawnObject(float xPosition)
     {
-        int r = Random.Range(0, enemyPrefabs.Length); //3 types of falling entities
+        int r = Random.Range(0, enemyPrefabs.Length); 
         
         GameObject debris = Spawner(enemyPrefabs[r], new Vector3(xPosition, 5, 0), Quaternion.identity, Owner);
 

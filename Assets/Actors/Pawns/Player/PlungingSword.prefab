@@ -131,9 +131,9 @@ MonoBehaviour:
   mainActor: {fileID: 0}
   isPermament: 1
   tickDamage: 0
-  damageValue: 10
+  damageValue: 15
   hitboxLifetime: 4
-  damageScaleAmount: 3.5
+  damageScaleAmount: 7.5
 --- !u!95 &3185426456253862283
 Animator:
   serializedVersion: 3
