@@ -9,7 +9,7 @@ public class BossAI_Bull : BossAI
     /// <summary>
     /// Reference to Bull's controller, which will send information to Bull's pawn to take action.
     /// </summary>
-    protected BullController bull;
+    public BullController bull;
 
     private void Awake()
     {

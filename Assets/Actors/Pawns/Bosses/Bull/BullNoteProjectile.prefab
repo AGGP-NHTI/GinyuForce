@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TakesDamage: 1
   _actorName: BullNoteProjectile
-  DebugDamageLog: 1
+  DebugDamageLog: 0
   _actorMaximumHealth: 1
   _actorCurrentHealth: 1
   maxLifetime: 3
