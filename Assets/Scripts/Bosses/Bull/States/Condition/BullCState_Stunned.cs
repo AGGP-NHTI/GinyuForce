@@ -12,6 +12,9 @@ public class BullCState_Stunned : BullCState
 
         myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsStunned", true);
 
+        myStateMachine.TheBullPawn.BullAudioController.BullSFX.clip = myStateMachine.TheBullPawn.BullAudioController.BullClips.WallCrashClip;
+        myStateMachine.TheBullPawn.BullAudioController.BullSFX.Play();
+
         myStateMachine.TheBullPawn.PawnMovement(Vector2.zero);
 
         myStateMachine.ChangeAttackState<BullAState_Idle>();

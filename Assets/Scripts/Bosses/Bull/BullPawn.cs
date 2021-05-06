@@ -86,6 +86,11 @@ public class BullPawn : BossPawn
 
     protected BullAudioController _bullAudioController;
 
+    public BullAudioController BullAudioController
+    {
+        get { return _bullAudioController; }
+    }
+
     public GameObject DebrisSpawnPrefab = null;
 
     public GameObject MusicSpawnPrefab = null;

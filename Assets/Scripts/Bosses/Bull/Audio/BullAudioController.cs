@@ -11,6 +11,17 @@ public class BullAudioController : AudioController
         get { return _bullClips; }
     }
 
+    [SerializeField]
+    protected AudioSource _bullSFX = null;
+
+    /// <summary>
+    /// Used for Bull's dashing/revving/etc noises, so that they can layer with him taking damage.
+    /// </summary>
+    public AudioSource BullSFX
+    {
+        get { return _bullSFX; }
+    }
+
     protected override void Awake()
     {
         base.Awake();
