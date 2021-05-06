@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 532150102244003449}
   - component: {fileID: 7171500145939541930}
   - component: {fileID: 1133812355162848985}
+  - component: {fileID: 1680457854277771618}
   m_Layer: 8
   m_Name: BullPawn
   m_TagString: Untagged
@@ -96,7 +97,6 @@ MonoBehaviour:
   DebrisSpawnPrefab: {fileID: 6692760571164794306, guid: f48b859a6c339af4fb6af5831aec0055, type: 3}
   MusicSpawnPrefab: {fileID: 3089593202339917528, guid: 6958d3d16c08ef243848177fa71ac8d2, type: 3}
   HurtBox: {fileID: 6345587823482532550}
-  tempSpawn: {fileID: 1387151894222923683, guid: 251216fdb83923d4e8bd86d044b99fdb, type: 3}
 --- !u!114 &8044773028965109606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +245,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageClips:
   - {fileID: 8300000, guid: 1c3de9c7eb5c8744b8909e47edea28f7, type: 3}
+--- !u!114 &1680457854277771618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6345587822629764375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f985f9e35bb34df488fcb66e7ab8fcdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bull: {fileID: 0}
 --- !u!1 &6345587823482532550
 GameObject:
   m_ObjectHideFlags: 0
