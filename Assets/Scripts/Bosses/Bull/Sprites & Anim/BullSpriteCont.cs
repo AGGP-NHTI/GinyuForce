@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class BullSpriteCont : PawnSpriteCont
 {
+    [SerializeField]
+    protected BullPawn bullPawn;
+    
+    public void SetIsSinging()
+    {
+        bullPawn.OwnStateMachine.isSinging = true;
+    }
+
     public override void FlashSprite(bool toggle)
     {
         if (!isFlashing)

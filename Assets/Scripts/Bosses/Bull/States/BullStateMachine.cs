@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BullStateMachine : StateMachineBase
 {
+    public bool isSinging = false;
+
     protected BullPawn _bullPawn = null;
 
     public BullPawn TheBullPawn

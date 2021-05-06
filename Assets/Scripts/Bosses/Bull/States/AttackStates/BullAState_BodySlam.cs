@@ -23,6 +23,13 @@ public class BullAState_BodySlam : BullAState
         }
     }
 
+    public IEnumerator SpawnRubble()
+    {
+        yield return new WaitForSeconds(0.8f);
+
+        Spawner(myStateMachine.TheBullPawn.DebrisSpawnPrefab, Location, Rotation, myStateMachine.TheBullPawn.GetController());
+    }
+
     public override void ExitState()
     {
         base.ExitState();

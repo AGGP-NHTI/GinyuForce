@@ -8,8 +8,6 @@ public class BullAState_Singing : BullAState
 
     bool spawnedSpawner = false;
 
-    bool singing = false;
-
     public override void EnterState()
     {
         base.EnterState();
@@ -22,11 +20,11 @@ public class BullAState_Singing : BullAState
     {
         base.PerformState();
 
-        if(myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Singing")
+        if(myStateMachine.isSinging)
         {
+            LogMsg("Stage1");
             if(singSpawner == null && !spawnedSpawner)
             {
-                singing = true;
                 spawnedSpawner = true;
                 singSpawner = Spawner(myStateMachine.TheBullPawn.MusicSpawnPrefab, myStateMachine.TheBullPawn.Transform, myStateMachine.TheBullPawn.Owner);
             }
@@ -37,7 +35,7 @@ public class BullAState_Singing : BullAState
     {
         base.TransitionState();
 
-        if(singSpawner == null && singing)
+        if(singSpawner == null && myStateMachine.isSinging)
         {
             myStateMachine.ChangeAttackState<BullAState_Idle>();
         }
@@ -46,6 +44,8 @@ public class BullAState_Singing : BullAState
     public override void ExitState()
     {
         base.ExitState();
+
+        myStateMachine.isSinging = false;
 
         myStateMachine.TheBullPawn.InvokeAttackCycleFinish();
 

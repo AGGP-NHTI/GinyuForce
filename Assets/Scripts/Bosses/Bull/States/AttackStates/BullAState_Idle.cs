@@ -8,6 +8,8 @@ public class BullAState_Idle : BullAState
     {
         base.EnterState();
 
+        //myStateMachine.isSinging = false;
+
         myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsAttacking",false);
     }
 

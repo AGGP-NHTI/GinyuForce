@@ -12,18 +12,19 @@ public class BossAI_Bull : BossAI
     public BullController bull;
 
     bool pinchMode = false;
-    bool attackCooldown = false;
-    int currentAttack = 1;
+    //bool attackCooldown = false;
+    int currentAttack = 0;
 
     private void Awake()
     {
         // The AttackCycleFinish event is called whenever Bull finishes one of his Sing, Charge, or Jump attacks.
         // Here is an example of adding some command after Bull finishes his current attack pattern.
-        if (bull.theBullPawn)
-        {
-            bull.theBullPawn.AttackCycleFinish += StartAttackCycle;
-        }
-        
+        //if (bull.theBullPawn)
+        //{
+        //    bull.theBullPawn.AttackCycleFinish += StartAttackCycle;
+        //}
+        bull.theBullPawn.AttackCycleFinish += StartAttackCycle;
+
     }
 
     private void Update()
@@ -46,40 +47,59 @@ public class BossAI_Bull : BossAI
 
     public virtual IEnumerator AttackCycle()
     {
-        int attackChance;
-        attackCooldown = true;
+        if (GameInstanceManager.Main.ThePlayer.CurrentHealth >= 1)
+        {
+            int attackChance;
+            //attackCooldown = true;
 
-        if (pinchMode == true)
-        {
-            attackChance = Random.Range(1, 3);
-        }
-        else
-        {
-            attackChance = currentAttack;
-        }
+            if (pinchMode == true)
+            {
+                attackChance = Random.Range(1, 4);
+            }
+            else
+            {
+                //LogMsg("Stage 0");
+                attackChance = currentAttack;
+            }
 
-        if (bull.theBullPawn.OwnStateMachine.CurrentAttackState is BullAState_Idle)
-        {
-            if (attackChance == 1)
+            if (bull.theBullPawn.OwnStateMachine.CurrentAttackState is BullAState_Idle && bull.theBullPawn.OwnStateMachine.CurrentConditionState is BullCState_Alive)
             {
-                bull.DoAttack2(GameInstanceManager.Main.ThePlayer.Location);             
+                //LogMsg("Stage 1");
+                if (attackChance == 1)
+                {
+                    //LogMsg("Stage 2");
+                    bull.DoAttack2(GameInstanceManager.Main.ThePlayer.Location);
+                }
+                else if (attackChance == 2)
+                {
+                    bull.DoAttack1(GameInstanceManager.Main.ThePlayer.Location);
+                }
+                else if (attackChance == 3)
+                {
+                    bull.DoAttack3(GameInstanceManager.Main.ThePlayer.Location);
+                }
             }
-            else if (attackChance == 2)
+
+            yield return new WaitUntil(() => bull.theBullPawn.OwnStateMachine.CurrentAttackState is BullAState_Idle && bull.theBullPawn.OwnStateMachine.CurrentConditionState is BullCState_Alive);
+            //attackCooldown = false;
+            currentAttack++;
+
+            //LogMsg("Stage 3");
+
+            if (currentAttack > 3)
             {
-                bull.DoAttack1(GameInstanceManager.Main.ThePlayer.Location);
+                currentAttack = 1;
             }
-            else if (attackChance == 3)
-            {
-                bull.DoAttack3(GameInstanceManager.Main.ThePlayer.Location);
-            }
-        }
-        yield return new WaitUntil (() => bull.theBullPawn.OwnStateMachine.CurrentAttackState is BullAState_Idle);
-        attackCooldown = false;
-        currentAttack++;
-        if (currentAttack > 3)
-        {
-            currentAttack = 1;
-        }
+
+            StartCoroutine(AttackCooldown());
+        }       
+    }
+
+    public IEnumerator AttackCooldown()
+    {
+        yield return new WaitForSeconds(Random.Range(1f,1.8f));
+
+        StartCoroutine(AttackCycle());
     }
 
     public void AttackPatternExample()

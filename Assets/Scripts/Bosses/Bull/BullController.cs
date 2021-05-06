@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BullController : AIController
 {
+    [SerializeField]
     protected BullPawn Bull = null;
 
     public BullPawn theBullPawn
