@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BullClipContainer : AudioClipContainer
+public class PlayerClipContainer : AudioClipContainer
 {
     [SerializeField]
     protected AudioClip[] _damageClips;
 
     [SerializeField]
-    protected AudioClip _bullWallCrash;
+    protected AudioClip _playerJump;
 
     public AudioClip DamageClip
     {
         get { return _damageClips[Random.Range(0, _damageClips.Length)]; }
     }
 
-    public AudioClip WallCrashClip
+    public AudioClip JumpClip
     {
-        get { return _bullWallCrash; }
+        get { return _playerJump; }
     }
 }

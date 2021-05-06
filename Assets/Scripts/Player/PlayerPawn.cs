@@ -76,6 +76,10 @@ public class PlayerPawn : Pawn
             }
         }
 
+        if(_audioController is PlayerAudioController)
+        {
+
+        }
     }
 
     public override void Attack(Vector2 directions)
