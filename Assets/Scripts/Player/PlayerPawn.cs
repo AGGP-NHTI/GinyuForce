@@ -52,6 +52,13 @@ public class PlayerPawn : Pawn
         get { return _playerStateMachine; }
     }
 
+    protected PlayerAudioController _playerAudioController;
+
+    public PlayerAudioController PlayerAudioController
+    {
+        get { return _playerAudioController; }
+    }
+
     protected override void Awake()
     {
         InitializeRB();
@@ -78,7 +85,7 @@ public class PlayerPawn : Pawn
 
         if(_audioController is PlayerAudioController)
         {
-
+            _playerAudioController = (PlayerAudioController)_audioController;
         }
     }
 
@@ -133,6 +140,8 @@ public class PlayerPawn : Pawn
         base.ProcessDamage(DamageSource, DamageValue, DamageInstigator, EventInfo);
 
         _actorCurrentHealth -= 1;
+
+        _playerAudioController.PlayAudioClip(PlayerAudioController.PlayerClips.DamageClip);
 
         pawnRB.velocity = Vector2.zero;
 
