@@ -8,6 +8,8 @@ public class PlayerMState_Jumping : PlayerMState_InAir
     {
         base.EnterState();
 
+        myStateMachine.ThePlayerPawn.PlayerAudioController.PlayAudioClip(myStateMachine.ThePlayerPawn.PlayerAudioController.PlayerClips.JumpClip);
+
         myStateMachine.ThePlayerPawn.PawnSprite.SpriteAnimator.SetBool("IsJumping", true);
     }
 

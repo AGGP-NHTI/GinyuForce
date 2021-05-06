@@ -10,6 +10,11 @@ public class Debris : Actor
     [SerializeField]
     private float speed = 0.4f;
 
+    public AudioClip[] breakClips;
+
+    [SerializeField]
+    protected AudioSource _audioSrc;
+
     private Rigidbody2D rb;
 
     private bool dealsDamage = true;
@@ -38,6 +43,12 @@ public class Debris : Actor
         {
             actor.TakeDamage(this, damageAmount, Owner);           
         }
+    }
+
+    public void PlayBreakSound()
+    {
+        _audioSrc.clip = breakClips[Random.Range(0, breakClips.Length)];
+        _audioSrc.Play();
     }
 
     public void BreakDebris()
