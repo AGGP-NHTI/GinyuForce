@@ -234,6 +234,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 29010073216429907, guid: a7d478558e0912449bae30904625c81a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 42.09198
+      objectReference: {fileID: 0}
+    - target: {fileID: 29010073216429907, guid: a7d478558e0912449bae30904625c81a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -7.0974503
+      objectReference: {fileID: 0}
+    - target: {fileID: 29010073216429907, guid: a7d478558e0912449bae30904625c81a, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 29010073216429907, guid: a7d478558e0912449bae30904625c81a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 29010073216429907, guid: a7d478558e0912449bae30904625c81a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 29010073216429907, guid: a7d478558e0912449bae30904625c81a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 29010073216429907, guid: a7d478558e0912449bae30904625c81a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 84.18396
+      objectReference: {fileID: 0}
+    - target: {fileID: 29010073216429907, guid: a7d478558e0912449bae30904625c81a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 14.1949005
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446185643307064384, guid: a7d478558e0912449bae30904625c81a, type: 3}
+      propertyPath: m_fontSize
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446185643307064384, guid: a7d478558e0912449bae30904625c81a, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3538721446884937026, guid: a7d478558e0912449bae30904625c81a, type: 3}
       propertyPath: m_Name
       value: MasterManagerContainer
