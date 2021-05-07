@@ -3,26 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BossAI_Bull : BossAI
-{
-    bool exampleCondition = false;
-    
+{ 
     /// <summary>
     /// Reference to Bull's controller, which will send information to Bull's pawn to take action.
     /// </summary>
     public BullController bull;
 
     bool pinchMode = false;
-    //bool attackCooldown = false;
+
     int currentAttack = 0;
 
     private void Awake()
     {
-        // The AttackCycleFinish event is called whenever Bull finishes one of his Sing, Charge, or Jump attacks.
-        // Here is an example of adding some command after Bull finishes his current attack pattern.
-        //if (bull.theBullPawn)
-        //{
-        //    bull.theBullPawn.AttackCycleFinish += StartAttackCycle;
-        //}
         bull.theBullPawn.AttackCycleFinish += StartAttackCycle;
     }
 
@@ -46,7 +38,7 @@ public class BossAI_Bull : BossAI
 
     public virtual IEnumerator AttackCycle()
     {
-        if (!GameInstanceManager.Main.IsGameOver())
+        if (!GameInstanceManager.Main.IsGameOver() && bull.theBullPawn.CurrentHealth >= 1f)
         {
             int attackChance;
             //attackCooldown = true;
@@ -99,20 +91,5 @@ public class BossAI_Bull : BossAI
         yield return new WaitForSeconds(Random.Range(1f,1.8f));
 
         StartCoroutine(AttackCycle());
-    }
-
-    public void AttackPatternExample()
-    {       
-        // fulfill conditions here.
-        if (exampleCondition)
-        {
-            if(bull.theBullPawn.OwnStateMachine.CurrentConditionState is BullCState_Stunned)
-            {
-                // This will execute if Bull's current Condition state is "stunned". (meaning he just finished a charge attack and hit a wall)
-            }
-
-            // Example of doing Bull's charge attack, with the player's current location as the target.
-            bull.DoAttack1(GameInstanceManager.Main.ThePlayer.Location);
-        }
     }
 }
