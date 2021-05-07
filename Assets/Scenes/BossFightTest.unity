@@ -879,6 +879,10 @@ PrefabInstance:
       propertyPath: MinDistance
       value: 30.910494
       objectReference: {fileID: 0}
+    - target: {fileID: 4468926738766167121, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
+      propertyPath: invulnTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5207138468945016507, guid: bc9195d45f56bb546b07c03dc43de9ee, type: 3}
       propertyPath: m_Name
       value: PlayerPawn
