@@ -8,6 +8,8 @@ public class BullCState_Unconscious : BullCState
     {
         base.EnterState();
 
+        myStateMachine.ChangeAttackState<BullAState_Idle>();
+
         myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.Play("Unconscious");
         myStateMachine.TheBullPawn.GetComponentInChildren<DamageHitbox>().gameObject.SetActive(false);
     }

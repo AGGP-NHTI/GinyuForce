@@ -49,6 +49,11 @@ public class BullAState_Singing : BullAState
     {
         base.ExitState();
 
+        if(singSpawner != null)
+        {
+            Destroy(singSpawner);
+        }
+
         myStateMachine.TheBullPawn.BullAudioController.BullSFX.loop = false;
         myStateMachine.TheBullPawn.BullAudioController.BullSFX.Stop();
 

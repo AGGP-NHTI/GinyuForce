@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af1d29cd8f92054d9c19f7a2a496522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TakesDamage: 1
+  TakesDamage: 0
   _actorName: BullNoteProjectile
   DebugDamageLog: 0
   _actorMaximumHealth: 1
@@ -56,6 +56,7 @@ MonoBehaviour:
   maxLifetime: 3
   lifetime: 0
   damageAmount: 5
+  invulnTime: 0.3
   audioSrc: {fileID: 958634929838235443}
   breakClips:
   - {fileID: 8300000, guid: ce1e492ab72f2be41ba9338dbd84aa16, type: 3}

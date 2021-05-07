@@ -12,6 +12,9 @@ public class NoteProjectile : Actor
 
     private bool dealsDamage = true;
 
+    [SerializeField]
+    protected float invulnTime = 0.3f;
+
     private Rigidbody2D rb;
 
     public AudioSource audioSrc;
@@ -38,6 +41,11 @@ public class NoteProjectile : Actor
     private void Update()
     {
         lifetime += Time.deltaTime;
+
+        if(lifetime >= invulnTime)
+        {
+            TakesDamage = true;
+        }
 
         if(lifetime >= maxLifetime)
         {

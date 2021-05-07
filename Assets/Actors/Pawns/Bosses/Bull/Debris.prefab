@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TakesDamage: 0
   _actorName: ActorName_Default
-  DebugDamageLog: 1
+  DebugDamageLog: 0
   _actorMaximumHealth: 100
   _actorCurrentHealth: 100
   speed: 0.2
