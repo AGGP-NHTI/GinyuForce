@@ -2085,8 +2085,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -702.6, y: -395.36}
-  m_SizeDelta: {x: 615.83716, y: 114.683075}
+  m_AnchoredPosition: {x: -702.6, y: -413.3}
+  m_SizeDelta: {x: 615.83716, y: 150.47873}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1126005616
 MonoBehaviour:
@@ -2113,7 +2113,11 @@ MonoBehaviour:
     Nicole''s brother being pushed off of
     various things
 
-    (thanks to nicole''s brother)'
+    (thanks to nicole''s brother)
+
+
+    Other SFX created or
+    downloaded via sfxr.me and freesound.org'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -2598,7 +2602,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 798.96375
+  MaxDistance: 1398.7034
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0

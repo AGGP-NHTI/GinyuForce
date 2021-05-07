@@ -22,6 +22,10 @@ public class BullAState_Charging : BullAState
         }
 
         myStateMachine.TheBullPawn.PawnMovement(chargeSpeed);
+
+        myStateMachine.TheBullPawn.BullAudioController.BullSFX.clip = myStateMachine.TheBullPawn.BullAudioController.BullClips.DashClip;
+        myStateMachine.TheBullPawn.BullAudioController.BullSFX.loop = true;
+        myStateMachine.TheBullPawn.BullAudioController.BullSFX.Play();
     }
 
     public override void PerformState()
@@ -43,6 +47,8 @@ public class BullAState_Charging : BullAState
     public override void ExitState()
     {
         base.ExitState();
+
+        myStateMachine.TheBullPawn.BullAudioController.BullSFX.loop = false;
 
         myStateMachine.TheBullPawn.InvokeAttackCycleFinish();
 

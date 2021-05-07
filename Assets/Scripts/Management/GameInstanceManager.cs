@@ -23,6 +23,18 @@ public class GameInstanceManager : Core
         get { return _currentBoss; }
     }
 
+    [SerializeField]
+    protected AudioSource _dingDing;
+
+    [SerializeField]
+    protected AudioSource _audience;
+
+    [SerializeField]
+    protected AudioClip audienceStandard;
+
+    [SerializeField]
+    protected AudioClip audienceExcited;
+
     protected bool _gameIsPaused = false;
 
     public bool IsGamePaused()
@@ -98,8 +110,10 @@ public class GameInstanceManager : Core
     protected void GameWin()
     {
         //Play the "ding ding" sound here.
+        _audience.volume = 0.7f;
+        DingDing();
 
-        if(FightDuration >= 120f)
+        if (FightDuration >= 120f)
         {
             FightScore = -50;
         }
@@ -126,6 +140,14 @@ public class GameInstanceManager : Core
         PlayerUIManager.Main.ToggleVictoryScreen(true);
     }
 
+    protected void DingDing()
+    {
+        _instance.FightTheme.Stop();
+        _audience.clip = audienceExcited;
+        _audience.Play();
+        _dingDing.Play();
+    }
+
     public void ReturnToMenu()
     {
         PauseUnpause();
@@ -140,8 +162,8 @@ public class GameInstanceManager : Core
     public void GameOver()
     {
         //LogMsg("Game over man, game over!");
+        DingDing();
         _gameOver = true;
-        _instance.FightTheme.Stop();
         PlayerUIManager.Main.ToggleGameOverScreen(true);
     }
 }

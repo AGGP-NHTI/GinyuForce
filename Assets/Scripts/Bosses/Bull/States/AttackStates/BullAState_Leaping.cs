@@ -31,6 +31,9 @@ public class BullAState_Leaping : BullAState
 
         maxTime = myStateMachine.TheBullPawn.jumpTime;
 
+        myStateMachine.TheBullPawn.BullAudioController.BullSFX.clip = myStateMachine.TheBullPawn.BullAudioController.BullClips.JumpClip;
+        myStateMachine.TheBullPawn.BullAudioController.BullSFX.Play();
+
         myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsLeaping", true);
     }
 
