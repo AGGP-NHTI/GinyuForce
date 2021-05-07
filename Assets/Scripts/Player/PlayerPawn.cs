@@ -15,7 +15,7 @@ public class PlayerPawn : Pawn
     protected float jumpHeight = 10f;
 
     [SerializeField]
-    protected float invulnTime = 1.5f;
+    protected float invulnTime = .7f;
 
     /// <summary>
     /// The duration that this pawn will be invincible for upon taking nonlethal damage.

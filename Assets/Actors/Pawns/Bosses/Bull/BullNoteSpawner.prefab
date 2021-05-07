@@ -48,7 +48,7 @@ MonoBehaviour:
   DebugDamageLog: 0
   _actorMaximumHealth: 1
   _actorCurrentHealth: 1
-  ProjectileAmount: 10
+  ProjectileAmount: 5
   musicNotes: {fileID: 2244062202172371494, guid: 2147b86862780064db0bfe4fcc657991, type: 3}
   radius: 5
   moveSpeed: 5
