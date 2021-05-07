@@ -24,7 +24,6 @@ public class BossAI_Bull : BossAI
         //    bull.theBullPawn.AttackCycleFinish += StartAttackCycle;
         //}
         bull.theBullPawn.AttackCycleFinish += StartAttackCycle;
-
     }
 
     private void Update()
