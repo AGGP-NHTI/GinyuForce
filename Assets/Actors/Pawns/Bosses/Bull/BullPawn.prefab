@@ -538,7 +538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashTransparentLevel: 0.4
   isFlashing: 0
-  SpriteAnimator: {fileID: 0}
+  SpriteAnimator: {fileID: 7167269274411972011}
   bullPawn: {fileID: 7371199112689815574}
 --- !u!95 &7167269274411972011
 Animator:

@@ -22,7 +22,7 @@ public class BullAState_Singing : BullAState
 
         if(myStateMachine.isSinging)
         {
-            LogMsg("Stage1");
+            //LogMsg("Stage1");
             if(singSpawner == null && !spawnedSpawner)
             {
                 spawnedSpawner = true;

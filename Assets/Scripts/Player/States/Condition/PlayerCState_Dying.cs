@@ -15,9 +15,6 @@ public class PlayerCState_Dying : PlayerCState
         PlayerInputPoller.Self.DisablePlayerInput();
         myStateMachine.ThePlayerPawn.DoesTakeDamage = false;
 
-        myStateMachine.ThePlayerPawn.PlayerAudioController.PlayerSFX.clip = myStateMachine.ThePlayerPawn.PlayerAudioController.PlayerClips.DeathClip;
-        myStateMachine.ThePlayerPawn.PlayerAudioController.PlayerSFX.Play();
-
         myStateMachine.ThePlayerPawn.PawnSprite.SpriteAnimator.Play("Hurt");
 
         myStateMachine.ThePlayerPawn.PawnRB_SetVelocity(Vector2.zero);
