@@ -78,8 +78,8 @@ MonoBehaviour:
   TakesDamage: 1
   _actorName: Bull
   DebugDamageLog: 0
-  _actorMaximumHealth: 700
-  _actorCurrentHealth: 700
+  _actorMaximumHealth: 750
+  _actorCurrentHealth: 750
   _pawnSprite: {fileID: 4299667579686710281}
   _audioController: {fileID: 7171500145939541930}
   revvTime: 1
@@ -250,6 +250,7 @@ MonoBehaviour:
   _damageClips:
   - {fileID: 8300000, guid: 1c3de9c7eb5c8744b8909e47edea28f7, type: 3}
   _bullWallCrash: {fileID: 8300000, guid: cf5a20c6a073e034da45e11033997257, type: 3}
+  _dashClip: {fileID: 8300000, guid: b1ae4b0100e8c564985cba4027aa567a, type: 3}
 --- !u!82 &8368951283407558347
 AudioSource:
   m_ObjectHideFlags: 0

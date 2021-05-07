@@ -14,6 +14,10 @@ public class NoteProjectile : Actor
 
     private Rigidbody2D rb;
 
+    public AudioSource audioSrc;
+
+    public AudioClip[] breakClips;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -66,6 +70,12 @@ public class NoteProjectile : Actor
                 GetComponent<Animator>().Play("MusicNoteDestroy");
             }
         }
+    }
+
+    public void PlayBreakSound()
+    {
+        audioSrc.clip = breakClips[Random.Range(0, breakClips.Length)];
+        audioSrc.Play();
     }
 
     public void DestroyNote()
