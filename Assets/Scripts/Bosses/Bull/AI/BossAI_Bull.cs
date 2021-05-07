@@ -46,7 +46,7 @@ public class BossAI_Bull : BossAI
 
     public virtual IEnumerator AttackCycle()
     {
-        if (GameInstanceManager.Main.ThePlayer.CurrentHealth >= 1)
+        if (!GameInstanceManager.Main.IsGameOver())
         {
             int attackChance;
             //attackCooldown = true;
