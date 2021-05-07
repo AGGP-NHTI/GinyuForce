@@ -12,6 +12,10 @@ public class BullAState_Singing : BullAState
     {
         base.EnterState();
 
+        myStateMachine.TheBullPawn.BullAudioController.BullSFX.clip = myStateMachine.TheBullPawn.BullAudioController.BullClips.SingClip;
+        myStateMachine.TheBullPawn.BullAudioController.BullSFX.loop = true;
+        myStateMachine.TheBullPawn.BullAudioController.BullSFX.Play();
+
         myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsSinging", true);
         myStateMachine.TheBullPawn.PawnSprite.SpriteAnimator.SetBool("IsAttacking", true);
     }
@@ -44,6 +48,9 @@ public class BullAState_Singing : BullAState
     public override void ExitState()
     {
         base.ExitState();
+
+        myStateMachine.TheBullPawn.BullAudioController.BullSFX.loop = false;
+        myStateMachine.TheBullPawn.BullAudioController.BullSFX.Stop();
 
         myStateMachine.isSinging = false;
 

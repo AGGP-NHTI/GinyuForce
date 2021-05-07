@@ -251,6 +251,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1c3de9c7eb5c8744b8909e47edea28f7, type: 3}
   _bullWallCrash: {fileID: 8300000, guid: cf5a20c6a073e034da45e11033997257, type: 3}
   _dashClip: {fileID: 8300000, guid: b1ae4b0100e8c564985cba4027aa567a, type: 3}
+  _jumpClip: {fileID: 8300000, guid: 2d5e7c215d454d8458c26bfed8cfa0e7, type: 3}
+  _singClip: {fileID: 8300000, guid: d6b0cd740644c9b4d90be3be9159ea92, type: 3}
 --- !u!82 &8368951283407558347
 AudioSource:
   m_ObjectHideFlags: 0

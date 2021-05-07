@@ -13,7 +13,11 @@ public class BullClipContainer : AudioClipContainer
     [SerializeField]
     protected AudioClip _dashClip;
 
+    [SerializeField]
     protected AudioClip _jumpClip;
+
+    [SerializeField]
+    protected AudioClip _singClip;
 
     public AudioClip DamageClip
     {
@@ -33,5 +37,10 @@ public class BullClipContainer : AudioClipContainer
     public AudioClip JumpClip
     {
         get { return _jumpClip; }
+    }
+
+    public AudioClip SingClip
+    {
+        get { return _singClip; }
     }
 }
