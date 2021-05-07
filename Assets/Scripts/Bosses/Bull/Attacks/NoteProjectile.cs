@@ -55,7 +55,7 @@ public class NoteProjectile : Actor
         {
             Actor actor = collision.gameObject.GetComponent<Actor>();
 
-            LogMsg("Other actor: " + actor.ActorName);
+            //LogMsg("Other actor: " + actor.ActorName);
 
             if(actor is PlayerPawn && dealsDamage)
             {
